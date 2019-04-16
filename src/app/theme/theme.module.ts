@@ -3,10 +3,13 @@ import { CommonModule } from '@angular/common';
 import { TopMenuComponent } from './top-menu/top-menu.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
 import { FooterComponent } from './footer/footer.component';
-import { MainSliderComponent } from './main-slider/main-slider.component';
+import { MainSliderComponent } from './home-components/main-slider/main-slider.component';
+import { FlatCounterComponent } from './home-components/flat-counter/flat-counter.component';
+import { FlatServicesComponent } from './home-components/flat-services/flat-services.component';
+import { FlatVideoComponent } from './home-components/flat-video/flat-video.component';
 
 @NgModule({
-  declarations: [TopMenuComponent, MainMenuComponent, FooterComponent, MainSliderComponent],
+  declarations: [TopMenuComponent, MainMenuComponent, FooterComponent, MainSliderComponent, FlatCounterComponent, FlatServicesComponent, FlatVideoComponent],
   imports: [
     CommonModule
   ],
@@ -14,7 +17,10 @@ import { MainSliderComponent } from './main-slider/main-slider.component';
     TopMenuComponent,
     MainMenuComponent,
     FooterComponent,
-    MainSliderComponent
+    MainSliderComponent,
+    FlatCounterComponent,
+    FlatServicesComponent,
+    FlatVideoComponent
   ]
 })
 export class ThemeModule { }
