@@ -1,3 +1,9 @@
 a {
-    color: black;
+    color: #2F3D49;
+}
+a:hover {
+    color: #3596D9;
+}
+h1 {
+    font-weight: bold;
 }

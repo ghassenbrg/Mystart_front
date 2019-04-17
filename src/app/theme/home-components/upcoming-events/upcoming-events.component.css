@@ -1,0 +1,9 @@
+h1 {
+    font-weight: bold;
+}
+.month {
+    font-weight: 500;
+}
+.day {
+    line-height: 50%;
+}

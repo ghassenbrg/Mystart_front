@@ -9,18 +9,21 @@ export class BlogFeaturedComponent implements OnInit {
 
   posts = [
     {
+      id: "1",
       title: "The standard Lorem Ipsum passage, Title 1",
       img: "courses-index-1.png",
       author: "Ghassen Bargougui",
       description: "Lobortis arcu, a vestibulum augue. Vivamus ipsum neque, facilisis vel mollis vitae."
     },
     {
+      id: "2",
       title: "The standard Lorem Ipsum passage, Title 2",
       img: "courses-index-2.png",
       author: "Youcef Elwaer",
       description: "Lobortis arcu, a vestibulum augue. Vivamus ipsum neque, facilisis vel mollis vitae."
     },
     {
+      id: "3",
       title: "The standard Lorem Ipsum passage, Title 3",
       img: "courses-index-3.png",
       author: "Khalil Timoumi",
