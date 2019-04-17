@@ -1,0 +1,27 @@
+<section class="flat-popular-courses style2 v2">
+  <div class="container">
+      <div class="flat-title flat-text-center">
+          <h2 class="title">Our Blog</h2>
+      </div> <!-- /.flat-title -->
+      <div class="flat-courses clear-sub-columns clearfix isotope-courses style2">
+          <div class="course style2 one-of-three text-2ebd59" *ngFor="let post of posts">
+              <div class="course-border border-f-e6f3ff border-ra4 transition-vline">   
+                  <div class="course-img img-vline">
+                      <a href="#"><img src="../../../../assets/images/courses/{{post.img}}" alt="bookflare"></a>
+                      <div class="overlay">
+                          <span class="vline"></span>
+                          <span class="vline vline-bottom"></span>
+                      </div>
+                  </div>
+                  <div class="course-content">
+                      <div class="text-wrap border-bt-e6f3ff">
+                          <h6 class="title"><a href="#">{{post.title}}</a></h6>
+                          <p class="teacher"><a href="#">{{post.author}}</a></p>
+                          <p class="description">{{post.description}}</p>
+                      </div>
+                  </div>
+              </div>
+          </div> <!-- /.course -->           
+      </div> <!-- /.flat-courses -->        
+  </div>
+</section> <!-- /.flat-popular-courses -->
