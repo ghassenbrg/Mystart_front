@@ -1,0 +1,21 @@
+.logo-social-outer {
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.logo-social-inner {
+    display: inline-block;
+  }
+
+.logo {
+    height: 40px;
+}
+
+.space {
+    width: 10px;
+}
+
+.store {
+    margin-top: 20px;
+}
