@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-blog',
@@ -9,7 +10,9 @@ export class BlogComponent implements OnInit {
 
   isActive = 6;
   
-  constructor() { }
+  constructor( private title: Title) {
+    this.title.setTitle("Mystart | Blog")
+   }
 
   ngOnInit() {
   }
