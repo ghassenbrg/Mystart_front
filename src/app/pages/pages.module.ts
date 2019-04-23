@@ -6,9 +6,11 @@ import { ThemeModule } from '../theme/theme.module';
 import { ProjectsComponent } from './projects/projects.component';
 import { CoursesComponent } from './courses/courses.component';
 import { ExpertsComponent } from './experts/experts.component';
+import { EventsComponent } from './events/events.component';
+import { BlogComponent } from './blog/blog.component';
 
 @NgModule({
-  declarations: [HomeComponent, NotFoundComponent, ProjectsComponent, CoursesComponent, ExpertsComponent],
+  declarations: [HomeComponent, NotFoundComponent, ProjectsComponent, CoursesComponent, ExpertsComponent, EventsComponent, BlogComponent],
   imports: [
     CommonModule,
     ThemeModule
