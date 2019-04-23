@@ -14,10 +14,6 @@ import { BlogComponent } from './blog/blog.component';
   imports: [
     CommonModule,
     ThemeModule
-  ],
-  exports: [
-    HomeComponent, 
-    NotFoundComponent
   ]
 })
 export class PagesModule { }
