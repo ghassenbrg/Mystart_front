@@ -11,9 +11,10 @@ import { BlogFeaturedComponent } from './home-components/blog-featured/blog-feat
 import { UpcomingEventsComponent } from './home-components/upcoming-events/upcoming-events.component';
 import { UsersReviewsComponent } from './home-components/users-reviews/users-reviews.component';
 import { PageTitleComponent } from './page-title/page-title.component';
+import { EventCardComponent } from './event-components/event-card/event-card.component';
 
 @NgModule({
-  declarations: [TopMenuComponent, MainMenuComponent, FooterComponent, MainSliderComponent, FlatCounterComponent, FlatServicesComponent, FlatVideoComponent, BlogFeaturedComponent, UpcomingEventsComponent, UsersReviewsComponent, PageTitleComponent],
+  declarations: [TopMenuComponent, MainMenuComponent, FooterComponent, MainSliderComponent, FlatCounterComponent, FlatServicesComponent, FlatVideoComponent, BlogFeaturedComponent, UpcomingEventsComponent, UsersReviewsComponent, PageTitleComponent, EventCardComponent],
   imports: [
     CommonModule
   ],
@@ -28,7 +29,8 @@ import { PageTitleComponent } from './page-title/page-title.component';
     BlogFeaturedComponent,
     UpcomingEventsComponent,
     UsersReviewsComponent,
-    PageTitleComponent
+    PageTitleComponent,
+    EventCardComponent
   ]
 })
 export class ThemeModule { }
