@@ -13,9 +13,10 @@ import { UsersReviewsComponent } from './home-components/users-reviews/users-rev
 import { PageTitleComponent } from './page-title/page-title.component';
 import { EventCardComponent } from './event-components/event-card/event-card.component';
 import { LoginFormComponent } from './login-register-form/login-form/login-form.component';
+import { RegisterFormComponent } from './login-register-form/register-form/register-form.component';
 
 @NgModule({
-  declarations: [TopMenuComponent, MainMenuComponent, FooterComponent, MainSliderComponent, FlatCounterComponent, FlatServicesComponent, FlatVideoComponent, BlogFeaturedComponent, UpcomingEventsComponent, UsersReviewsComponent, PageTitleComponent, EventCardComponent, LoginFormComponent],
+  declarations: [TopMenuComponent, MainMenuComponent, FooterComponent, MainSliderComponent, FlatCounterComponent, FlatServicesComponent, FlatVideoComponent, BlogFeaturedComponent, UpcomingEventsComponent, UsersReviewsComponent, PageTitleComponent, EventCardComponent, LoginFormComponent, RegisterFormComponent],
   imports: [
     CommonModule
   ],

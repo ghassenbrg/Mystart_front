@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class TopMenuComponent implements OnInit {
 
   login_form_hidden = true;
+  register_form_hidden = true;
 
   constructor() {
    }
@@ -18,4 +19,9 @@ export class TopMenuComponent implements OnInit {
   openLoginForm() {
     this.login_form_hidden = false;
   }
+
+  openRegisterForm() {
+    this.register_form_hidden = false;
+  }
+
 }
