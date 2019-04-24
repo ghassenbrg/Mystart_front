@@ -14,11 +14,38 @@ import { PageTitleComponent } from './page-title/page-title.component';
 import { EventCardComponent } from './event-components/event-card/event-card.component';
 import { LoginFormComponent } from './login-register-form/login-form/login-form.component';
 import { RegisterFormComponent } from './login-register-form/register-form/register-form.component';
+import { SocialLoginModule, AuthServiceConfig, GoogleLoginProvider, FacebookLoginProvider } from "angular-6-social-login";
+
+
+// Configs 
+export function getAuthServiceConfigs() {
+  let config = new AuthServiceConfig(
+      [
+        {
+          id: FacebookLoginProvider.PROVIDER_ID,
+          provider: new FacebookLoginProvider("372814659999579")
+        },
+        {
+          id: GoogleLoginProvider.PROVIDER_ID,
+          provider: new GoogleLoginProvider("1060350906866-k7uisjl30pq6sb7epo6p8lt8pojog7t4.apps.googleusercontent.com")
+        }
+      ]
+  );
+  return config;
+}
+
 
 @NgModule({
   declarations: [TopMenuComponent, MainMenuComponent, FooterComponent, MainSliderComponent, FlatCounterComponent, FlatServicesComponent, FlatVideoComponent, BlogFeaturedComponent, UpcomingEventsComponent, UsersReviewsComponent, PageTitleComponent, EventCardComponent, LoginFormComponent, RegisterFormComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    SocialLoginModule
+  ],
+  providers: [
+    {
+      provide: AuthServiceConfig,
+      useFactory: getAuthServiceConfigs
+    }
   ],
   exports: [
     TopMenuComponent,
