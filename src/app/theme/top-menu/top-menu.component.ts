@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopMenuComponent implements OnInit {
 
-  constructor() { }
+  login_form_hidden = true;
+
+  constructor() {
+   }
 
   ngOnInit() {
   }
 
+  openLoginForm() {
+    this.login_form_hidden = false;
+  }
 }

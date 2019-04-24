@@ -12,9 +12,10 @@ import { UpcomingEventsComponent } from './home-components/upcoming-events/upcom
 import { UsersReviewsComponent } from './home-components/users-reviews/users-reviews.component';
 import { PageTitleComponent } from './page-title/page-title.component';
 import { EventCardComponent } from './event-components/event-card/event-card.component';
+import { LoginFormComponent } from './login-register-form/login-form/login-form.component';
 
 @NgModule({
-  declarations: [TopMenuComponent, MainMenuComponent, FooterComponent, MainSliderComponent, FlatCounterComponent, FlatServicesComponent, FlatVideoComponent, BlogFeaturedComponent, UpcomingEventsComponent, UsersReviewsComponent, PageTitleComponent, EventCardComponent],
+  declarations: [TopMenuComponent, MainMenuComponent, FooterComponent, MainSliderComponent, FlatCounterComponent, FlatServicesComponent, FlatVideoComponent, BlogFeaturedComponent, UpcomingEventsComponent, UsersReviewsComponent, PageTitleComponent, EventCardComponent, LoginFormComponent],
   imports: [
     CommonModule
   ],
@@ -30,7 +31,8 @@ import { EventCardComponent } from './event-components/event-card/event-card.com
     UpcomingEventsComponent,
     UsersReviewsComponent,
     PageTitleComponent,
-    EventCardComponent
+    EventCardComponent,
+    LoginFormComponent
   ]
 })
 export class ThemeModule { }
