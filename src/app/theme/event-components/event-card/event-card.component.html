@@ -1,84 +1,89 @@
 <div class="content-page-wrap">
   <div class="flat-events style1">
-      <div class="event style1 v1">
-          <div class="row">
-              <div class=" col-lg-7 col-md-12">
-                  <div class="event-img">
-                      <a href="#"><img src="../../../../assets/images/events/event-grid-1.png" alt="bookflare"></a>
-                      <div class="meta-date flat-text-center">
-                          <span class="day">06</span>
-                          <span class="month">DECEMBER</span>
-                      </div>
-                  </div>
-              </div>
-              <div class=" col-lg-5 col-md-12">
-                  <div class="event-content">
-                          <div class="meta-datetime">
-                                  <ul class="list">
-                                      <li><a href="#">Sunday</a></li>
-                                      <li><a href="#">December 15</a></li>
-                                      <li><a href="#">9.00 am</a></li> 
-                                      <li><a href="#">Monastir, TN</a></li> 
-                                  </ul>
-                              </div>
+      <br><br>
+      <div *ngFor="let event of events; index as i"> <!-- ************ for boucle begin ********************** -->
+            <div class="event style1 v1" *ngIf="i%2 == 0"> 
+                    <div class="row">
+                        <div class=" col-lg-7 col-md-12">
+                            <div class="event-img">
+                                <a href="#"><img src="{{event.coverImg}}" alt="bookflare"></a>
+                                <div class="meta-date flat-text-center">
+                                    <span class="day">06</span>
+                                    <span class="month">DECEMBER</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" col-lg-5 col-md-12">
+                            <div class="event-content">
+                                    <div class="meta-datetime">
+                                            <ul class="list">
+                                                <li><a href="#">{{event.day}}</a></li>
+                                                <li><a href="#">{{event.dateM}} {{event.dateD}}</a></li>
+                                                <li><a href="#">{{event.dateT}}</a></li> 
+                                                <li><a href="#">{{event.location}}</a></li> 
+                                            </ul>
+                                        </div>
+          
+                                <div class="content">
+                                    <h3 class="title"><a href="#">{{event.title}}</a></h3>
+                                    <p class="description">{{event.description}}</p>                                
+                                </div>
+          
+                                <div class="author clearfix">
+                                    <div class="author-avata">
+                                        <img src="{{event.organizerPic}}" alt="bookflare">
+                                    </div> 
+                                    <div class="author-info">
+                                        <h4 class="name"><a href="#">Organized By {{event.organizer}}</a></h4>
+                                        <p class="text">{{event.organizerDesc}}</p>
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>  <!-- first event style 1-->
 
-                      <div class="content">
-                          <h3 class="title"><a href="#">September Undergraduate Open House</a></h3>
-                          <p class="description">Lorem Ipsn gravida nibh velalito auctor alipuet. Aenean sollicitudin, lorem quis bibendum auci elit conse ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus.</p>
-                      </div>
+                <div class="event style1 v2" *ngIf="i%2 != 0">
+                        <div class="row">
+                            <div class=" col-lg-5 col-md-12">
+                                <div class="event-content">
+                                        <div class="meta-datetime">
+                                                <ul class="list">
+                                                    <li><a href="#">{{event.day}}</a></li>
+                                                    <li><a href="#">{{event.dateM}} {{event.dateD}}</a></li>
+                                                    <li><a href="#">{{event.dateT}}</a></li> 
+                                                    <li><a href="#">{{event.location}}</a></li> 
+                                                </ul>
+                                            </div>
+              
+                                    <div class="content">
+                                        <h3 class="title"><a href="#">{{event.title}}</a></h3>
+                                        <p class="description">{{event.description}}</p>
+                                    </div>
+              
+                                    <div class="author clearfix">
+                                        <div class="author-avata">
+                                            <img src="{{event.organizerPic}}" alt="bookflare">
+                                        </div> 
+                                        <div class="author-info">
+                                                <h4 class="name"><a href="#">Organized By {{event.organizer}}</a></h4>
+                                                <p class="text">{{event.organizerDesc}}</p>
+                                            </div> 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" col-lg-7 col-md-12">
+                                <div class="event-img">
+                                    <a href="#"><img src="{{event.coverImg}}" alt="bookflare"></a>
+                                    <div class="meta-date flat-text-center">
+                                        <span class="day">{{event.dateD}}</span>
+                                        <span class="month">{{event.dateM}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- second event style 2-->
+      </div> <!-- ************ for boucle begin ********************** -->
 
-                      <div class="author clearfix">
-                          <div class="author-avata">
-                              <img src="../../../../assets/images/events/author-teacher.png" alt="bookflare">
-                          </div> 
-                          <div class="author-info">
-                              <h4 class="name"><a href="#">Organized By Google</a></h4>
-                              <p class="text">Google LLC is an American multinational technology company</p>
-                          </div> 
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <div class="event style1 v2">
-          <div class="row">
-              <div class=" col-lg-5 col-md-12">
-                  <div class="event-content">
-                          <div class="meta-datetime">
-                                  <ul class="list">
-                                      <li><a href="#">Sunday</a></li>
-                                      <li><a href="#">December 15</a></li>
-                                      <li><a href="#">9.00 am</a></li> 
-                                      <li><a href="#">Monastir, TN</a></li> 
-                                  </ul>
-                              </div>
-
-                      <div class="content">
-                          <h3 class="title"><a href="#">Tales from the White House and beyond</a></h3>
-                          <p class="description">Lorem Ipsn gravida nibh velalito auctor alipuet. Aenean sollicitudin, lorem quis bibendum auci elit conse ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus.</p>
-                      </div>
-
-                      <div class="author clearfix">
-                          <div class="author-avata">
-                              <img src="../../../../assets/images/events/author-teacher.png" alt="bookflare">
-                          </div> 
-                          <div class="author-info">
-                                  <h4 class="name"><a href="#">Organized By Google</a></h4>
-                                  <p class="text">Google LLC is an American multinational technology company</p>
-                              </div> 
-                      </div>
-                  </div>
-              </div>
-              <div class=" col-lg-7 col-md-12">
-                  <div class="event-img">
-                      <a href="#"><img src="../../../../assets/images/events/event-grid-2.png" alt="bookflare"></a>
-                      <div class="meta-date flat-text-center">
-                          <span class="day">09</span>
-                          <span class="month">DECEMBER</span>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
       
   </div> <!-- /.flat-events **********************************************************   -->
