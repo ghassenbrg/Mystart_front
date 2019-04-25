@@ -9,8 +9,6 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class EventSingleComponent implements OnInit {
 
-  isActive = 6;
-
   id: any;
 
   params = {
