@@ -11,13 +11,14 @@ export class EventSingleComponent implements OnInit {
 
   isActive = 6;
 
+  id: any;
+
   params = {
     title: "My Title",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
-    path: "Projects"
+    path: "Event"
   }
 
-  id: any;
 
   constructor( private title: Title, private route: ActivatedRoute) {
     this.title.setTitle("Mystart | My Title");
