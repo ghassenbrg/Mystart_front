@@ -8,6 +8,7 @@
       <div class="breadcrumbs ">
           <ul>
               <li><a href="#">Home</a></li>
+              <li *ngIf="params.path != ''"><a href="#">{{params.path}}</a></li>
               <li><a href="#">{{params.title}}</a></li>
           </ul>
       </div>

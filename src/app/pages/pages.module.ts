@@ -8,9 +8,10 @@ import { CoursesComponent } from './courses/courses.component';
 import { ExpertsComponent } from './experts/experts.component';
 import { EventsComponent } from './events/events.component';
 import { BlogComponent } from './blog/blog.component';
+import { EventSingleComponent } from './event-single/event-single.component';
 
 @NgModule({
-  declarations: [HomeComponent, NotFoundComponent, ProjectsComponent, CoursesComponent, ExpertsComponent, EventsComponent, BlogComponent],
+  declarations: [HomeComponent, NotFoundComponent, ProjectsComponent, CoursesComponent, ExpertsComponent, EventsComponent, BlogComponent, EventSingleComponent],
   imports: [
     CommonModule,
     ThemeModule
