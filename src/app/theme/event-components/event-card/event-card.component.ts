@@ -9,6 +9,7 @@ export class EventCardComponent implements OnInit {
 
   events =[
     {
+      id: "a4578a4z4",
       title: "Tales from the White House and beyond",
       description: "Lorem Ipsn gravida nibh velalito auctor alipuet. Aenean sollicitudin, lorem quis bibendum auci elit conse ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus.",
       day: "Sunday",
@@ -22,6 +23,7 @@ export class EventCardComponent implements OnInit {
       organizerPic: "../../../../assets/images/events/author-teacher.png"
     },
     {
+      id: "a4578a4z4",
       title: "Lorem Ipsn gravida nibh velalito auctor alipuet",
       description: "Lorem Ipsn gravida nibh velalito auctor alipuet. Aenean sollicitudin, lorem quis bibendum auci elit conse ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus.",
       day: "Monday",
