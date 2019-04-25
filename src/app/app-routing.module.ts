@@ -7,6 +7,7 @@ import { ExpertsComponent } from './pages/experts/experts.component';
 import { CoursesComponent } from './pages/courses/courses.component';
 import { EventsComponent } from './pages/events/events.component';
 import { BlogComponent } from './pages/blog/blog.component';
+import { EventSingleComponent } from './pages/event-single/event-single.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'experts', component: ExpertsComponent },
   { path: 'courses', component: CoursesComponent },
   { path: 'events', component: EventsComponent },
+  { path: 'event/:id', component: EventSingleComponent },
   { path: 'blog', component: BlogComponent },
   { path: '**', component: NotFoundComponent }
 ];
