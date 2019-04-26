@@ -1,0 +1,11 @@
+.courses-grid-v3-page {
+    padding-top: 0;
+}
+
+a {
+    color: #192836;
+    cursor: pointer;
+}
+a:hover {
+    color: #3596D9;
+}

@@ -7,5 +7,127 @@
   <app-top-menu></app-top-menu>
   <app-main-menu [isActive]="isActive"></app-main-menu>
   <app-page-title [params]="params"></app-page-title>
+
+
+
+
+  <div class="content-wrap  courses-grid-v3-page">
+    <div class="content-page-fullwidth-wrap clearfix pd-top-45">
+        <div class="container-fluid ">
+            <div class="sidebar-left">
+                <div class="widget-categories border-f-e6f3ff">
+                    <h6 class="title-widget">DEVELOPMENT</h6>
+                    <div class="content">
+                        <ul>
+                            <li><a href="#">Illustration <span>(158)</span></a></li>
+                            <li><a href="#">Design Skills <span>(155)</span></a></li>
+                            <li><a href="#">Design Techniques <span>(111)</span></a></li>
+                            <li><a href="#">Page Layout <span>(95)</span></a></li>
+                            <li><a href="#">Projects <span>(64)</span></a></li>
+                            <li><a href="#">Drawing <span>(60)</span></a></li>
+                            <li><a href="#"> Typography <span>(56)</span></a></li>
+                            <li><a href="#">Digital Painting <span>(55)</span></a></li>
+                            <li><a href="#">Digital Publishing <span>(45)</span></a></li>
+                            <li><a href="#">Design Business <span>(38)</span></a></li>
+                            <li><a href="#">+ Show More</a></li>
+                        </ul>
+                    </div>
+                </div> <!-- /.widget-categories -->
+                <div class="widget-categories border-f-e6f3ff mg-bottom-30">
+                    <h6 class="title-widget">SOFTWARE</h6>
+                    <div class="content">
+                        <ul>
+                            <li><a href="#"> Adobe <span>(402)</span></a></li>
+                            <li><a href="#">Photoshop <span>(159)</span></a></li>
+                            <li><a href="#">Illustrator <span>(143)</span></a></li>
+                            <li><a href="#">InDesign <span>(109)</span></a></li>
+                            <li><a href="#">Corel <span>(11)</span></a></li>
+                            <li><a href="#">Painter <span>(9)</span></a></li>
+                            <li><a href="#">Acrobat <span>(8)</span></a></li>
+                            <li><a href="#">Open<span> Source (8)</span></a></li>
+                            <li><a href="#">Apple <span>(7)</span></a></li>
+                            <li><a href="#">Amazon <span>(6)</span></a></li>
+                            <li><a href="#">+ Show More</a></li>
+                        </ul>
+                    </div>
+                </div> <!-- /.widget-categories -->
+            </div> <!-- /.sidebar-left -->
+            <div class="content-page pd-left-30 ">
+                <div class="heading clearfix border-f-e6f3ff border-ra4">
+                    <div class="taskbar">
+                        <ul class="list">
+                            <li><span class="color-f3728b font-Poppins font-weight-700"> 1660</span>Courses</li>
+                            <li><span class="color-2ebd59 font-Poppins font-weight-700"> 32,060 </span>Video Tutorials</li>
+                        </ul>
+                    </div>
+                    <div class="select-order flat-text-right">
+                        <div class="wrap-select">
+                            <select class="order-by">
+                                <option>Sort By: release date</option>
+                            </select>
+                        </div>
+                    </div>
+                </div> <!--  /.heading -->
+                <div class="flat-courses style4">
+                    <div class="course style4 text-2ebd59 " *ngFor="let course of courses; index as i"> <!--single course card-->
+                        <div class="course-border border-f-e6f3ff border-ra4 clear-sub-columns transition-vline">   
+                            <div class="course-img-box">
+                                <div class="course-img img-vline">
+                                    <a href="#"><img src="../../../assets/images/courses/courses-gird-v3-{{i+2}}.png" alt="bookflare"></a>
+                                    <div class="overlay">
+                                        <span class="vline"></span>
+                                        <span class="vline vline-bottom"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="course-content">
+                                <div class="text-wrap border-bt-e6f3ff">
+                                    <h6 class="title"><a href="#">jQuery Mobile for Beginners</a></h6>
+                                    <p class="teacher"><a href="#">Ana Murphy</a></p>
+                                    <p class="description">Lorem ipsum gravida nibh vel velit auctor aliquetnean sollicitudin, lorem quis bibendum auci elit consequat ipsutis sem nibh id elit</p>
+                                </div>
+                                <div class="wrap-rating-price">
+                                    <ul class="list meta-rate">
+                                        <li>
+                                            <ul class="list star-list">
+                                                <li><i class="far fa-star"></i></li>
+                                                <li><i class="far fa-star"></i></li>
+                                                <li><i class="far fa-star"></i></li>
+                                                <li><i class="far fa-star"></i></li>
+                                                <li><i class="far fa-star"></i></li>
+                                            </ul>
+                                            <span></span><span>5.0  (980) </span>
+                                        </li>
+                                        <li>
+                                            <span> Sep 07, 2018</span>
+                                        </li>
+                                        <li>
+                                            Views <span class="color-2ebd59">1,547,932</span>
+                                        </li>
+                                    </ul>
+                                    <span class="price">$49.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- single course card end-->
+                </div>
+                <div class="flat-paginations">
+                    <ul class="list flat-text-left pagination-wrap">
+                        <li class="disabled"><a href="#" class="btn-navs">PRE</a></li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#" class="btn-navs">NEXT</a></li>
+                    </ul>
+                </div>
+            </div> <!-- /.content-page -->
+        </div>
+    </div>
+</div>
+
+
+  
   <app-footer></app-footer>
 </div>

@@ -15,6 +15,8 @@ export class CoursesComponent implements OnInit {
     path: "Courses"
    }
 
+   courses = ["", "", "", "", ""]
+
   constructor( private title: Title) {
     this.title.setTitle("Mystart | Courses")
    }
