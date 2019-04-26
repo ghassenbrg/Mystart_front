@@ -39,6 +39,30 @@ export class ProjectsComponent implements OnInit {
       description: "Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s.",
       author: "Hasni Iheb",
       coverImg: "../../../assets/images/courses/courses-gird-v1-4.png"
+    },
+    {
+      title: "Complete Python Bootcamp",
+      description: "Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s.",
+      author: "Ghassen Bargougui",
+      coverImg: "../../../assets/images/courses/courses-gird-v1-5.png"
+    },
+    {
+      title: "Complete Python Bootcamp",
+      description: "Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s.",
+      author: "Elwaer Youcef",
+      coverImg: "../../../assets/images/courses/courses-gird-v1-6.png"
+    },
+    {
+      title: "Complete Python Bootcamp",
+      description: "Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s.",
+      author: "Timoumi Khlalil",
+      coverImg: "../../../assets/images/courses/courses-gird-v1-7.png"
+    },
+    {
+      title: "Complete Python Bootcamp",
+      description: "Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s.",
+      author: "Hasni Iheb",
+      coverImg: "../../../assets/images/courses/courses-gird-v1-8.png"
     }
   ];
 
