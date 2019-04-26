@@ -12,6 +12,10 @@
     height: 40px;
 }
 
+.logo:hover {
+    opacity: 0.6;
+    filter: grayscale(60%);
+}
 .space {
     width: 10px;
 }
