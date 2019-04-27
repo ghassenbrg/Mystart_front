@@ -15,6 +15,7 @@ import { EventCardComponent } from './event-components/event-card/event-card.com
 import { LoginFormComponent } from './login-register-form/login-form/login-form.component';
 import { RegisterFormComponent } from './login-register-form/register-form/register-form.component';
 import { SocialLoginModule, AuthServiceConfig, GoogleLoginProvider, FacebookLoginProvider } from "angular-6-social-login";
+import { CookieService } from 'ngx-cookie-service';
 
 
 // Configs 
@@ -45,7 +46,8 @@ export function getAuthServiceConfigs() {
     {
       provide: AuthServiceConfig,
       useFactory: getAuthServiceConfigs
-    }
+    },
+    CookieService
   ],
   exports: [
     TopMenuComponent,

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { TopMenuComponent } from '../../top-menu/top-menu.component';
 import { AuthService, FacebookLoginProvider, GoogleLoginProvider } from 'angular-6-social-login';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-login-form',
@@ -11,7 +12,7 @@ export class LoginFormComponent implements OnInit {
 
   @Input() isHidden;
 
-  constructor(public top_menu: TopMenuComponent, private socialAuthService: AuthService) { }
+  constructor(public top_menu: TopMenuComponent, private socialAuthService: AuthService, private cookieService: CookieService) { }
 
   ngOnInit() {
   }
@@ -29,6 +30,8 @@ export class LoginFormComponent implements OnInit {
         console.log(socialPlatform+" sign in data : " , userData);
         // Now sign-in with userData
         // ...
+        this.cookieService.set( 'isLogged', 'true' );
+        window.location.reload();
             
       }
     );

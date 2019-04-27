@@ -20,10 +20,13 @@
                 -->
                 </div> <!-- /.flat-adds -->
               <div class="flat-action flat-text-right style1">
-                  <ul>
+                  <ul *ngIf="isLogged != 'true'">
                       <li (click)="openLoginForm()"><span class="form-btn">LOGIN</span></li>
                       <li (click)="openRegisterForm()"><span class="form-btn">REGISTER</span></li>
                   </ul>
+                  <ul *ngIf="isLogged == 'true'">
+                    <li (click)="logOut()"><span class="form-btn">LOGOUT</span></li>
+                </ul>
               </div> <!-- /.flat-action -->
           </div> <!-- /.col-md-9 -->
       </div> <!-- /.row -->
