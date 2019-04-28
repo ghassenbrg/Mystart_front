@@ -18,14 +18,14 @@
                                             <img src="../../../assets/images/events/author-teacher.png" alt="bookflare">
                                         </div>
                                         <div class="author-info">
-                                            <h4 class="name"><a href="#">Organized by {{event.organizerName}}</a></h4>
+                                            <h4 class="name"><a>Organized by {{event.organizerName}}</a></h4>
                                             <p class="text color-192836">{{event.organizerPosition}}</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="wrap-btn flat-text-right">
-                                        <a href="#" class="flat-button btn-get-ticket">GET TICKET</a>
+                                        <a href="{{event.ticketUrl}}" target="_blank" class="flat-button btn-get-ticket">GET TICKET</a>
                                     </div>
                                 </div>    
                             </div>
@@ -109,15 +109,15 @@
                     </div> <!-- /.widget-counter -->
                     <div class="widget-event-detail border-f-e6f3ff">
                         <h4 class="widget-title flat-text-center">Event Details</h4>
-                        <p class="description flat-text-center">Netus et malesuad fames ac tmgest blandi cursus risuar etiam non puam lacus. </p>
+                        <p class="description flat-text-center">{{event.description}}</p>
                         <ul class="list-detail">
                             <li class="slot clearfix">
                                 <span class="title">TOTAL SLOT</span>
-                                <span class="value"> 150</span>
+                                <span class="value"> {{event.totalSlot}}</span>
                             </li>
                             <li class="cost clearfix">
                                 <span class="title">COST</span>
-                                <span class="value"> $40.00 </span>
+                                <span class="value">{{event.cost}} DT</span>
                             </li>
                             <li class="start-time clearfix">
                                 <span class="title">START TIME</span>
@@ -129,12 +129,12 @@
                             </li>
                             <li class="location clearfix">
                                 <span class="title">LOCATION</span>
-                                <span class="value">MELBOURNE</span>
+                                <span class="value">{{event.location}}</span>
                             </li>                             
                         </ul>
 
                         <div class="wrap-btn flat-text-center">
-                            <a href="#" class="flat-button btn-book-now border-ra4">BOOK NOW!</a>
+                            <a href="{{event.ticketUrl}}" target="_blank" class="flat-button btn-book-now border-ra4">BOOK NOW!</a>
                         </div>    
                     </div>
                 </div> <!-- /.sidebar-right -->
