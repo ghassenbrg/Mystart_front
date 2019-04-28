@@ -18,8 +18,8 @@
                                             <img src="../../../assets/images/events/author-teacher.png" alt="bookflare">
                                         </div>
                                         <div class="author-info">
-                                            <h4 class="name"><a href="#">Organized by Google</a></h4>
-                                            <p class="text color-192836">Google LLC is an American multinational technology company</p>
+                                            <h4 class="name"><a href="#">Organized by {{event.organizerName}}</a></h4>
+                                            <p class="text color-192836">{{event.organizerPosition}}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -44,53 +44,17 @@
                         <div class="tab-content-wrap">
                             <div class="tab-content">
                                 <div class="item-content">
-                                    <div class="img-single-small">
-                                        <img src="../../../assets/images/events/img-small.png" alt="bookflare">
-                                    </div>
-                                    <div class="text-wrap">   
-                                        <h6 class="title"><a href="#">Limitless Learning, Limitless Possibilities</a></h6>
-                                        <p class="text">Lorem Ipsn gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auci elit consequat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accum dolor same mipsum rvelit. </p>
-                                    </div>
-                                    <div class="text-wrap">
-                                        <h6 class="title"><a href="#">About This Event</a></h6>
-                                        <p class="text">Per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent tacitio sociosqu ad litora torquent.</p>
-                                    </div>
-                                    <div class="img-single">
-                                        <img src="../../../assets/images/events/event-detail-2.png" alt="bookflare">
-                                    </div>
-                                    <div class="text-wrap">
-                                        <h6 class="title"><a href="#">Learn and Master Motion Graphics and Visual Effects in After Effects</a></h6>
-                                        <p class="text">
-                                            Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classi-cal Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consecte-tur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-                                        </p>
-                                        <p class="text">
-                                            The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914.
-                                        </p>
-
-                                        <div class="wrap-btn">
-                                            <a href="#" class="flat-button btn-google border-ra4">+ GOOGLE CALENDAR</a>
-                                        </div>
-                                    </div>
+                                    {{event.overview}}
                                 </div>
                             </div>
                             <div class="tab-content">
                                 <div class="item-content">
-                                    <div class="img-single-small">
-                                        <img src="../../../assets/images/events/img-small.png" alt="bookflare">
-                                    </div>
-                                    <div class="text-wrap">   
-                                        <h6 class="title"><a href="#">Limitless Learning, Limitless Possibilities</a></h6>
-                                        <p class="text">Lorem Ipsn gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auci elit consequat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accum dolor same mipsum rvelit. </p>
-                                    </div>
-                                    <div class="text-wrap">
-                                        <h6 class="title"><a href="#">About This Event</a></h6>
-                                        <p class="text">Per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent tacitio sociosqu ad litora torquent.</p>
-                                    </div>
+                                    {{event.description}}
                                 </div>
                             </div>
                             <div class="tab-content">
-                                <div class="item-content">
-                                    <h1>No Map</h1>
+                                <div class="item-content" >
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3237.4448949148446!2d10.838548715242993!3d35.76444638017509!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x130212d6df016097%3A0x528cc1e524eece77!2sHigher+Institute+for+Computer+Science+and+Mathematics+of+Monastir!5e0!3m2!1sen!2stn!4v1556481375316!5m2!1sen!2stn" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
                                 </div>
                             </div>
                         </div>
