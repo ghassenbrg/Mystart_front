@@ -9,17 +9,20 @@ import { EventsComponent } from './pages/events/events.component';
 import { BlogComponent } from './pages/blog/blog.component';
 import { EventSingleComponent } from './pages/event-single/event-single.component';
 import { ProjectSingleComponent } from './pages/project-single/project-single.component';
+import { LayoutComponent } from './layout/layout.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'projects', component: ProjectsComponent },
-  { path: 'project/:id', component: ProjectSingleComponent },
-  { path: 'experts', component: ExpertsComponent },
-  { path: 'courses', component: CoursesComponent },
-  { path: 'events', component: EventsComponent },
-  { path: 'event/:id', component: EventSingleComponent },
-  { path: 'blog', component: BlogComponent },
-  { path: '**', component: NotFoundComponent }
+  { path: '', component: LayoutComponent, children : [
+    { path: '', component: HomeComponent },
+    { path: 'projects', component: ProjectsComponent },
+    { path: 'project/:id', component: ProjectSingleComponent },
+    { path: 'experts', component: ExpertsComponent },
+    { path: 'courses', component: CoursesComponent },
+    { path: 'events', component: EventsComponent },
+    { path: 'event/:id', component: EventSingleComponent },
+    { path: 'blog', component: BlogComponent },
+    { path: '**', component: NotFoundComponent }
+  ]}
 ];
 
 @NgModule({

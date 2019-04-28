@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,7 +11,7 @@ export class MainMenuComponent implements OnInit {
   @Input() isActive;
    amIActive= [];
    
-  constructor() { }
+  constructor(public router: Router) { }
 
   ngOnInit() {
     

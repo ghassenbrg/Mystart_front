@@ -7,8 +7,6 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./blog.component.css']
 })
 export class BlogComponent implements OnInit {
-
-  isActive = 6;
   
   constructor( private title: Title) {
     this.title.setTitle("Mystart | Blog")

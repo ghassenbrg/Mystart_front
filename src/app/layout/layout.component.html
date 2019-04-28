@@ -1,0 +1,13 @@
+<div class="boxed">
+  <div class="preloader">
+    <span class="loader">
+      <span class="loader-inner"></span>
+    </span>
+  </div>
+  <app-top-menu></app-top-menu>
+  <app-main-menu [isActive]="isActive"></app-main-menu>
+
+  <router-outlet></router-outlet>
+  
+  <app-footer></app-footer>
+</div>

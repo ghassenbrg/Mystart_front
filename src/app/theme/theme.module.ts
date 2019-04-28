@@ -18,6 +18,7 @@ import { SocialLoginModule, AuthServiceConfig, GoogleLoginProvider, FacebookLogi
 import { CookieService } from 'ngx-cookie-service';
 import { RestApiService } from '../core/rest-api.service';
 import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from '../app-routing.module';
 
 
 // Configs 
@@ -43,7 +44,8 @@ export function getAuthServiceConfigs() {
   imports: [
     CommonModule,
     SocialLoginModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [
     {
