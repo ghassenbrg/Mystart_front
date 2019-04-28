@@ -21,7 +21,6 @@ export class ProjectSingleComponent implements OnInit {
   project: any;
 
   constructor( private title: Title, private route: ActivatedRoute, public restApi: RestApiService) {
-    this.title.setTitle("Mystart | My Title");
    }
 
   ngOnInit() {
@@ -31,6 +30,7 @@ export class ProjectSingleComponent implements OnInit {
       return this.restApi.get('project/'+this.id).subscribe((data: {}) => {
         this.project = data;
         this.params.title = data['title'];
+        this.title.setTitle("Mystart | "+data['title']);
       });
     });
 
