@@ -17,7 +17,7 @@
           <div class="content-page-wrap">
               <div class="course-single">
                   <div class="img-single">
-                      <a href="#"><img src="../../../assets/images/courses/img-Details.png" alt="bookflare"></a>
+                      <a href="#"><img src="../../../assets/{{project.coverImg}}" alt="bookflare"></a>
                   </div> <br>
                   <div class="content">
                       <div class="row">
@@ -39,7 +39,7 @@
                                   <ul class="list meta-list">
                                       <li>
                                           <span class="title">Categories:</span>
-                                          <a href="#"><span > Software </span></a>
+                                          <a href="#"><span >{{project.category}}</span></a>
                                       </li>
                                       <li>
                                         <span class="font-weight-700"> Sep 07, 2018</span>
@@ -59,64 +59,26 @@
                           <span class="inner">DESCRIPTION</span>
                       </li>
                       <li class="item-title requirements">
-                          <span class="inner">REQUIREMENTS</span>
+                          <span class="inner">ATTACHMENTS</span>
                       </li>
-                      <li class="item-title review">
-                          <span class="inner">REVIEW</span>
-                      </li>
+
                   </ul>
                   <div class="tab-content-wrap">
                       <div class="tab-content">
                           <div class="item-content">
-                              <div class="text-wrap img-right clearfix">
-                                  <div class="img-single-small flat-text-center">
-                                      <img src="../../../assets/images/events/img-small.png" alt="bookflare">
-                                  </div>
-                                  <h6 class="title"><a href="#">Limitless Learning, Limitless Possibilities</a></h6>
-                                  <p class="text">Lorem Ipsn gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auci elit consequat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accum dolor same mipsum rvelit. </p>
-                                  <h6 class="title"><a href="#">About This Course</a></h6>
-                                  <p class="text">Per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent tacitio sociosqu ad litora torquent.</p>
-                              </div>
-                              <div class="text-wrap img-left clearfix">
-                                  <div class="img-single-small flat-text-center">
-                                      <img src="../../../assets/images/courses/img-small.png" alt="bookflare">
-                                  </div>
-                                  <h6 class="title"> Here some of the techniques you will Learn:  </h6>
-                                  <p class="text">Lorem Ipsn gravida nibh vel velit auctor aliquet sollic elorem quis bibendum auci elit conseo.</p>
-                                  <ul class="list-skill">
-                                      <li> Top-secret tricks for shortcut enthusiasts</li>
-                                      <li>  Assigning and converting color profiles</li>
-                                      <li>  Using Smart Filters for creative effects</li>
-                                      <li> Turning a cityscape into a tiny planet</li>
-                                      <li>  Hunting down seams with the Offset filter</li>
-                                      <li>  Using blur and noise to focus attention & simulate motion</li>
-                                  </ul>
-                              </div>
-                              <div class="text-wrap">
-                                  <h6 class="title"><a href="#">Learn and Master Motion Graphics and Visual Effects in After Effects</a></h6>
-                                  <p class="text">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
-                                  <p class="text"> The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914.</p>
-                              </div>
+                            <p>{{project.overview}}</p>
                           </div>
                       </div>
                       <div class="tab-content">
                           <div class="item-content">
-                              <div class="img-single-small flat-text-center">
-                                  <img src="../../../assets/images/events/img-small.png" alt="bookflare">
-                              </div>
-                              <div class="text-wrap">   
-                                  <h6 class="title"><a href="#">Limitless Learning, Limitless Possibilities</a></h6>
-                                  <p class="text">Lorem Ipsn gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auci elit consequat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accum dolor same mipsum rvelit. </p>
-                              </div>
-                              <div class="text-wrap">
-                                  <h6 class="title"><a href="#">About This Event</a></h6>
-                                  <p class="text">Per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent tacitio sociosqu ad litora torquent.</p>
-                              </div>
+                            <p>{{project.description}}</p>
                           </div>
                       </div>
                       <div class="tab-content">
                           <div class="item-content">
-                              <h1>No Review</h1>
+                            <ul>
+                                <li *ngFor="let attachment of project.attachments"><a href="#">{{attachment}}</a></li>
+                            </ul>
                           </div>
                       </div>
                   </div>

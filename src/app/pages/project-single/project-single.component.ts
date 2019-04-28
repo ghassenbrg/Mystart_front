@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
+import { RestApiService } from 'src/app/core/rest-api.service';
 
 @Component({
   selector: 'app-project-single',
@@ -12,12 +13,14 @@ export class ProjectSingleComponent implements OnInit {
   id: any;
 
   params = {
-    title: "My Title",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
+    title: "",
+    description: "",
     path: "Events"
   }
 
-  constructor( private title: Title, private route: ActivatedRoute) {
+  project: any;
+
+  constructor( private title: Title, private route: ActivatedRoute, public restApi: RestApiService) {
     this.title.setTitle("Mystart | My Title");
    }
 
@@ -25,6 +28,10 @@ export class ProjectSingleComponent implements OnInit {
 
     this.route.paramMap.subscribe(params => {
       this.id= params.get('id');
+      return this.restApi.get('project/'+this.id).subscribe((data: {}) => {
+        this.project = data;
+        this.params.title = data['title'];
+      });
     });
 
   }

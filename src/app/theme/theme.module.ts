@@ -16,6 +16,8 @@ import { LoginFormComponent } from './login-register-form/login-form/login-form.
 import { RegisterFormComponent } from './login-register-form/register-form/register-form.component';
 import { SocialLoginModule, AuthServiceConfig, GoogleLoginProvider, FacebookLoginProvider } from "angular-6-social-login";
 import { CookieService } from 'ngx-cookie-service';
+import { RestApiService } from '../core/rest-api.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 // Configs 
@@ -40,14 +42,16 @@ export function getAuthServiceConfigs() {
   declarations: [TopMenuComponent, MainMenuComponent, FooterComponent, MainSliderComponent, FlatCounterComponent, FlatServicesComponent, FlatVideoComponent, BlogFeaturedComponent, UpcomingEventsComponent, UsersReviewsComponent, PageTitleComponent, EventCardComponent, LoginFormComponent, RegisterFormComponent],
   imports: [
     CommonModule,
-    SocialLoginModule
+    SocialLoginModule,
+    HttpClientModule
   ],
   providers: [
     {
       provide: AuthServiceConfig,
       useFactory: getAuthServiceConfigs
     },
-    CookieService
+    CookieService,
+    RestApiService
   ],
   exports: [
     TopMenuComponent,
