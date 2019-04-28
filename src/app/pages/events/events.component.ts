@@ -14,11 +14,14 @@ export class EventsComponent implements OnInit {
     path: "Events"
   }
 
+  events = {};
+
   constructor( private title: Title) {
     this.title.setTitle("Mystart | Events")
    }
 
   ngOnInit() {
+
   }
 
 }

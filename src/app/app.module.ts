@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { PagesModule } from './pages/pages.module';
 import { ThemeModule } from './theme/theme.module';
 import { LayoutComponent } from './layout/layout.component';
+import { HttpClientModule } from '@angular/common/http';
+import { RestApiService } from './core/rest-api.service';
 
 @NgModule({
   declarations: [
@@ -15,9 +17,10 @@ import { LayoutComponent } from './layout/layout.component';
     BrowserModule,
     AppRoutingModule,
     PagesModule,
-    ThemeModule
+    ThemeModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [RestApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
