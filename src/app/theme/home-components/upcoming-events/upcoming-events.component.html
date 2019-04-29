@@ -9,20 +9,20 @@
               <div class="col-lg-4 col-md-12 col-sm-12">
                   <div class="event style3   flat-text-center">
                       <div class="event-img">
-                          <a href="#"><img src="../../../../assets/images/events/event-index2-1.png" alt="bookflare"></a>
+                          <a href="#"><img src="../../../../assets/{{events[0].coverImg}}" class="event-img-inside" alt="bookflare"></a>
                       </div>
                       <div class="event-content">
-                          <h4 class="title"><a href="#">Start Up Meet'up</a></h4>
-                          <p class="description">Lobortis arcu, a vestibulum augue. Vivamus ipsum neque, facilisis vel mollis vitae.</p>
+                          <h4 class="title"><a href="#">{{events[0].title}}</a></h4>
+                          <p class="description">{{events[0].description.substring(0,78)}} ...</p>
                           <div class="meta-list">
                               <ul class="list">
-                                  <li class="address"><a href="#">Monastir TN</a></li>
-                                  <li class="time"><a href="#">16 : 00</a></li>
+                                  <li class="address"><a href="#">{{events[0].location}}</a></li>
+                                  <li class="time"><a href="#">{{getHours(date)}} : {{getMinutes(date)}}</a></li>
                               </ul>
                           </div>
                           <div class="meta-date flat-text-center bg-0046d4">
-                              <p class="day">25</p>
-                              <p class="month">JUNE</p>
+                              <p class="day">{{date.getDay()}}</p>
+                              <p class="month">{{getMonth(date).toUpperCase()}}</p>
                           </div>
                       </div>
                   </div>
@@ -30,14 +30,14 @@
               <div class="col-lg-4 col-md-12 col-sm-12 ">
                   <div class="event style3  flat-text-center">
                       <div class="event-img">
-                          <a href="#"><img src="../../../../assets/images/events/event-index2-2.png" alt="bookflare"></a>
+                          <a href="#"><img src="../../../../assets/{{events[1].coverImg}}" class="event-img-inside" alt="bookflare"></a>
                       </div>
                       <div class="event-content ">
-                          <h4 class="title"><a href="#">Ideas Hakathon</a></h4>
-                          <p class="description">Lobortis arcu, a vestibulum augue. Vivamus ipsum neque, facilisis vel mollis vitae.</p>
+                          <h4 class="title"><a href="#">{{events[1].title}}</a></h4>
+                          <p class="description">{{events[1].description.substring(0,78)}} ...</p>
                           <div class="meta-list">
                               <ul class="list">
-                                  <li class="address"><a href="#">Sousse TN</a></li>
+                                  <li class="address"><a href="#">{{events[1].location}}</a></li>
                                   <li class="time"><a href="#">16 : 00</a></li>
                               </ul>
                           </div>
@@ -51,14 +51,14 @@
               <div class="col-lg-4 col-md-12 col-sm-12">
                   <div class="event style3  flat-text-center">
                       <div class="event-img">
-                          <a href="#"><img src="../../../../assets/images/events/event-index2-3.png" alt="bookflare"></a>
+                          <a href="#"><img src="../../../../assets/{{events[2].coverImg}}" class="event-img-inside" alt="bookflare"></a>
                       </div>
                       <div class="event-content">
-                          <h4 class="title"><a href="#">Summer Innovation Camp</a></h4>
-                          <p class="description">Lobortis arcu, a vestibulum augue. Vivamus ipsum neque, facilisis vel mollis vitae.</p>
+                          <h4 class="title"><a href="#">{{events[2].title}}</a></h4>
+                          <p class="description">{{events[2].description.substring(0,78)}} ...</p>
                           <div class="meta-list">
                               <ul class="list">
-                                  <li class="address"><a href="#">Tunis TN</a></li>
+                                  <li class="address"><a href="#">{{events[2].location}}</a></li>
                                   <li class="time"><a href="#">16 : 00</a></li>
                               </ul>
                           </div>

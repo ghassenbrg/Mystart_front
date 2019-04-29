@@ -43,8 +43,7 @@
                         </ul>
                         <div class="tab-content-wrap">
                             <div class="tab-content">
-                                <div class="item-content">
-                                    {{event.overview}}
+                                <div class="item-content" [innerHtml]="event.overview">  
                                 </div>
                             </div>
                             <div class="tab-content">

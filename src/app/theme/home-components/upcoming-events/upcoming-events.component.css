@@ -7,3 +7,8 @@ h1 {
 .day {
     line-height: 50%;
 }
+
+.event-img-inside {
+    height: 100%;
+    border-radius: 50%;
+}
