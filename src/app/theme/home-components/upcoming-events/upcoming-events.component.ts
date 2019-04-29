@@ -22,6 +22,7 @@ export class UpcomingEventsComponent implements OnInit {
         this.startTime[i] = new Date(data[i].startTime);
       }
     });
+    
   }
   
 }

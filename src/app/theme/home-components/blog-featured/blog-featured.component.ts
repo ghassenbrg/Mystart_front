@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RestApiService } from 'src/app/core/rest-api.service';
 
 @Component({
   selector: 'app-blog-featured',
@@ -7,32 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlogFeaturedComponent implements OnInit {
 
-  posts = [
-    {
-      id: "1",
-      title: "The standard Lorem Ipsum passage, Title 1",
-      img: "courses-index-1.png",
-      author: "Ghassen Bargougui",
-      description: "Lobortis arcu, a vestibulum augue. Vivamus ipsum neque, facilisis vel mollis vitae."
-    },
-    {
-      id: "2",
-      title: "The standard Lorem Ipsum passage, Title 2",
-      img: "courses-index-2.png",
-      author: "Youcef Elwaer",
-      description: "Lobortis arcu, a vestibulum augue. Vivamus ipsum neque, facilisis vel mollis vitae."
-    },
-    {
-      id: "3",
-      title: "The standard Lorem Ipsum passage, Title 3",
-      img: "courses-index-3.png",
-      author: "Khalil Timoumi",
-      description: "Lobortis arcu, a vestibulum augue. Vivamus ipsum neque, facilisis vel mollis vitae."
-    }
-  ]
-  constructor() { }
+  posts: any;
+
+  constructor(public restApi: RestApiService) { }
 
   ngOnInit() {
+
+    return this.restApi.get('articles/1/3').subscribe((data: {}) => {
+      this.posts = data;
+      for (let post of this.posts) {
+        post.content = post.content.substring(0,85).replace(/<[^>]*>/g, '');
+      }
+    });
+
   }
 
 }
