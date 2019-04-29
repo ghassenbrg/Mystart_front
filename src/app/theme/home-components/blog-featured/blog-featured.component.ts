@@ -14,7 +14,7 @@ export class BlogFeaturedComponent implements OnInit {
 
   ngOnInit() {
 
-    return this.restApi.get('articles/1/3').subscribe((data: {}) => {
+    return this.restApi.get('articles/').subscribe((data: {}) => {
       this.posts = data;
       for (let post of this.posts) {
         post.content = post.content.substring(0,85).replace(/<[^>]*>/g, '');

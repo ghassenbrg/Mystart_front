@@ -15,8 +15,8 @@
                   </div>
                   <div class="course-content">
                       <div class="text-wrap border-bt-e6f3ff">
-                          <h6 class="title"><a href="#">{{post.title}}</a></h6>
-                          <p class="teacher"><a href="#">{{post.author}}</a></p>
+                          <h6 class="title"><a href="/article/{{post._id}}">{{post.title}}</a></h6>
+                          <p class="teacher"><a href="/expert/{{post.authorRes[0].username}}">{{post.authorRes[0].username}}</a></p>
                           <p class="description">{{post.content}}</p>
                       </div>
                   </div>
