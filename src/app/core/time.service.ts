@@ -21,6 +21,34 @@ export class TimeService {
     return date.getMinutes();
   }
 
+  getDate(date: Date) {
+    if (date.getDate() < 10){
+      return "0"+date.getDate();
+    }
+    return date.getDate();
+  }
+
+  getDay(date: Date) {
+    switch (date.getDay()+1) {
+      case 1:
+        return "Sunday";
+      case 2:
+        return "Monday";
+      case 3:
+        return "Tuesday";
+      case 4:
+        return "Wednesday";
+      case 5:
+        return "Thursday";
+      case 6:
+        return "Friday";
+      case 7:
+        return "Saturday";
+      default:
+        return "Not Found.";
+    }
+  }
+
   getMonth(date: Date) {
     switch (date.getMonth()+1) {
       case 1:

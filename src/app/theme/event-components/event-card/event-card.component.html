@@ -8,8 +8,8 @@
                             <div class="event-img">
                                 <a href="#"><img src="../../../../assets/{{event.coverImg}}" alt="bookflare"></a>
                                 <div class="meta-date flat-text-center">
-                                    <span class="day">06</span>
-                                    <span class="month">DECEMBER</span>
+                                    <span class="day">{{time.getDate(startTime[i])}}</span>
+                                    <span class="month">{{time.getMonth(startTime[i]).toUpperCase()}}</span>
                                 </div>
                             </div>
                         </div>
@@ -17,10 +17,10 @@
                             <div class="event-content">
                                     <div class="meta-datetime">
                                             <ul class="list">
-                                                <li><a href="#">{{event.day}}</a></li>
-                                                <li><a href="#">{{event.dateM}} {{event.dateD}}</a></li>
-                                                <li><a href="#">{{event.dateT}}</a></li> 
-                                                <li><a href="#">{{event.location}}</a></li> 
+                                                <li><a href="#"> {{time.getDay(startTime[i])}} </a></li>
+                                                <li><a href="#"> {{time.getMonth(startTime[i])}} {{startTime[i].getDate()}} </a></li>
+                                                <li><a href="#"> {{time.getHours(startTime[i])}} : {{time.getMinutes(startTime[i])}} </a></li> 
+                                                <li><a href="#"> {{event.location}}</a></li> 
                                             </ul>
                                         </div>
           
@@ -34,7 +34,7 @@
                                         <img src="../../../../assets/{{event.organizerPic}}" alt="bookflare">
                                     </div> 
                                     <div class="author-info">
-                                        <h4 class="name"><a>Organized By {{event.organizerName}}</a></h4>
+                                        <h4 class="name">Organized By {{event.organizerName}}</h4>
                                         <p class="text">{{event.organizerPosition}}</p>
                                     </div> 
                                 </div>
@@ -49,10 +49,10 @@
                                 <div class="event-content">
                                         <div class="meta-datetime">
                                                 <ul class="list">
-                                                    <li><a href="#">{{event.day}}</a></li>
-                                                    <li><a href="#">{{event.dateM}} {{event.dateD}}</a></li>
-                                                    <li><a href="#">{{event.dateT}}</a></li> 
-                                                    <li><a href="#">{{event.location}}</a></li> 
+                                                    <li><a href="#"> {{time.getDay(startTime[i])}} </a></li>
+                                                    <li><a href="#"> {{time.getMonth(startTime[i])}} {{startTime[i].getDate()}} </a></li>
+                                                    <li><a href="#"> {{time.getHours(startTime[i])}} : {{time.getMinutes(startTime[i])}} </a></li> 
+                                                    <li><a href="#"> {{event.location}}</a></li>
                                                 </ul>
                                             </div>
               
@@ -66,7 +66,7 @@
                                             <img src="../../../../assets/{{event.organizerPic}}" alt="bookflare">
                                         </div> 
                                         <div class="author-info">
-                                                <h4 class="name"><a>Organized By {{event.organizerName}}</a></h4>
+                                                <h4 class="name">Organized By {{event.organizerName}}</h4>
                                                 <p class="text">{{event.organizerPosition}}</p>
                                             </div> 
                                     </div>
@@ -76,8 +76,8 @@
                                 <div class="event-img">
                                     <a href="#"><img src="../../../../assets/{{event.coverImg}}" alt="bookflare"></a>
                                     <div class="meta-date flat-text-center">
-                                        <span class="day">06</span>
-                                        <span class="month">DECEMBER</span>
+                                        <span class="day">{{time.getDate(startTime[i])}}</span>
+                                        <span class="month">{{time.getMonth(startTime[i]).toUpperCase()}}</span>
                                     </div>
                                 </div>
                             </div>
