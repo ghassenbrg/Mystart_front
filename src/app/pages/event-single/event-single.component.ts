@@ -25,7 +25,7 @@ export class EventSingleComponent implements OnInit {
   diffTime: {};
 
   constructor( private title: Title, private route: ActivatedRoute, public restApi: RestApiService, private time: TimeService) {
-   }
+  }
 
   ngOnInit() {
 

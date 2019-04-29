@@ -13,13 +13,15 @@ import { ProjectSingleComponent } from './project-single/project-single.componen
 import { HttpClientModule } from '@angular/common/http';
 import { RestApiService } from '../core/rest-api.service';
 import { TimeService } from '../core/time.service';
+import { FacebookModule } from 'ngx-facebook';
 
 @NgModule({
   declarations: [HomeComponent, NotFoundComponent, ProjectsComponent, CoursesComponent, ExpertsComponent, EventsComponent, BlogComponent, EventSingleComponent, ProjectSingleComponent],
   imports: [
     CommonModule,
     ThemeModule,
-    HttpClientModule
+    HttpClientModule,
+    FacebookModule.forRoot()
   ],
   providers: [
     RestApiService,
