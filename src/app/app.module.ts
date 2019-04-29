@@ -7,6 +7,7 @@ import { ThemeModule } from './theme/theme.module';
 import { LayoutComponent } from './layout/layout.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RestApiService } from './core/rest-api.service';
+import { FacebookModule } from 'ngx-facebook';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { RestApiService } from './core/rest-api.service';
     AppRoutingModule,
     PagesModule,
     ThemeModule,
-    HttpClientModule
+    HttpClientModule,
+    FacebookModule.forRoot()
   ],
   providers: [RestApiService],
   bootstrap: [AppComponent]
