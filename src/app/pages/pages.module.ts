@@ -12,6 +12,7 @@ import { EventSingleComponent } from './event-single/event-single.component';
 import { ProjectSingleComponent } from './project-single/project-single.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RestApiService } from '../core/rest-api.service';
+import { TimeService } from '../core/time.service';
 
 @NgModule({
   declarations: [HomeComponent, NotFoundComponent, ProjectsComponent, CoursesComponent, ExpertsComponent, EventsComponent, BlogComponent, EventSingleComponent, ProjectSingleComponent],
@@ -21,7 +22,8 @@ import { RestApiService } from '../core/rest-api.service';
     HttpClientModule
   ],
   providers: [
-    RestApiService
+    RestApiService,
+    TimeService
   ],
 })
 export class PagesModule { }

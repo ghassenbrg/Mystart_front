@@ -7,6 +7,20 @@ export class TimeService {
 
   constructor() { }
 
+  numberToDate(nbr) {
+    let res = {};
+
+    res['days'] = Math.floor(nbr / 86400000) ;
+    nbr = nbr % 86400000;
+    res['hours'] = Math.floor(nbr / 3600000) ;
+    nbr = nbr % 3600000;
+    res['minutes'] = Math.floor(nbr / 60000) ;
+    nbr = nbr % 60000;
+    res['seconds'] = Math.floor(nbr / 1000) ;
+
+    return res;
+  }
+
   getHours(date: Date) {
     if (date.getHours() < 10){
       return "0"+date.getHours();
