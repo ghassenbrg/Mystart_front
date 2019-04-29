@@ -17,12 +17,12 @@
                           <div class="meta-list">
                               <ul class="list">
                                   <li class="address"><a href="#">{{events[0].location}}</a></li>
-                                  <li class="time"><a href="#">{{getHours(date)}} : {{getMinutes(date)}}</a></li>
+                                  <li class="time"><a href="#">{{time.getHours(startTime[0])}} : {{time.getMinutes(startTime[0])}}</a></li>
                               </ul>
                           </div>
                           <div class="meta-date flat-text-center bg-0046d4">
-                              <p class="day">{{date.getDay()}}</p>
-                              <p class="month">{{getMonth(date).toUpperCase()}}</p>
+                              <p class="day">{{startTime[0].getDate()}}</p>
+                              <p class="month">{{time.getMonth(startTime[0]).toUpperCase()}}</p>
                           </div>
                       </div>
                   </div>
@@ -38,12 +38,12 @@
                           <div class="meta-list">
                               <ul class="list">
                                   <li class="address"><a href="#">{{events[1].location}}</a></li>
-                                  <li class="time"><a href="#">16 : 00</a></li>
+                                  <li class="time"><a href="#">{{time.getHours(startTime[1])}} : {{time.getMinutes(startTime[1])}}</a></li>
                               </ul>
                           </div>
                           <div class="meta-date flat-text-center bg-ffa81e">
-                              <p class="day">12</p>
-                              <p class="month">JULY</p>
+                                <p class="day">{{startTime[1].getDate()}}</p>
+                                <p class="month">{{time.getMonth(startTime[1]).toUpperCase()}}</p>
                           </div>
                       </div>
                   </div>
@@ -59,12 +59,12 @@
                           <div class="meta-list">
                               <ul class="list">
                                   <li class="address"><a href="#">{{events[2].location}}</a></li>
-                                  <li class="time"><a href="#">16 : 00</a></li>
+                                  <li class="time"><a href="#">{{time.getHours(startTime[2])}} : {{time.getMinutes(startTime[2])}}</a></li>
                               </ul>
                           </div>
                           <div class="meta-date flat-text-center bg-f64260">
-                              <p class="day">16</p>
-                              <p class="month">JULY</p>
+                                <p class="day">{{startTime[2].getDate()}}</p>
+                                <p class="month">{{time.getMonth(startTime[2]).toUpperCase()}}</p>
                           </div>
                       </div>
                   </div>

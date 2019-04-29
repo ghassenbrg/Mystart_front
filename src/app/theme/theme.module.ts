@@ -19,6 +19,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { RestApiService } from '../core/rest-api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from '../app-routing.module';
+import { TimeService } from '../core/time.service';
 
 
 // Configs 
@@ -53,7 +54,8 @@ export function getAuthServiceConfigs() {
       useFactory: getAuthServiceConfigs
     },
     CookieService,
-    RestApiService
+    RestApiService,
+    TimeService
   ],
   exports: [
     TopMenuComponent,
