@@ -28,9 +28,9 @@ export class ProjectSingleComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.id= params.get('id');
       return this.restApi.get('project/'+this.id).subscribe((data: {}) => {
-        this.project = data;
-        this.params.title = data['title'];
-        this.title.setTitle("Mystart | "+data['title']);
+        this.project = data[0];
+        this.params.title = data[0]['title'];
+        this.title.setTitle("Mystart | "+data[0]['title']);
       });
     });
 

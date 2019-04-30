@@ -5,3 +5,7 @@ a {
 a:hover {
     color: #3596D9;
 }
+.profile-pic {
+    width: 73px;
+    height: 73px;
+}
