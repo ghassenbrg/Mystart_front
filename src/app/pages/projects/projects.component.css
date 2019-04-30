@@ -6,3 +6,6 @@
 .title> a:hover {
     color: #3596D9;
 }
+.course {
+    min-height: 320px;
+}
