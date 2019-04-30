@@ -9,7 +9,7 @@
     <div class="course one-of-four text-2ebd59 Marketing Design " *ngFor ="let project of projects">
         <div class="course-border border-f-e6f3ff border-ra4 transition-vline">   
             <div class="course-img img-vline">
-                <a href="project/{{project._id}}"><img src="../../../assets/{{project.coverImg}}" alt="bookflare"></a>
+                <a href="project/{{project._id}}"><img src="../../../assets/{{project.coverImg}}" class="cover-img" alt="bookflare"></a>
                 <div class="overlay">
                     <span class="vline"></span>
                     <span class="vline vline-bottom"></span>
@@ -18,7 +18,7 @@
             <div class="course-content">
                 <div class="text-wrap border-bt-e6f3ff">
                     <h6 class="title"><a href="project/{{project._id}}">{{project.title}}</a></h6>
-                    <p class="teacher"><a href="project/{{project._id}}">{{project.author}}</a></p>
+                    <p class="teacher"><a href="profile/{{project.authorRes[0].username}}">{{project.authorRes[0].username}}</a></p>
                     <p class="description">{{project.description}}</p>
                 </div>
             </div>
