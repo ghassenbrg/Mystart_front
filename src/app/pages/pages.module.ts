@@ -14,9 +14,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { RestApiService } from '../core/rest-api.service';
 import { TimeService } from '../core/time.service';
 import { FacebookModule } from 'ngx-facebook';
+import { BlogSingleComponent } from './blog-single/blog-single.component';
 
 @NgModule({
-  declarations: [HomeComponent, NotFoundComponent, ProjectsComponent, CoursesComponent, ExpertsComponent, EventsComponent, BlogComponent, EventSingleComponent, ProjectSingleComponent],
+  declarations: [HomeComponent, NotFoundComponent, ProjectsComponent, CoursesComponent, ExpertsComponent, EventsComponent, BlogComponent, EventSingleComponent, ProjectSingleComponent, BlogSingleComponent],
   imports: [
     CommonModule,
     ThemeModule,

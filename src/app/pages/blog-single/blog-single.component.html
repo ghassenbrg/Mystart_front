@@ -1,0 +1,100 @@
+<app-page-title [params]="params"></app-page-title>
+<br><br>
+
+ <!-- Page Content -->
+ <div class="container">
+    <div class="row">
+
+      <!-- Post Content Column -->
+      <div class="col-lg-8 post-content">
+
+        <!-- Preview Image -->
+        <img class="img-fluid rounded cover-img" src="../../../assets/{{post.coverImg}}" alt="">
+
+        <hr>
+
+        <!-- Date/Time -->
+        <p>By <a href="expert/{{post.author}}">{{post.authorRes[0].username}}</a> | Posted on {{time.getMonth(date)}} {{date.getDate()}}, {{date.getFullYear()}} at {{time.getHours(date)}}:{{time.getMinutes(date)}}</p>
+
+        <hr>
+
+        <!-- Post Content -->
+        <div class="content" [innerHtml]="post.content">
+        </div>
+
+        <hr>
+        
+        <br>
+        <!-- fb comment-->
+        <div class="fb-comments">
+          <fb-comments></fb-comments>
+        </div>
+        <br><br>
+      </div>
+
+      <!-- Sidebar Widgets Column -->
+      <div class="col-md-4">
+
+        <!-- Search Widget -->
+        <div class="card my-4">
+          <h5 class="card-header">Search</h5>
+          <div class="card-body">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search for...">
+              <span class="input-group-btn">
+                <button class="btn btn-secondary" type="button">Go!</button>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Categories Widget -->
+        <div class="card my-4">
+          <h5 class="card-header">Categories</h5>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-6">
+                <ul class="list-unstyled mb-0">
+                  <li>
+                    <a href="#">Web Design</a>
+                  </li>
+                  <li>
+                    <a href="#">HTML</a>
+                  </li>
+                  <li>
+                    <a href="#">Freebies</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-lg-6">
+                <ul class="list-unstyled mb-0">
+                  <li>
+                    <a href="#">JavaScript</a>
+                  </li>
+                  <li>
+                    <a href="#">CSS</a>
+                  </li>
+                  <li>
+                    <a href="#">Tutorials</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Side Widget -->
+        <div class="card my-4">
+          <h5 class="card-header">Side Widget</h5>
+          <div class="card-body">
+            You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
