@@ -18,9 +18,10 @@ import { BlogSingleComponent } from './blog-single/blog-single.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ExpertSingleComponent } from './expert-single/expert-single.component';
 import { AccountSettingComponent } from './profile/account-setting/account-setting.component';
+import { QuestionsComponent } from './questions/questions.component';
 
 @NgModule({
-  declarations: [HomeComponent, NotFoundComponent, ProjectsComponent, CoursesComponent, ExpertsComponent, EventsComponent, BlogComponent, EventSingleComponent, ProjectSingleComponent, BlogSingleComponent, ProfileComponent, ExpertSingleComponent, AccountSettingComponent],
+  declarations: [HomeComponent, NotFoundComponent, ProjectsComponent, CoursesComponent, ExpertsComponent, EventsComponent, BlogComponent, EventSingleComponent, ProjectSingleComponent, BlogSingleComponent, ProfileComponent, ExpertSingleComponent, AccountSettingComponent, QuestionsComponent],
   imports: [
     CommonModule,
     ThemeModule,

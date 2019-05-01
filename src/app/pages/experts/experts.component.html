@@ -1,48 +1,34 @@
-  <app-page-title [params]="params"></app-page-title>
-  <br><br><br>
+<br><br>
 
-  <div class="container">
-    <div class="row ng-scope">
-        <div class="col-md-3 col-md-push-9 filter-container">
-            <h4 class="filter-title">Results <span class="fw-semi-bold">Filtering</span></h4>
-            <div class="filter">
-              <p class="text-muted fs-mini">Listed content is categorized by the following groups:</p>
-              <ul class="nav nav-pills nav-stacked search-result-categories mt">
-                  <li><a href="#">Friends <span class="badge">34</span></a>
-                  </li>
-                  <li><a href="#">Pages <span class="badge">9</span></a>
-                  </li>
-                  <li><a href="#">Images</a>
-                  </li>
-                  <li><a href="#">Groups</a>
-                  </li>
-                  <li><a href="#">Globals <span class="badge">18</span></a>
-                  </li>
-              </ul>
-            </div>
-        </div>
-        <div class="col-md-9 col-md-pull-3">
-            <!-- <p class="search-results-count">About 94 700 000 (0.39 sec.) results</p> -->
-            <section class="search-result-item" *ngFor="let expert of experts; index as i">
-                <a class="image-link" href="#"><img class="image" src="https://bootdey.com/img/Content/avatar/avatar{{i+1}}.png">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-3" *ngFor="let expert of experts; index as i">
+            <div class="contact-box center-version">
+                <a href="#profile.html">
+                    <img alt="image" class="img-circle" src="https://bootdey.com/img/Content/avatar/avatar{{i+1}}.png">
+                    <h3 class="m-b-xs"><strong>John Smith</strong></h3>
+        
+                    <div class="font-bold">Graphics designer</div>
+                    <address class="m-t-md">
+                        <strong>Twitter, Inc.</strong><br>
+                        795 Folsom Ave, Suite 600<br>
+                        San Francisco, CA 94107<br>
+                        <abbr title="Phone">P:</abbr> (123) 456-7890
+                    </address>
+        
                 </a>
-                <div class="search-result-item-body">
-                    <div class="row">
-                        <div class="col-sm-9">
-                            <h4 class="search-result-item-heading"><a href="#">john doe</a></h4>
-                            <p class="info">New York, NY 20188</p>
-                            <p class="description">Not just usual Metro. But something bigger. Not just usual widgets, but real widgets. Not just yet another admin template, but next generation admin template.</p>
-                        </div>
-                        <div class="col-sm-3 text-align-center">
-                            <p class="value3 mt-sm">$9, 700</p>
-                            <p class="fs-mini text-muted">PER WEEK</p><a class="btn btn-primary btn-info btn-sm" href="#">Learn More</a>
-                        </div>
+                <div class="contact-box-footer">
+                    <div class="m-t-xs btn-group">
+                        <a class="btn btn-xs btn-white"><i class="fa fa-phone"></i> Call </a>
+                        <a class="btn btn-xs btn-white"><i class="fa fa-envelope"></i> Email</a>
+                        <a class="btn btn-xs btn-white"><i class="fa fa-user-plus"></i> Follow</a>
                     </div>
                 </div>
-            </section>
-            <div class="text-align-center">
-              <!-- pagination here -->
+        
             </div>
         </div>
+
     </div>
-    </div>
+</div>

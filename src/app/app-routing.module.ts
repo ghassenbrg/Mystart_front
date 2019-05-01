@@ -12,6 +12,7 @@ import { ProjectSingleComponent } from './pages/project-single/project-single.co
 import { LayoutComponent } from './layout/layout.component';
 import { BlogSingleComponent } from './pages/blog-single/blog-single.component';
 import { ExpertSingleComponent } from './pages/expert-single/expert-single.component';
+import { QuestionsComponent } from './pages/questions/questions.component';
 import { AccountSettingComponent } from './pages/profile/account-setting/account-setting.component';
 
 const routes: Routes = [
@@ -20,7 +21,9 @@ const routes: Routes = [
     { path: 'projects', component: ProjectsComponent },
     { path: 'project/:id', component: ProjectSingleComponent },
     { path: 'experts', component: ExpertsComponent },
+    { path: 'expert/setting', component: AccountSettingComponent },
     { path: 'expert/:id', component: ExpertSingleComponent },
+    { path: 'questions', component: QuestionsComponent },
     { path: 'courses', component: CoursesComponent },
     { path: 'events', component: EventsComponent },
     { path: 'event/:id', component: EventSingleComponent },
