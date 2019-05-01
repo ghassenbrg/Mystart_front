@@ -14,7 +14,7 @@ export class ProjectsComponent implements OnInit {
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
     path: "Projects"
   }
-  projects = {};
+  projects : any;
 
   constructor( private title: Title, public restApi: RestApiService) {
     this.title.setTitle("Mystart | Projects")
