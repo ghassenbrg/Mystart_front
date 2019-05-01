@@ -15,7 +15,7 @@ export class ProjectSingleComponent implements OnInit {
   params = {
     title: "",
     description: "",
-    path: "Projects"
+    path: "Events"
   }
 
   project: any;
