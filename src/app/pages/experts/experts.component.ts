@@ -14,6 +14,8 @@ export class ExpertsComponent implements OnInit {
     path: "Experts"
   }
 
+  experts = ['', '', '', '', '', ''];
+  
   constructor( private title: Title) {
     this.title.setTitle("Mystart | Experts")
    }

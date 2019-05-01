@@ -15,9 +15,10 @@ import { RestApiService } from '../core/rest-api.service';
 import { TimeService } from '../core/time.service';
 import { FacebookModule } from 'ngx-facebook';
 import { BlogSingleComponent } from './blog-single/blog-single.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
-  declarations: [HomeComponent, NotFoundComponent, ProjectsComponent, CoursesComponent, ExpertsComponent, EventsComponent, BlogComponent, EventSingleComponent, ProjectSingleComponent, BlogSingleComponent],
+  declarations: [HomeComponent, NotFoundComponent, ProjectsComponent, CoursesComponent, ExpertsComponent, EventsComponent, BlogComponent, EventSingleComponent, ProjectSingleComponent, BlogSingleComponent, ProfileComponent],
   imports: [
     CommonModule,
     ThemeModule,
