@@ -16,9 +16,11 @@ import { TimeService } from '../core/time.service';
 import { FacebookModule } from 'ngx-facebook';
 import { BlogSingleComponent } from './blog-single/blog-single.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ExpertSingleComponent } from './expert-single/expert-single.component';
+import { AccountSettingComponent } from './profile/account-setting/account-setting.component';
 
 @NgModule({
-  declarations: [HomeComponent, NotFoundComponent, ProjectsComponent, CoursesComponent, ExpertsComponent, EventsComponent, BlogComponent, EventSingleComponent, ProjectSingleComponent, BlogSingleComponent, ProfileComponent],
+  declarations: [HomeComponent, NotFoundComponent, ProjectsComponent, CoursesComponent, ExpertsComponent, EventsComponent, BlogComponent, EventSingleComponent, ProjectSingleComponent, BlogSingleComponent, ProfileComponent, ExpertSingleComponent, AccountSettingComponent],
   imports: [
     CommonModule,
     ThemeModule,

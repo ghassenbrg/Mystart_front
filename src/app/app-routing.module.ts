@@ -11,6 +11,8 @@ import { EventSingleComponent } from './pages/event-single/event-single.componen
 import { ProjectSingleComponent } from './pages/project-single/project-single.component';
 import { LayoutComponent } from './layout/layout.component';
 import { BlogSingleComponent } from './pages/blog-single/blog-single.component';
+import { ExpertSingleComponent } from './pages/expert-single/expert-single.component';
+import { AccountSettingComponent } from './pages/profile/account-setting/account-setting.component';
 
 const routes: Routes = [
   { path: '', component: LayoutComponent, children : [
@@ -18,6 +20,7 @@ const routes: Routes = [
     { path: 'projects', component: ProjectsComponent },
     { path: 'project/:id', component: ProjectSingleComponent },
     { path: 'experts', component: ExpertsComponent },
+    { path: 'expert/:id', component: ExpertSingleComponent },
     { path: 'courses', component: CoursesComponent },
     { path: 'events', component: EventsComponent },
     { path: 'event/:id', component: EventSingleComponent },
