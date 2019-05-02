@@ -52,6 +52,8 @@ export class RegisterFormComponent implements OnInit {
 
         user.password = user.generatePassword(12);
         console.log("new user: "+JSON.stringify(user));
+
+        
         // this.cookieService.set( 'isLogged', 'true' );
         // window.location.reload();
             
