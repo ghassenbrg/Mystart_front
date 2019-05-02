@@ -8,19 +8,19 @@
                 <h5 class="card-title text-center">Register</h5>
                 <form class="form-signin">
                   <div class="">
-                      <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="username" [(ngModel)]="test"> {{test}}  
+                      <input id="register-username" type="text" class="form-control" name="username" value="" placeholder="username" [(ngModel)]="userForm.username">
                   </div>
                   <div class="space"></div>
                   <div class="">
-                      <input id="login-email" type="text" class="form-control" name="email" value="" placeholder="email">  
+                    <input id="register-password" type="password" class="form-control" name="password" placeholder="password" [(ngModel)]="userForm.password"> {{userForm.password}}
+                </div>
+                <div class="space"></div>
+                  <div class="">
+                      <input id="register-email" type="text" class="form-control" name="email" value="" placeholder="email" [(ngModel)]="userForm.email">
                   </div>
                   <div class="space"></div>
                   <div class="">
-                      <input id="login-password" type="password" class="form-control" name="password" placeholder="password">
-                  </div>
-                  <div class="space"></div>
-                  <div class="">
-                      <input id="login-fullName" type="text" class="form-control" name="fullName" value="" placeholder="full name">  
+                      <input id="register-fullName" type="text" class="form-control" name="fullName" value="" placeholder="full name" [(ngModel)]="userForm.fullName">
                   </div>
                   <div class="space"></div>
                   <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign up</button>
