@@ -24,7 +24,41 @@ export class RegisterFormComponent implements OnInit {
   ngOnInit() {
   }
 
+  signUp() {
+    this.notif = { status: "", message: "" };
+
+    let verifUsername = this.userForm.validateUsername();
+    if (!verifUsername['verif']){
+      this.notif.message = verifUsername['message'];
+      this.notif.status = "wrong";
+      return;
+    }
+    if (!this.userForm.validateMail()){
+      this.notif.message = "Enter a valid mail.";
+      this.notif.status = "wrong";
+      return;
+    }
+    if (this.userForm.password.length < 8){
+      this.notif.message = "Password must be at least 8 characters.";
+      this.notif.status = "wrong";
+      return;
+    }
+
+    this.restApi.post('users', this.userForm).subscribe((data: {}) => {
+      console.log(data);
+      this.notif.message = data['message'];
+      if (!data['error']){
+        this.notif.status = 'success';
+      } else {
+        this.notif.status = 'wrong';
+      }
+    });
+
+  }
+
   socialSignUp(socialPlatform : string) {
+    this.notif = { status: "", message: "" };
+
     let socialPlatformProvider;
     if(socialPlatform == "facebook"){
       socialPlatformProvider = FacebookLoginProvider.PROVIDER_ID;
@@ -80,6 +114,11 @@ export class RegisterFormComponent implements OnInit {
 
   close() {
     this.top_menu.register_form_hidden = true;
+    this.userForm = new User({});
+    this.notif = {
+      status: "",
+      message: ""
+    };
   }
   
 }
