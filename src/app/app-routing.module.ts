@@ -15,6 +15,8 @@ import { ExpertSingleComponent } from './pages/expert-single/expert-single.compo
 import { QuestionsComponent } from './pages/questions/questions.component';
 import { AccountSettingComponent } from './pages/profile/account-setting/account-setting.component';
 import { MessagesComponent } from './pages/profile/messages/messages.component';
+import { RegisterFormComponent } from './theme/login-register-form/register-form/register-form.component';
+import { LoginFormComponent } from './theme/login-register-form/login-form/login-form.component';
 
 const routes: Routes = [
   { path: '', component: LayoutComponent, children : [
@@ -31,6 +33,8 @@ const routes: Routes = [
     { path: 'article/:id', component: BlogSingleComponent },
     { path: 'myprofile/setting', component: AccountSettingComponent },
     { path: 'messages', component: MessagesComponent },
+    { path: 'register', component: RegisterFormComponent },
+    { path: 'login', component: LoginFormComponent },
     { path: '**', component: NotFoundComponent }
   ]}
 ];

@@ -6,13 +6,17 @@
   
               <div class="card-body">
                 <h5 class="card-title text-center">Register</h5>
+                <div class="notif">
+                  <p class="success" *ngIf="notif.status == 'success'">{{notif.message}}</p>
+                  <p class="wrong" *ngIf="notif.status == 'wrong'">{{notif.message}}</p>
+                </div>
                 <form class="form-signin">
                   <div class="">
                       <input id="register-username" type="text" class="form-control" name="username" value="" placeholder="username" [(ngModel)]="userForm.username">
                   </div>
                   <div class="space"></div>
                   <div class="">
-                    <input id="register-password" type="password" class="form-control" name="password" placeholder="password" [(ngModel)]="userForm.password"> {{userForm.password}}
+                    <input id="register-password" type="password" class="form-control" name="password" placeholder="password" [(ngModel)]="userForm.password">
                 </div>
                 <div class="space"></div>
                   <div class="">
@@ -33,7 +37,7 @@
                   <div class="form-group">
                     <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
                         Already have an account! 
-                        <a href="#" onClick="$('#loginbox').hide(); $('#signupbox').show()">
+                        <a href="#" (click)="switchToLogin()">
                           Sign In Here
                         </a>
                     </div>
