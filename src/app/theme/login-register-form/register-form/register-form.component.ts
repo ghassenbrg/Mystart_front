@@ -17,7 +17,7 @@ export class RegisterFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  socialSignIn(socialPlatform : string) {
+  socialSignUp(socialPlatform : string) {
     let socialPlatformProvider;
     if(socialPlatform == "facebook"){
       socialPlatformProvider = FacebookLoginProvider.PROVIDER_ID;
@@ -37,7 +37,7 @@ export class RegisterFormComponent implements OnInit {
   }
 
   close() {
-    this.top_menu.login_form_hidden = true;
+    this.top_menu.register_form_hidden = true;
   }
     
 
