@@ -14,6 +14,7 @@ import { BlogSingleComponent } from './pages/blog-single/blog-single.component';
 import { ExpertSingleComponent } from './pages/expert-single/expert-single.component';
 import { QuestionsComponent } from './pages/questions/questions.component';
 import { AccountSettingComponent } from './pages/profile/account-setting/account-setting.component';
+import { MessagesComponent } from './pages/profile/messages/messages.component';
 
 const routes: Routes = [
   { path: '', component: LayoutComponent, children : [
@@ -21,7 +22,6 @@ const routes: Routes = [
     { path: 'projects', component: ProjectsComponent },
     { path: 'project/:id', component: ProjectSingleComponent },
     { path: 'experts', component: ExpertsComponent },
-    { path: 'expert/setting', component: AccountSettingComponent },
     { path: 'expert/:id', component: ExpertSingleComponent },
     { path: 'questions', component: QuestionsComponent },
     { path: 'courses', component: CoursesComponent },
@@ -29,6 +29,8 @@ const routes: Routes = [
     { path: 'event/:id', component: EventSingleComponent },
     { path: 'blog', component: BlogComponent },
     { path: 'article/:id', component: BlogSingleComponent },
+    { path: 'myprofile/setting', component: AccountSettingComponent },
+    { path: 'messages', component: MessagesComponent },
     { path: '**', component: NotFoundComponent }
   ]}
 ];
