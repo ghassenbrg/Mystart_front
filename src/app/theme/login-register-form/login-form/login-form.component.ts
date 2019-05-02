@@ -28,10 +28,9 @@ export class LoginFormComponent implements OnInit {
     this.socialAuthService.signIn(socialPlatformProvider).then(
       (userData) => {
         console.log(socialPlatform+" sign in data : " , userData);
-        // Now sign-in with userData
-        // ...
-        this.cookieService.set( 'isLogged', 'true' );
-        window.location.reload();
+
+        // this.cookieService.set( 'isLogged', 'true' );
+        // window.location.reload();
             
       }
     );
