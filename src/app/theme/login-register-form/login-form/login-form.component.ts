@@ -36,6 +36,11 @@ export class LoginFormComponent implements OnInit {
     );
   }
 
+  switchToLogin() {
+    this.top_menu.register_form_hidden = false;
+    this.top_menu.login_form_hidden = true;
+  }
+
   close() {
     this.top_menu.login_form_hidden = true;
   }
