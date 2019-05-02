@@ -20,6 +20,7 @@ import { RestApiService } from '../core/rest-api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from '../app-routing.module';
 import { TimeService } from '../core/time.service';
+import { FormsModule } from '@angular/forms';
 
 
 // Configs 
@@ -46,7 +47,8 @@ export function getAuthServiceConfigs() {
     CommonModule,
     SocialLoginModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [
     {

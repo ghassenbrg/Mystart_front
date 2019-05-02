@@ -11,6 +11,7 @@ import { CookieService } from 'ngx-cookie-service';
 export class RegisterFormComponent implements OnInit {
 
   @Input() isHidden;
+  test: String;
 
   constructor(public top_menu: TopMenuComponent, private socialAuthService: AuthService, private cookieService: CookieService) { }
 
