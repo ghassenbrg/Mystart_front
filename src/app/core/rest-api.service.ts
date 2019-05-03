@@ -21,7 +21,7 @@ export class RestApiService {
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      'token': localStorage.getItem('token') || undefined
+      'token': localStorage.getItem('token') || ""
     })
   } 
 
