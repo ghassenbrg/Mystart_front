@@ -4,11 +4,15 @@
       <span class="loader-inner"></span>
     </span>
   </div>
-  
-  <app-top-menu [loggedUser]="loggedUser"></app-top-menu>
-  
-  <app-test></app-test>
-  <app-main-menu [isActive]="isActive"></app-main-menu>
+
+  <div id="header">
+    <app-top-menu [loggedUser]="loggedUser"></app-top-menu>
+    <hr class="top-line">
+  </div>
+    <!-- <app-test></app-test> -->
+    <app-main-menu [isActive]="isActive"></app-main-menu>
+ 
+
   <router-outlet></router-outlet>
   
   <app-footer></app-footer>
