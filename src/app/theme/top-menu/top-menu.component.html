@@ -32,7 +32,11 @@
                 <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-envelope"></i><span>Messages</span></a></li>		
                 <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-bell"></i><span>Notifications</span></a></li>
                 <li class="nav-item dropdown">
-                    <a data-toggle="dropdown" class="nav-link dropdown-toggle user-action"><img src="{{loggedUser.profilpic}}" class="avatar" alt="Avatar">{{loggedUser.fullName}}</a>
+                    <a data-toggle="dropdown" class="nav-link dropdown-toggle user-action">
+                        <img src="../../../assets/{{loggedUser.profilpic}}" class="avatar" alt="Avatar" *ngIf="!externelPorfilPicUrl(loggedUser.profilpic)">
+                        <img src="{{loggedUser.profilpic}}" class="avatar" alt="Avatar" *ngIf="externelPorfilPicUrl(loggedUser.profilpic)">
+                        {{loggedUser.fullName}}
+                    </a>
                     <ul class="dropdown-menu">
                         <li><a href="myprofile" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a></li>
                         <li><a href="#" class="dropdown-item"><i class="fa fa-calendar-o"></i> Calendar</a></li>

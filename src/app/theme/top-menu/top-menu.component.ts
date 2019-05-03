@@ -33,4 +33,11 @@ export class TopMenuComponent implements OnInit {
     window.location.reload();
   }
 
+  externelPorfilPicUrl(porfilpic) {
+    if((porfilpic.search('http://') == -1) && ((porfilpic.search('https://') == -1))) {
+      return false;
+    }
+    return true;
+  }
+
 }
