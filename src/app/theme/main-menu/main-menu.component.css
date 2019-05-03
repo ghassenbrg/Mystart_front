@@ -13,7 +13,7 @@
     box-shadow: 0 0 4px rgba(0,0,0,.1);		
 }
 .navbar .navbar-brand {
-    color: #555;
+    color: #15222E;
     padding-left: 0;
     font-size: 20px;
     padding-right: 50px;
@@ -30,7 +30,7 @@
     text-transform: uppercase;
 }
 .navbar ul.nav li.active a, .navbar ul.nav li.active a:hover, .navbar ul.nav li.active a:focus {
-    color: #f04f01 !important;
+    color: #1a97d7 !important;
     background: transparent !important;
 }
 .search-box {
@@ -103,10 +103,6 @@
 
 .navbar {
     margin: 0 !important;
-}
-
-.navbarCollapse {
-    text-align: center !important;
 }
 
 a {
