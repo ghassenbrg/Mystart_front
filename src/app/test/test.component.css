@@ -108,3 +108,7 @@
 .navbarCollapse {
     text-align: center !important;
 }
+
+a {
+    cursor: pointer;
+}

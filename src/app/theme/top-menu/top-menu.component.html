@@ -19,8 +19,8 @@
             <!-- if there is no logged-user  -->
 
             <ul class="nav navbar-nav navbar-right ml-auto" *ngIf="!loggedUser">
-                    <li class="nav-item"><a href="#" class="nav-link" (click)="openLoginForm()"><span>LOGIN</span></a></li>
-                    <li class="nav-item"><a href="#" class="nav-link" (click)="openRegisterForm()"><span>REGISTER</span></a></li>
+                    <li class="nav-item"><a class="nav-link" (click)="openLoginForm()"><span>LOGIN</span></a></li>
+                    <li class="nav-item"><a class="nav-link" (click)="openRegisterForm()"><span>REGISTER</span></a></li>
                 </ul>
             <!-- if we found a logged-user -->
             <ul class="nav navbar-nav navbar-right ml-auto" *ngIf="loggedUser">
@@ -32,13 +32,13 @@
                 <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-envelope"></i><span>Messages</span></a></li>		
                 <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-bell"></i><span>Notifications</span></a></li>
                 <li class="nav-item dropdown">
-                    <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action"><img src="https://www.tutorialrepublic.com/examples/images/avatar/3.jpg" class="avatar" alt="Avatar"> Antonio Moreno </a>
+                    <a data-toggle="dropdown" class="nav-link dropdown-toggle user-action"><img src="{{loggedUser.profilpic}}" class="avatar" alt="Avatar">{{loggedUser.fullName}}</a>
                     <ul class="dropdown-menu">
-                        <li><a href="#" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a></li>
+                        <li><a href="myprofile" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a></li>
                         <li><a href="#" class="dropdown-item"><i class="fa fa-calendar-o"></i> Calendar</a></li>
-                        <li><a href="#" class="dropdown-item"><i class="fa fa-sliders"></i> Settings</a></li>
+                        <li><a href="myprofile/setting" class="dropdown-item"><i class="fa fa-sliders"></i> Settings</a></li>
                         <li class="divider dropdown-divider"></li>
-                        <li><a href="#" class="dropdown-item" (click)="logOut()"><i class="material-icons" >&#xE8AC;</i> Logout</a></li>
+                        <li><a class="dropdown-item" (click)="logOut()"><i class="material-icons" >&#xE8AC;</i> Logout</a></li>
                     </ul>
                 </li>
             </ul>

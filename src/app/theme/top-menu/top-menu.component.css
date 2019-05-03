@@ -176,3 +176,7 @@ body{
 .navbar {
     margin: 0 !important;
 }
+
+a {
+    cursor: pointer;
+}
