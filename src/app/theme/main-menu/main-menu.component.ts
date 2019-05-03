@@ -14,8 +14,43 @@ export class MainMenuComponent implements OnInit {
   constructor(public router: Router) { }
 
   ngOnInit() {
-    
-    this.amIActive[this.isActive] = "active";
+    this.whoIsActive();
+  }
+
+  whoIsActive() {
+
+    let isActive: Number;
+    switch(this.router.url) {
+      case "/":
+        isActive = 1;
+        break;
+      case "/projects":
+        isActive = 2;
+        break;
+      case "/experts":
+        isActive = 3;
+        break;
+        case "/courses":
+          isActive = 4;
+          break;
+        case "/events":
+          isActive = 5;
+          break;
+        case "/blog":
+          isActive = 6;
+          break;
+      default:
+          isActive = 0;
+    }
+
+    for (let i=1; i < 7; i++){
+      if (i == isActive) {
+        this.amIActive[i] = "active";
+        continue;
+      }
+      this.amIActive[i] = "";
+    }
+
   }
 
 }

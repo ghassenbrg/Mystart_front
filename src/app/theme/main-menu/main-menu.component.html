@@ -3,18 +3,18 @@
             <!-- Collection of nav links, forms, and other content for toggling -->
             <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
               <ul class="nav navbar-nav ml-auto mx-auto">
-                <li class="nav-item {{amIActive[1]}}"><a href="/" class="nav-link">HOME</a></li>
-                <li class="nav-item {{amIActive[2]}}"><a [routerLink]="['/projects']" class="nav-link">PROJECTS</a></li>			
+                <li class="nav-item {{amIActive[1]}}" (click)="whoIsActive()"><a href="/" class="nav-link">HOME</a></li>
+                <li class="nav-item {{amIActive[2]}}" (click)="whoIsActive()"><a [routerLink]="['/projects']" class="nav-link">PROJECTS</a></li>			
                 <li class="nav-item dropdown {{amIActive[3]}}">
                   <a data-toggle="dropdown" class="nav-link dropdown-toggle" href="#">EXPERTS</a>
                   <ul class="dropdown-menu">					
-                    <li><a [routerLink]="['/experts']" class="dropdown-item">List of experts</a></li>
-                    <li><a [routerLink]="['/questions']" class="dropdown-item">Questions area</a></li>
+                    <li (click)="whoIsActive()"><a [routerLink]="['/experts']" class="dropdown-item">List of experts</a></li>
+                    <li (click)="whoIsActive()"><a [routerLink]="['/questions']" class="dropdown-item">Questions area</a></li>
                   </ul>
                 </li>
-                <li class="nav-item {{amIActive[4]}}"><a [routerLink]="['/courses']" class="nav-link">COURSES</a></li>
-                <li class="nav-item {{amIActive[5]}}"><a [routerLink]="['/events']" class="nav-link">EVENTS</a></li>
-                <li class="nav-item {{amIActive[6]}}"><a [routerLink]="['/blog']" class="nav-link">BLOG</a></li>
+                <li class="nav-item {{amIActive[4]}}" (click)="whoIsActive()"><a [routerLink]="['/courses']" class="nav-link">COURSES</a></li>
+                <li class="nav-item {{amIActive[5]}}" (click)="whoIsActive()"><a [routerLink]="['/events']" class="nav-link">EVENTS</a></li>
+                <li class="nav-item {{amIActive[6]}}" (click)="whoIsActive()"><a [routerLink]="['/blog']" class="nav-link">BLOG</a></li>
               </ul>	
             </div>
           </nav>
