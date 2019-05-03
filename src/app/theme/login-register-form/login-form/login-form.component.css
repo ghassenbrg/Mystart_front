@@ -136,3 +136,18 @@
     font-size: 80%;
     height: 50px;
   }
+
+  .notif> p {
+    border-radius: 3px;
+    padding: 5px;
+    vertical-align: middle;
+  }
+  
+  .success {
+    background-color: #06FB58;
+  }
+  
+  .wrong {
+    background-color: #FB0638;
+    color: white;
+  }

@@ -6,20 +6,23 @@
       
                   <div class="card-body">
                     <h5 class="card-title text-center">LogIn</h5>
+                    <div class="notif">
+                        <p class="wrong" *ngIf="notif.status == 'wrong'">{{notif.message}}</p>
+                      </div>
                     <form class="form-signin">
                       <div class="">
-                          <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="username or email">  
+                          <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="username or email"  [(ngModel)]="loginForm.uniqueId">  
                       </div>
                       <div class="space"></div>
                       <div class="">
-                          <input id="login-password" type="password" class="form-control" name="password" placeholder="password">
+                          <input id="login-password" type="password" class="form-control" name="password" placeholder="password" [(ngModel)]="loginForm.password">
                       </div>
                       <div class="space"></div>
                       <div class="custom-control custom-checkbox mb-3">
-                        <input type="checkbox" class="custom-control-input" id="customCheck1">
-                        <label class="custom-control-label" for="customCheck1">Remember password</label>
+                        <input type="checkbox" name="checkbox" class="custom-control-input" id="customCheck1" [(ngModel)]="rememberMe">
+                        <label class="custom-control-label" for="customCheck1">Remember password</label> 
                       </div>
-                      <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
+                      <button class="btn btn-lg btn-primary btn-block text-uppercase" (click)="signIn()">Sign in</button>
                     </form>
                       <hr class="my-4">
                       <button class="btn btn-lg btn-google btn-block text-uppercase" (click)="socialSignIn('google')"><i class="fab fa-google mr-2"></i> Sign in with Google</button>
