@@ -8,11 +8,13 @@ import { LayoutComponent } from './layout/layout.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RestApiService } from './core/rest-api.service';
 import { FacebookModule } from 'ngx-facebook';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LayoutComponent
+    LayoutComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,

@@ -1,35 +1,46 @@
 <app-login-form [isHidden]="login_form_hidden"></app-login-form>
 <app-register-form [isHidden]="register_form_hidden"></app-register-form>
 
-<div class="top border-bt-d1d1ff style2">
-  <div class="overlay"></div>
-  <div class="container">
-      <div class="row">
-          <div class="col-lg-4 col-md-12">
-              <div class="flat-info">
-                  <ul>
-                      <li class="phone"><a href="#">+216 50 05 05 63</a></li>
-                      <li class="mail"><a href="#">contact@mystart.com</a></li>
-                  </ul>
-              </div>
-          </div> <!-- /.col-md-3 -->
-          <div class="col-lg-8 col-md-12 pd-left-0">
-              
-              <div class="flat-adds flat-text-right">
-                <!--  <p>Enjoy A New Student Discount All <span class="font-Roboto font-weight-700 underline-text">55,000 Courses</span> on sale for <span class="font-Hall font-weight-700 letter-spaceing-top">Only </span> <span class="font-Playfair font-weight-700 letter-spaceing-top">$12.99 </span> </p><p class="font-weight-700 datetime">Ends in 05h 23m 49s </p>
-                -->
-                </div> <!-- /.flat-adds -->
-              <div class="flat-action flat-text-right style1">
-                  <ul *ngIf="!loggedUser">
-                      <li (click)="openLoginForm()"><span class="form-btn">LOGIN</span></li>
-                      <li (click)="openRegisterForm()"><span class="form-btn">REGISTER</span></li>
-                  </ul>
-                  <ul *ngIf="loggedUser">
-                    <li><a href="myprofile">{{loggedUser.username}}</a></li>
-                    <li (click)="logOut()"><span class="form-btn">LOGOUT</span></li>
+<nav class="navbar navbar-inverse navbar-expand-xl navbar-dark">
+        <div class="navbar-header d-flex col">
+            <a class="navbar-brand" href="#"><i class="fa fa-cube"></i>Brand<b>Name</b></a>  		
+            <button type="button" data-target="#navbarCollapse" data-toggle="collapse" aria-expanded="false" aria-controls="navbarCollapse" class="navbar-toggle navbar-toggler ml-auto">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <!-- Collection of nav links, forms, and other content for toggling -->
+        <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">		
+            <form class="navbar-form form-inline">
+                <div class="input-group search-box">								
+                    <input type="text" id="search" class="form-control" placeholder="Search here...">
+                    <span class="input-group-addon"><i class="material-icons">&#xE8B6;</i></span>
+                </div>
+            </form>
+            <!-- if there is no logged-user  -->
+
+            <ul class="nav navbar-nav navbar-right ml-auto" *ngIf="!loggedUser">
+                    <li class="nav-item"><a href="#" class="nav-link" (click)="openLoginForm()"><span>LOGIN</span></a></li>
+                    <li class="nav-item"><a href="#" class="nav-link" (click)="openRegisterForm()"><span>REGISTER</span></a></li>
                 </ul>
-              </div> <!-- /.flat-action -->
-          </div> <!-- /.col-md-9 -->
-      </div> <!-- /.row -->
-  </div> <!-- /.container -->
-</div> <!-- /.top -->
+            <!-- if we found a logged-user -->
+            <ul class="nav navbar-nav navbar-right ml-auto" *ngIf="loggedUser">
+                <li class="nav-item active"><a href="#" class="nav-link"><i class="fa fa-home"></i><span>Home</span></a></li>
+                <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-gears"></i><span>Projects</span></a></li>
+                <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-users"></i><span>Team</span></a></li>
+                <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-pie-chart"></i><span>Reports</span></a></li>
+                <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-briefcase"></i><span>Careers</span></a></li>
+                <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-envelope"></i><span>Messages</span></a></li>		
+                <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-bell"></i><span>Notifications</span></a></li>
+                <li class="nav-item dropdown">
+                    <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action"><img src="https://www.tutorialrepublic.com/examples/images/avatar/3.jpg" class="avatar" alt="Avatar"> Antonio Moreno </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a></li>
+                        <li><a href="#" class="dropdown-item"><i class="fa fa-calendar-o"></i> Calendar</a></li>
+                        <li><a href="#" class="dropdown-item"><i class="fa fa-sliders"></i> Settings</a></li>
+                        <li class="divider dropdown-divider"></li>
+                        <li><a href="#" class="dropdown-item" (click)="logOut()"><i class="material-icons" >&#xE8AC;</i> Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>                                                     
