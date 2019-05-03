@@ -1,8 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { TopMenuComponent } from '../../top-menu/top-menu.component';
-import { AuthService, FacebookLoginProvider, GoogleLoginProvider } from 'angular-6-social-login';
-import { CookieService } from 'ngx-cookie-service';
 import { RestApiService } from 'src/app/core/rest-api.service';
+import { AuthenticationService } from 'src/app/core/authentication.service';
 
 @Component({
   selector: 'app-login-form',
@@ -22,12 +21,13 @@ export class LoginFormComponent implements OnInit {
   };
   rememberMe: boolean;
 
-  constructor(public top_menu: TopMenuComponent, private socialAuthService: AuthService, private cookieService: CookieService, public restApi: RestApiService) { }
+  constructor(public top_menu: TopMenuComponent, private auth: AuthenticationService) { }
 
   ngOnInit() {
   }
 
   signIn() {
+
     this.notif = { status: "", message: "" };
     if (this.loginForm.uniqueId == ""){
       this.notif.message = "Please enter username/email.";
@@ -40,41 +40,15 @@ export class LoginFormComponent implements OnInit {
       return;
     }
 
-    this.restApi.post('login', this.loginForm).subscribe((data: {}) => {
-      console.log(data);
-    });
+    this.auth.signIn(this.loginForm);
 
   }
 
   socialSignIn(socialPlatform : string) {
+
     this.notif = { status: "", message: "" };
-
-    let socialPlatformProvider;
-    if(socialPlatform == "facebook"){
-      socialPlatformProvider = FacebookLoginProvider.PROVIDER_ID;
-    }else if(socialPlatform == "google"){
-      socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
-    }
+    this.auth.socialSignIn(socialPlatform);
     
-    this.socialAuthService.signIn(socialPlatformProvider).then(
-      (userData) => {
-        let body: {};
-        if(socialPlatform == "facebook"){
-          body = {facebookId: userData.id};
-        } else if(socialPlatform == "google"){
-          body = {googleId: userData.id};
-        }
-
-        this.restApi.post('socialLogin', body).subscribe((data: {}) => {
-          
-          console.log(data);
-          localStorage.setItem('token',data['token']);
-          window.location.reload();
-          
-        });
-            
-      }
-    );
   }
 
   switchToLogin() {
