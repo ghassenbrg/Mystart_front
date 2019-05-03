@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { RestApiService } from '../core/rest-api.service';
 
 @Component({
   selector: 'app-layout',
@@ -9,17 +10,24 @@ import { Router } from '@angular/router';
 export class LayoutComponent implements OnInit {
 
   isActive = 0;
-  loggedUser: {};
+  loggedUser: any;
   
-  constructor(public router: Router) { }
+  constructor(public router: Router, private restApi: RestApiService) { }
 
   ngOnInit() {
 
     this.whoIsActive();
-    if(localStorage.getItem('token')){
-      this.loggedUser = {test: "Hello"}
+
+    let token = localStorage.getItem('token');
+    if(token){
+      this.restApi.get('me').subscribe((data: {}) => {
+        if(data['err']) this.loggedUser = undefined;
+        this.loggedUser = data;      
+      });
+    }else {
+      this.loggedUser = undefined;
     }
-    
+  
   }
 
   whoIsActive() {

@@ -27,7 +27,7 @@ export class RestApiService {
 
   // HttpClient API get() method => Fetch
   get(uri): Observable<any> {
-    return this.http.get<any>(this.apiURL + uri)
+    return this.http.get<any>(this.apiURL + uri, this.httpOptions)
     .pipe(
       retry(1),
       catchError(this.handleError)
