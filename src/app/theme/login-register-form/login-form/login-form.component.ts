@@ -47,6 +47,8 @@ export class LoginFormComponent implements OnInit {
   }
 
   socialSignIn(socialPlatform : string) {
+    this.notif = { status: "", message: "" };
+
     let socialPlatformProvider;
     if(socialPlatform == "facebook"){
       socialPlatformProvider = FacebookLoginProvider.PROVIDER_ID;
@@ -64,11 +66,12 @@ export class LoginFormComponent implements OnInit {
         }
 
         this.restApi.post('socialLogin', body).subscribe((data: {}) => {
+          
           console.log(data);
+          localStorage.setItem('token',data['token']);
+          window.location.reload();
+          
         });
-
-        // this.cookieService.set( 'isLogged', 'true' );
-        // window.location.reload();
             
       }
     );
@@ -81,5 +84,15 @@ export class LoginFormComponent implements OnInit {
 
   close() {
     this.top_menu.login_form_hidden = true;
+
+    this.loginForm = {
+      uniqueId: "",
+      password: ""
+    };
+
+    this.notif = {
+      status: "",
+      message: ""
+    };
   }
 }
