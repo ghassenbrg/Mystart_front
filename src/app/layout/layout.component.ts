@@ -9,12 +9,16 @@ import { Router } from '@angular/router';
 export class LayoutComponent implements OnInit {
 
   isActive = 0;
+  loggedUser: {};
   
   constructor(public router: Router) { }
 
   ngOnInit() {
 
     this.whoIsActive();
+    if(localStorage.getItem('token')){
+      this.loggedUser = {test: "Hello"}
+    }
     
   }
 

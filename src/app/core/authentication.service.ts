@@ -13,6 +13,8 @@ export class AuthenticationService {
 
     this.restApi.post('login', loginForm).subscribe((data: {}) => {
       console.log(data);
+      localStorage.setItem('token',data['token']);
+      window.location.reload();
     });
 
   }
@@ -39,7 +41,7 @@ export class AuthenticationService {
           
           console.log(data);
           localStorage.setItem('token',data['token']);
-         // window.location.reload();
+          window.location.reload();
           
         });
             

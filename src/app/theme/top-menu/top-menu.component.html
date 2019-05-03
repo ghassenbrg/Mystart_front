@@ -20,11 +20,11 @@
                 -->
                 </div> <!-- /.flat-adds -->
               <div class="flat-action flat-text-right style1">
-                  <ul *ngIf="isLogged != 'true'">
+                  <ul *ngIf="!loggedUser">
                       <li (click)="openLoginForm()"><span class="form-btn">LOGIN</span></li>
                       <li (click)="openRegisterForm()"><span class="form-btn">REGISTER</span></li>
                   </ul>
-                  <ul *ngIf="isLogged == 'true'">
+                  <ul *ngIf="loggedUser">
                     <li (click)="logOut()"><span class="form-btn">LOGOUT</span></li>
                 </ul>
               </div> <!-- /.flat-action -->

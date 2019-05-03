@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { RestApiService } from 'src/app/core/rest-api.service';
 
@@ -9,15 +9,15 @@ import { RestApiService } from 'src/app/core/rest-api.service';
 })
 export class TopMenuComponent implements OnInit {
 
+  @Input() loggedUser;
   login_form_hidden = true;
   register_form_hidden = true;
-  isLogged = "";
+
 
   constructor(private cookieService: CookieService) {
    }
 
   ngOnInit() {
-    this.isLogged = this.cookieService.get('isLogged');
   }
 
   openLoginForm() {
@@ -29,7 +29,7 @@ export class TopMenuComponent implements OnInit {
   }
 
   logOut() {
-    this.cookieService.set( 'isLogged', 'false' );
+    localStorage.removeItem('token');
     window.location.reload();
   }
 
