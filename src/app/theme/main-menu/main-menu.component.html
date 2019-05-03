@@ -3,20 +3,18 @@
             <!-- Collection of nav links, forms, and other content for toggling -->
             <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
               <ul class="nav navbar-nav">
-                <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">About</a></li>			
-                <li class="nav-item dropdown">
-                  <a data-toggle="dropdown" class="nav-link dropdown-toggle" href="#">Services</a>
+                <li class="nav-item {{amIActive[1]}}"><a href="#" class="nav-link">HOME</a></li>
+                <li class="nav-item {{amIActive[2]}}"><a href="#" class="nav-link">PROJECTS</a></li>			
+                <li class="nav-item dropdown {{amIActive[3]}}">
+                  <a data-toggle="dropdown" class="nav-link dropdown-toggle" href="#">EXPERTS</a>
                   <ul class="dropdown-menu">					
-                    <li><a href="#" class="dropdown-item">Web Design</a></li>
-                    <li><a href="#" class="dropdown-item">Web Development</a></li>
-                    <li><a href="#" class="dropdown-item">Graphic Design</a></li>
-                    <li><a href="#" class="dropdown-item">Digital Marketing</a></li>
+                    <li><a href="#" class="dropdown-item">List of experts</a></li>
+                    <li><a href="#" class="dropdown-item">Questions area</a></li>
                   </ul>
                 </li>
-                <li class="nav-item active"><a href="#" class="nav-link">Portfolio</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Blog</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+                <li class="nav-item {{amIActive[4]}}"><a href="#" class="nav-link">COURSES</a></li>
+                <li class="nav-item {{amIActive[5]}}"><a href="#" class="nav-link">EVENTS</a></li>
+                <li class="nav-item {{amIActive[6]}}"><a href="#" class="nav-link">BLOG</a></li>
               </ul>	
             </div>
           </nav>
