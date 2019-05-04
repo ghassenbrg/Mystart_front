@@ -151,3 +151,8 @@
   background-color: #FB0638;
   color: white;
 }
+
+.btn-form {
+  background-color: grey;
+  border-color: grey;
+}
