@@ -3,3 +3,7 @@
     margin: 0;
     border-width: 3px;
 }
+
+.fb-customerchat {
+    z-index: 100;
+}

@@ -17,6 +17,7 @@ import { AccountSettingComponent } from './pages/profile/account-setting/account
 import { MessagesComponent } from './pages/profile/messages/messages.component';
 import { RegisterFormComponent } from './theme/login-register-form/register-form/register-form.component';
 import { LoginFormComponent } from './theme/login-register-form/login-form/login-form.component';
+import { TestComponent } from './test/test.component';
 
 const routes: Routes = [
   { path: '', component: LayoutComponent, children : [
