@@ -39,11 +39,14 @@ export class MainMenuComponent implements OnInit {
         case "/blog":
           isActive = 6;
           break;
+        case "/questions":
+          isActive = 7;
+          break;  
       default:
           isActive = 0;
     }
 
-    for (let i=1; i < 7; i++){
+    for (let i=1; i < 8; i++){
       if (i == isActive) {
         this.amIActive[i] = "active";
         continue;
