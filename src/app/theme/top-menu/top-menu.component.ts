@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { RestApiService } from 'src/app/core/rest-api.service';
+import { AuthenticationService } from 'src/app/core/authentication.service';
 
 @Component({
   selector: 'app-top-menu',
@@ -14,7 +15,7 @@ export class TopMenuComponent implements OnInit {
   register_form_hidden = true;
 
 
-  constructor(private cookieService: CookieService) {
+  constructor(private auth: AuthenticationService) {
    }
 
   ngOnInit() {
@@ -29,8 +30,7 @@ export class TopMenuComponent implements OnInit {
   }
 
   logOut() {
-    localStorage.removeItem('token');
-    window.location.reload();
+    this.auth.logOut();
   }
 
   externelPorfilPicUrl(porfilpic) {

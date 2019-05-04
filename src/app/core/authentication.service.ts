@@ -49,5 +49,11 @@ export class AuthenticationService {
     );
   }
 
+  logOut() {
+    localStorage.removeItem('token');
+    this.socialAuthService.signOut();
+    window.location.reload();
+  }
+
 
 }
