@@ -20,7 +20,6 @@ import { NotAllowedComponent } from './pages/not-allowed/not-allowed.component';
 import { AuthGuardService } from './core/auth-guard.service';
 
 const routes: Routes = [
-  { path: 'notAllowed', component: NotAllowedComponent },
   { path: '', component: LayoutComponent, children : [
     { path: '', component: HomeComponent },
     { path: 'projects', component: ProjectsComponent },
@@ -35,6 +34,7 @@ const routes: Routes = [
     { path: 'article/:id', component: BlogSingleComponent },
     { path: 'myprofile/setting', component: AccountSettingComponent, canActivate: [AuthGuardService] },
     { path: 'messages', component: MessagesComponent, canActivate: [AuthGuardService] },
+    { path: 'notAllowed', component: NotAllowedComponent },
     { path: '**', component: NotFoundComponent }
   ]}
 ];
