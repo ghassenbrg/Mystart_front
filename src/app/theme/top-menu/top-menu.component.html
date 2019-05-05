@@ -38,9 +38,9 @@
                         {{loggedUser.fullName}}
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="myprofile" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a></li>
+                        <li><a [routerLink]="['/myprofile']" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a></li>
                         <li><a href="#" class="dropdown-item"><i class="fa fa-calendar-o"></i> Calendar</a></li>
-                        <li><a href="myprofile/setting" class="dropdown-item"><i class="fa fa-sliders"></i> Settings</a></li>
+                        <li><a [routerLink]="['/myprofile/setting']"  class="dropdown-item"><i class="fa fa-sliders"></i> Settings</a></li>
                         <li class="divider dropdown-divider"></li>
                         <li><a class="dropdown-item" (click)="logOut()"><i class="material-icons" >&#xE8AC;</i> Logout</a></li>
                     </ul>

@@ -186,3 +186,7 @@ a {
     width: 156px !important;
     height: 35px !important;
 }
+
+a {
+    cursor: pointer;
+}

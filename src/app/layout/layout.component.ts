@@ -20,11 +20,15 @@ export class LayoutComponent implements OnInit {
     let token = localStorage.getItem('token');
     if(token){
       this.restApi.get('me').subscribe((data: {}) => {
-        if(data['err']) this.loggedUser = undefined;
+        if(data['err']) {
+          this.loggedUser = undefined;
+          localStorage.removeItem('token');
+        }
         this.loggedUser = data;      
       });
     }else {
       this.loggedUser = undefined;
+      localStorage.removeItem('token');
     }
 
     //facebook customer chat
