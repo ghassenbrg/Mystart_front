@@ -23,6 +23,7 @@ import { MessagesComponent } from './profile/messages/messages.component';
 import { NotAllowedComponent } from './not-allowed/not-allowed.component';
 import { AddProjectComponent } from './add-project/add-project.component';
 import { FormsModule } from '@angular/forms';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 @NgModule({
   declarations: [HomeComponent, NotFoundComponent, ProjectsComponent, CoursesComponent, ExpertsComponent, EventsComponent, BlogComponent, EventSingleComponent, ProjectSingleComponent, BlogSingleComponent, ProfileComponent, ExpertSingleComponent, AccountSettingComponent, QuestionsComponent, MessagesComponent, NotAllowedComponent, AddProjectComponent],
@@ -31,7 +32,8 @@ import { FormsModule } from '@angular/forms';
     ThemeModule,
     HttpClientModule,
     FacebookModule.forRoot(),
-    FormsModule
+    FormsModule,
+    CKEditorModule
   ],
   providers: [
     RestApiService,
