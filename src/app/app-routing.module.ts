@@ -18,6 +18,7 @@ import { MessagesComponent } from './pages/profile/messages/messages.component';
 import { TestComponent } from './test/test.component';
 import { NotAllowedComponent } from './pages/not-allowed/not-allowed.component';
 import { AuthGuardService } from './core/auth-guard.service';
+import { AddProjectComponent } from './pages/add-project/add-project.component';
 
 const routes: Routes = [
   { path: '', component: LayoutComponent, children : [
@@ -34,7 +35,9 @@ const routes: Routes = [
     { path: 'article/:id', component: BlogSingleComponent },
     { path: 'myprofile/setting', component: AccountSettingComponent, canActivate: [AuthGuardService] },
     { path: 'messages', component: MessagesComponent, canActivate: [AuthGuardService] },
+    { path: 'add-project', component: AddProjectComponent, canActivate: [AuthGuardService] },
     { path: 'notAllowed', component: NotAllowedComponent },
+    { path: 'test', component: TestComponent },
     { path: '**', component: NotFoundComponent }
   ]}
 ];

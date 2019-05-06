@@ -21,14 +21,17 @@ import { AccountSettingComponent } from './profile/account-setting/account-setti
 import { QuestionsComponent } from './questions/questions.component';
 import { MessagesComponent } from './profile/messages/messages.component';
 import { NotAllowedComponent } from './not-allowed/not-allowed.component';
+import { AddProjectComponent } from './add-project/add-project.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [HomeComponent, NotFoundComponent, ProjectsComponent, CoursesComponent, ExpertsComponent, EventsComponent, BlogComponent, EventSingleComponent, ProjectSingleComponent, BlogSingleComponent, ProfileComponent, ExpertSingleComponent, AccountSettingComponent, QuestionsComponent, MessagesComponent, NotAllowedComponent],
+  declarations: [HomeComponent, NotFoundComponent, ProjectsComponent, CoursesComponent, ExpertsComponent, EventsComponent, BlogComponent, EventSingleComponent, ProjectSingleComponent, BlogSingleComponent, ProfileComponent, ExpertSingleComponent, AccountSettingComponent, QuestionsComponent, MessagesComponent, NotAllowedComponent, AddProjectComponent],
   imports: [
     CommonModule,
     ThemeModule,
     HttpClientModule,
-    FacebookModule.forRoot()
+    FacebookModule.forRoot(),
+    FormsModule
   ],
   providers: [
     RestApiService,
