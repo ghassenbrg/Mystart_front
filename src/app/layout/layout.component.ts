@@ -11,6 +11,8 @@ import { FacebookService, InitParams } from 'ngx-facebook';
 export class LayoutComponent implements OnInit {
 
   loggedUser: any;
+  topMenuData: {};
+  footerData: {};
 
   constructor(public router: Router, private restApi: RestApiService, private facebookService: FacebookService) { }
 
@@ -30,6 +32,24 @@ export class LayoutComponent implements OnInit {
       this.loggedUser = undefined;
       localStorage.removeItem('token');
     }
+
+    this.restApi.get('config/menus').subscribe((data: {}) => {
+      if(data['err']) {
+        this.topMenuData = undefined;
+        this.footerData = undefined;
+      }
+      this.topMenuData = {
+        logo: data['logo'],
+        domainName: data['domainName'],
+      };   
+      this.footerData = {
+        logo: data['logoFooter'],
+        domainName: data['domainName'],
+        socialMedia: data['socialMedia'],
+        playStore: data['playStore'],
+        appStore: data['appStore']
+      };      
+    });
 
     //facebook customer chat
     this.initFacebookService();

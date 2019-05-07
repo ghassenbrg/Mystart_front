@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { RestApiService } from 'src/app/core/rest-api.service';
 
 @Component({
@@ -8,8 +8,8 @@ import { RestApiService } from 'src/app/core/rest-api.service';
 })
 export class FooterComponent implements OnInit {
 
-
-
+  @Input() footerData;
+  
   constructor(public restApi: RestApiService) { }
 
   ngOnInit() {
