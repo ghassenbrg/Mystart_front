@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
     investor: {},
     expert: {}
   };
+  slider: {};
 
   constructor(private restApi: RestApiService) { }
 
@@ -22,11 +23,15 @@ export class HomeComponent implements OnInit {
     
     this.restApi.get('config').subscribe((data: {}) => {
       if(data['err']) return false;
-      console.log(JSON.stringify(data))
+      // for flat counter
       this.successStoryNbr = data['successStoryNbr'];
+      // for actors description
       this.actorsData.entrepreneur = data['entrepreneur'];
       this.actorsData.investor = data['investor'];
       this.actorsData.expert = data['expert'];
+      //for slider
+      this.slider = data['slider'];
+
     });
 
   }
