@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
     expert: {}
   };
   slider: {};
+  flatVideo: {};
 
   constructor(private restApi: RestApiService) { }
 
@@ -31,6 +32,8 @@ export class HomeComponent implements OnInit {
       this.actorsData.expert = data['expert'];
       //for slider
       this.slider = data['slider'];
+      //for flat video
+      this.flatVideo = data['video'];
 
     });
 

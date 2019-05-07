@@ -3,7 +3,7 @@
     <div class="container">
         <div class="video flat-text-center">
             <div class="icon">
-                <a class="fancybox videobox-link" data-type="iframe" href="https://www.youtube.com/embed/2Ge1GGitzLw?autoplay=1">
+                <a class="fancybox videobox-link" data-type="iframe" href="{{flatVideo.url}}">
                     <span class="icon-video"></span>
                     <div class="videobox-animation circle-1" ></div>
                     <div class="videobox-animation circle-2" ></div>
@@ -11,8 +11,8 @@
                 </a>
             </div>
             <div class="content">
-                <h2 class="title"><a href="#">How it works ?</a></h2>
-                <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                <h2 class="title"><a>{{flatVideo.title}}</a></h2>
+                <p class="description">{{flatVideo.desc}}</p>
             </div>     
         </div>
     </div>
