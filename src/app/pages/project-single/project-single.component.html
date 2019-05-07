@@ -23,7 +23,8 @@
                       </div>
                       <div class="author border-t-e6f3ff">
                           <div class="author-avata">
-                              <img src="../../../assets/{{project.authorRes[0].profilpic}}" class="profile-pic" alt="bookflare">
+                              <img src="../../../assets/{{project.authorRes[0].profilpic}}" class="profile-pic" alt="bookflare"  *ngIf="!externelPorfilPicUrl(project.authorRes[0].profilpic)">
+                              <img src="{{project.authorRes[0].profilpic}}" class="profile-pic" alt="bookflare" *ngIf="externelPorfilPicUrl(project.authorRes[0].profilpic)">
                           </div>
                           <div class="author-info">
                               <h6 class="name"><a href="/profile/{{project.authorRes[0].username}}">{{project.authorRes[0].username}}</a></h6>

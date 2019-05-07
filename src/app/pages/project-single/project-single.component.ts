@@ -36,4 +36,11 @@ export class ProjectSingleComponent implements OnInit {
 
   }
 
+  externelPorfilPicUrl(porfilpic) {
+    if((porfilpic.search('http://') == -1) && ((porfilpic.search('https://') == -1))) {
+      return false;
+    }
+    return true;
+  }
+
 }
