@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { LayoutComponent } from 'src/app/layout/layout.component';
+import { HomeComponent } from 'src/app/pages/home/home.component';
 
 @Component({
   selector: 'app-flat-counter',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FlatCounterComponent implements OnInit {
 
-  constructor() { }
+  @Input() successStoryNbr:any;
+
+  constructor(public home: HomeComponent) {}
 
   ngOnInit() {
   }
-
 }

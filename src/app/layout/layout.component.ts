@@ -11,8 +11,7 @@ import { FacebookService, InitParams } from 'ngx-facebook';
 export class LayoutComponent implements OnInit {
 
   loggedUser: any;
-  homeConfig: any;
-  
+
   constructor(public router: Router, private restApi: RestApiService, private facebookService: FacebookService) { }
 
   ngOnInit() {
@@ -31,12 +30,6 @@ export class LayoutComponent implements OnInit {
       this.loggedUser = undefined;
       localStorage.removeItem('token');
     }
-
-    this.restApi.get('config').subscribe((data: {}) => {
-      if(data['err']) this.homeConfig = undefined;
-      console.log('test: '+JSON.stringify(data));
-      this.homeConfig = data;      
-    });
 
     //facebook customer chat
     this.initFacebookService();

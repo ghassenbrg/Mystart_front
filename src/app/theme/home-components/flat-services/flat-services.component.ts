@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-flat-services',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./flat-services.component.css']
 })
 export class FlatServicesComponent implements OnInit {
+
+  @Input() actorsData;
 
   constructor() { }
 
