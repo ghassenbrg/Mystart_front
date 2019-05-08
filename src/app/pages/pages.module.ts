@@ -24,6 +24,7 @@ import { NotAllowedComponent } from './not-allowed/not-allowed.component';
 import { AddProjectComponent } from './add-project/add-project.component';
 import { FormsModule } from '@angular/forms';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [HomeComponent, NotFoundComponent, ProjectsComponent, CoursesComponent, ExpertsComponent, EventsComponent, BlogComponent, EventSingleComponent, ProjectSingleComponent, BlogSingleComponent, ProfileComponent, ExpertSingleComponent, AccountSettingComponent, QuestionsComponent, MessagesComponent, NotAllowedComponent, AddProjectComponent],
@@ -33,7 +34,8 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     HttpClientModule,
     FacebookModule.forRoot(),
     FormsModule,
-    CKEditorModule
+    CKEditorModule,
+    NgbModule
   ],
   providers: [
     RestApiService,

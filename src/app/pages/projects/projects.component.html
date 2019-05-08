@@ -27,8 +27,12 @@
             </div>
         </div>
     </div> <!-- /.course -->
+    <div class="new-data" [innerHtml]="newData">
+    </div>
 </div> <!-- /.flat-courses -->
-
+<div class="load-more" *ngIf="!((pagination.cuurentPage * pagination.pageSize) >= pagination.itemSize)">
+    <img src="../../../assets/myDocs/loading.gif" alt="" class="loading-gif" [hidden]="!loading">
+    <button class="btn-primary" (click)=loadNewData() [hidden]="loading">Load more</button>
 </div>
-
+</div>
 <br><br>

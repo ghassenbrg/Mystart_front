@@ -12,3 +12,10 @@
 .cover-img {
     height: 180px;
 }
+.load-more {
+    text-align: center;
+}
+
+.loading-gif {
+    width: 40px;
+}

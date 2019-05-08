@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RestApiService } from './core/rest-api.service';
 import { FacebookModule } from 'ngx-facebook';
 import { TestComponent } from './test/test.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { TestComponent } from './test/test.component';
     PagesModule,
     ThemeModule,
     HttpClientModule,
-    FacebookModule.forRoot()
+    FacebookModule.forRoot(),
+    NgbModule
   ],
   providers: [RestApiService],
   bootstrap: [AppComponent]
