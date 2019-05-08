@@ -19,7 +19,7 @@ export class ProjectsComponent implements OnInit {
   pagination = {
     itemSize: Number,
     cuurentPage: 1,
-    pageSize: 3
+    pageSize: 4
   }
   loading = false;
   
@@ -28,7 +28,7 @@ export class ProjectsComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.restApi.get('projects/0/'+this.pagination.pageSize).subscribe((data: {}) => {
+    this.restApi.get('projects/0/'+this.pagination.pageSize+'/1').subscribe((data: {}) => {
       this.projects = data;
     });
     this.restApi.get('projects/count').subscribe((data: {}) => {
@@ -44,7 +44,7 @@ export class ProjectsComponent implements OnInit {
     let skip = this.pagination.cuurentPage * this.pagination.pageSize;
     let limit = this.pagination.pageSize;
     
-    this.restApi.get('projects/'+skip+'/'+limit).subscribe((data: {}) => {
+    this.restApi.get('projects/'+skip+'/'+limit+'/1').subscribe((data: {}) => {
       tab = data;
       for (let d of tab){
        this.projects.push(d);

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
+import { getToken } from '@angular/router/src/utils/preactivation';
 
 @Injectable({
   providedIn: 'root'
@@ -17,11 +18,12 @@ export class RestApiService {
     CRUD Methods for consuming RESTful API
   =========================================*/
 
+
   // Http Options
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      'token': localStorage.getItem('token') || ""
+      'token': this.getToken() || ""
     })
   } 
 
@@ -75,4 +77,12 @@ export class RestApiService {
     return throwError(errorMessage);
   }
  
+  getToken(){
+    let auth = JSON.parse(localStorage.getItem('auth'));
+    if(auth){
+      return auth.token;
+    }
+    return "";
+  }
  }
+

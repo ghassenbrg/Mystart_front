@@ -40,6 +40,7 @@ const routes: Routes = [
     { path: 'add-project', component: AddProjectComponent, canActivate: [AuthGuardService] },
     { path: 'notAllowed', component: NotAllowedComponent },
     { path: 'test', component: TestComponent },
+    { path: '404', component: NotFoundComponent },
     { path: '**', component: NotFoundComponent }
   ]}
 ];

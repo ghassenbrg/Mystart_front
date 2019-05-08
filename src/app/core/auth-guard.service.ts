@@ -14,8 +14,9 @@ export class AuthGuardService implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
         //check logged
-    let token = localStorage.getItem('token');
-    if(!token){
+    
+    let auth = JSON.parse(localStorage.getItem('auth'));
+    if((!auth) || (!auth.token)){
       this.router.navigate(['/notAllowed']);
       return false;
     }

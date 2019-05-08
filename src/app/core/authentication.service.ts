@@ -13,7 +13,7 @@ export class AuthenticationService {
 
     this.restApi.post('login', loginForm).subscribe((data: {}) => {
       console.log(data);
-      localStorage.setItem('token',data['token']);
+      localStorage.setItem('auth',JSON.stringify(data));
       window.location.reload();
     });
 
@@ -40,7 +40,7 @@ export class AuthenticationService {
         this.restApi.post('socialLogin', body).subscribe((data: {}) => {
           
           console.log(data);
-          localStorage.setItem('token',data['token']);
+          localStorage.setItem('auth',JSON.stringify(data));
           window.location.reload();
           
         });
@@ -50,7 +50,7 @@ export class AuthenticationService {
   }
 
   logOut() {
-    localStorage.removeItem('token');
+    localStorage.removeItem('auth');
     this.socialAuthService.signOut();
     window.location.reload();
   }

@@ -19,18 +19,19 @@ export class LayoutComponent implements OnInit {
   ngOnInit() {
 
     //check logged
-    let token = localStorage.getItem('token');
+    let auth = JSON.parse(localStorage.getItem('auth'));
+    let token = auth.token;
     if(token){
       this.restApi.get('me').subscribe((data: {}) => {
         if(data['err']) {
           this.loggedUser = undefined;
-          localStorage.removeItem('token');
+          localStorage.removeItem('auth');
         }
         this.loggedUser = data;      
       });
     }else {
       this.loggedUser = undefined;
-      localStorage.removeItem('token');
+      localStorage.removeItem('auth');
     }
 
     this.restApi.get('config/menus').subscribe((data: {}) => {
