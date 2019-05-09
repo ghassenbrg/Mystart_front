@@ -20,8 +20,8 @@ export class LayoutComponent implements OnInit {
 
     //check logged
     let auth = JSON.parse(localStorage.getItem('auth'));
-    let token = auth.token;
-    if(token){
+
+    if((auth)&&(auth.token)){
       this.restApi.get('me').subscribe((data: {}) => {
         if(data['err']) {
           this.loggedUser = undefined;
@@ -33,12 +33,14 @@ export class LayoutComponent implements OnInit {
       this.loggedUser = undefined;
       localStorage.removeItem('auth');
     }
-
+    console.log("******************");
     this.restApi.get('config/menus').subscribe((data: {}) => {
       if(data['err']) {
         this.topMenuData = undefined;
         this.footerData = undefined;
       }
+      console.log("******************");
+      console.log("test"+data);
       this.topMenuData = {
         logo: data['logo'],
         domainName: data['domainName'],
