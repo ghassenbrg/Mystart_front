@@ -59,7 +59,7 @@ export class ProjectsComponent implements OnInit {
     let skip = this.pagination.cuurentPage * this.pagination.pageSize;
     let limit = this.pagination.pageSize;
     
-    this.restApi.get('projects/'+skip+'/'+limit+'/1/'+this.filter['category']+'/'+keywords).subscribe((data: {}) => {
+    this.restApi.get('projects/'+skip+'/'+limit+'/1/'+this.filter['category']+'/'+keywords+'/'+this.filter['confidentiality']).subscribe((data: {}) => {
       tab = data;
       for (let d of tab){
        this.projects.push(d);
@@ -77,11 +77,11 @@ export class ProjectsComponent implements OnInit {
    let category = this.filter['category'] ;
    if(!category) category = 'all';
    if(keywords.length == 0) keywords = '_0_'; 
-  this.restApi.get('projects/0/'+this.pagination.pageSize+'/1/'+category+'/'+keywords).subscribe((data: {}) => {
+  this.restApi.get('projects/0/'+this.pagination.pageSize+'/1/'+category+'/'+keywords+'/'+this.filter['confidentiality']).subscribe((data: {}) => {
     this.projects = data;
     this.loading = false;
   });
-  this.restApi.get('projects/0/'+this.pagination.pageSize+'/1/'+category+'/'+keywords+'/count').subscribe((data: {}) => {
+  this.restApi.get('projects/0/'+this.pagination.pageSize+'/1/'+category+'/'+keywords+'/'+this.filter['confidentiality']+'/count').subscribe((data: {}) => {
     let nbr = 0;
     if(data) nbr = data['nbr'];
     this.pagination['itemSize'] = nbr;
