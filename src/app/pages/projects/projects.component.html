@@ -3,12 +3,45 @@
 
 
   <br><br><br>
+  <div nz-row nzType="flex" nzJustify="center" class="filter">
+    <div nz-col zSpan="4">
+        <h2>Filter: </h2>
+       
+    </div>
+    <div class="mySpace"></div>
+    <div nz-col zSpan="4">
+        <nz-input-group nzSearch nzSize="large">
+          <input type="text" class="myInput" placeholder="input search keywords" [(ngModel)]="filter.keywords" />
+        </nz-input-group> <!-- keyword -->  
+    </div>
+    <div class="mySpace"></div>
+    <div nz-col zSpan="4">
+        <nz-select style="width: 200px;" nzShowSearch nzAllowClear nzSize="large" nzPlaceHolder="Category" [(ngModel)]="filter.category">
+          <nz-option nzLabel="Jack" nzValue="jack"></nz-option>
+          <nz-option nzLabel="Lucy" nzValue="lucy"></nz-option>
+          <nz-option nzLabel="Tom" nzValue="tom"></nz-option>
+        </nz-select> <!-- category --> 
+    </div>
+    <div class="mySpace"></div>
+    <div nz-col zSpan="4">
+      <nz-radio-group [(ngModel)]="filter.confidentiality" [nzButtonStyle]="'solid'" nzSize="large">
+        <label nz-radio-button nzValue="All">All</label>
+        <label nz-radio-button nzValue="Public">Public</label>
+        <label nz-radio-button nzValue="Private">Private</label>
+      </nz-radio-group>
+    </div>
+    <div class="mySpace"></div>
+    <div nz-col zSpan="4">
+        <button nz-button nzType="primary" nzSize="large"><i class="fas fa-filter"></i> Filter</button>
+    </div>
+  </div>
+  <br>
   <div class="container-fluid">
 
   <div class="flat-courses clearfix isotope-courses">
     <div class="course one-of-four text-2ebd59 Marketing Design " *ngFor ="let project of projects">
         <div class="course-border border-f-e6f3ff border-ra4 transition-vline">   
-            <div class="course-img img-vline">
+            <div class="course-img img-vline"> 
                 <a href="project/{{project._id}}"><img src="../../../assets/{{project.coverImg}}" class="cover-img" alt="bookflare"></a>
                 <div class="overlay">
                     <span class="vline"></span>
@@ -31,7 +64,7 @@
     </div>
 </div> <!-- /.flat-courses -->
 <div class="load-more" *ngIf="!((pagination.cuurentPage * pagination.pageSize) >= pagination.itemSize)">
-    <img src="../../../assets/myDocs/loading.gif" alt="" class="loading-gif" [hidden]="!loading">
+    <nz-spin nzSimple [nzSize]="'large'" [hidden]="!loading"></nz-spin>
     <button nz-button nzType="primary" nzSize="large" (click)=loadNewData() [hidden]="loading">Load more</button>
 </div>
 </div>

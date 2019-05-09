@@ -22,12 +22,16 @@ export class ProjectsComponent implements OnInit {
     pageSize: 4
   }
   loading = false;
+
+  filter = {};
   
   constructor( private title: Title, public restApi: RestApiService) {
     this.title.setTitle("Mystart | Projects")
    }
 
   ngOnInit() {
+    this.filter['keywords'] = '';
+    this.filter['confidentiality'] = 'All';
     this.restApi.get('projects/0/'+this.pagination.pageSize+'/1').subscribe((data: {}) => {
       this.projects = data;
     });
