@@ -25,6 +25,8 @@ import { AddProjectComponent } from './add-project/add-project.component';
 import { FormsModule } from '@angular/forms';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgZorroAntdModule, NZ_I18N, en_US } from 'ng-zorro-antd';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [HomeComponent, NotFoundComponent, ProjectsComponent, CoursesComponent, ExpertsComponent, EventsComponent, BlogComponent, EventSingleComponent, ProjectSingleComponent, BlogSingleComponent, ProfileComponent, ExpertSingleComponent, AccountSettingComponent, QuestionsComponent, MessagesComponent, NotAllowedComponent, AddProjectComponent],
@@ -35,11 +37,14 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     FacebookModule.forRoot(),
     FormsModule,
     CKEditorModule,
-    NgbModule
+    NgbModule,
+    NgZorroAntdModule,
+    BrowserAnimationsModule
   ],
   providers: [
     RestApiService,
-    TimeService
+    TimeService, 
+    { provide: NZ_I18N, useValue: en_US }
   ],
 })
 export class PagesModule { }
