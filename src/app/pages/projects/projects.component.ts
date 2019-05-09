@@ -51,7 +51,8 @@ export class ProjectsComponent implements OnInit {
   
   loadNewData() {
     let keywords = this.filter['keywords'] ;
-    if(!this.filter['category']) this.filter['category'] = 'all';
+    let category = this.filter['category'] ;
+    if(!category) category = 'all';
     if(keywords.length == 0) keywords = '_0_'; 
 
     this.loading = true;
@@ -59,7 +60,7 @@ export class ProjectsComponent implements OnInit {
     let skip = this.pagination.cuurentPage * this.pagination.pageSize;
     let limit = this.pagination.pageSize;
     
-    this.restApi.get('projects/'+skip+'/'+limit+'/1/'+this.filter['category']+'/'+keywords+'/'+this.filter['confidentiality']).subscribe((data: {}) => {
+    this.restApi.get('projects/'+skip+'/'+limit+'/1/'+category+'/'+keywords+'/'+this.filter['confidentiality']).subscribe((data: {}) => {
       tab = data;
       for (let d of tab){
        this.projects.push(d);

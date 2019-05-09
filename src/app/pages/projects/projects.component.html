@@ -5,7 +5,7 @@
   <br><br><br>
   <div nz-row nzType="flex" nzJustify="center" class="filter">
     <div nz-col zSpan="4">
-        <h2>Filter: </h2>
+        <h3>Filter: </h3>
        
     </div>
     <div class="mySpace"></div>
@@ -48,8 +48,8 @@
                 <div class="text-wrap border-bt-e6f3ff">
                     <h6 class="title"><a href="project/{{project._id}}">{{project.title}}</a></h6>
                     <p class="teacher">
-                        <a href="profile/{{project.authorRes[0].username}}">{{project.authorRes[0].username}}</a>
-                         | <span class="cat" style="color: grey">category: {{project.category}}</span>
+                        <a href="profile/{{project.authorRes[0].username}}"><i class="fas fa-user-tie"></i> {{project.authorRes[0].username}}</a>
+                        <span class="cat" style="color: grey"> | <i class="fas fa-folder"></i> category: {{project.category}}</span>
                         </p>
                     <p class="description">{{project.description}}</p>
                 </div>
