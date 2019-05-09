@@ -17,12 +17,12 @@ export class ProjectsComponent implements OnInit {
   projects : any;
 
   pagination = {
-    itemSize: Number,
     cuurentPage: 1,
     pageSize: 4
   }
   loading = false;
 
+  categories;
   filter = {};
   
   constructor( private title: Title, public restApi: RestApiService) {
@@ -30,32 +30,63 @@ export class ProjectsComponent implements OnInit {
    }
 
   ngOnInit() {
+
     this.filter['keywords'] = '';
     this.filter['confidentiality'] = 'All';
+
+    this.restApi.get('categories').subscribe((data: {}) => {
+      this.categories = data;
+    });
+
     this.restApi.get('projects/0/'+this.pagination.pageSize+'/1').subscribe((data: {}) => {
       this.projects = data;
     });
+    
     this.restApi.get('projects/count').subscribe((data: {}) => {
-      this.pagination.itemSize = data['nbr'];
-      console.log(this.pagination.itemSize);
+      this.pagination['itemSize'] = data['nbr'];
+      console.log(this.pagination['itemSize']);
     });
   }
 
   
   loadNewData() {
+    let keywords = this.filter['keywords'] ;
+    if(!this.filter['category']) this.filter['category'] = 'all';
+    if(keywords.length == 0) keywords = '_0_'; 
+
     this.loading = true;
     let tab :any;
     let skip = this.pagination.cuurentPage * this.pagination.pageSize;
     let limit = this.pagination.pageSize;
     
-    this.restApi.get('projects/'+skip+'/'+limit+'/1').subscribe((data: {}) => {
+    this.restApi.get('projects/'+skip+'/'+limit+'/1/'+this.filter['category']+'/'+keywords).subscribe((data: {}) => {
       tab = data;
       for (let d of tab){
        this.projects.push(d);
       }
       this.pagination.cuurentPage++;
       this.loading = false;
+      console.log('size: '+this.pagination['itemSize']+' | page: '+this.pagination.cuurentPage);
     });
+ }
+
+ filterResult() {
+  this.loading = true;
+  this.pagination.cuurentPage = 1;
+   let keywords = this.filter['keywords'] ;
+   if(!this.filter['category']) this.filter['category'] = 'all';
+   if(keywords.length == 0) keywords = '_0_'; 
+  this.restApi.get('projects/0/'+this.pagination.pageSize+'/1/'+this.filter['category']+'/'+keywords).subscribe((data: {}) => {
+    this.projects = data;
+    this.loading = false;
+  });
+  this.restApi.get('projects/0/'+this.pagination.pageSize+'/1/'+this.filter['category']+'/'+keywords+'/count').subscribe((data: {}) => {
+    let nbr = 0;
+    if(data) nbr = data['nbr'];
+    this.pagination['itemSize'] = nbr;
+    console.log('size: '+this.pagination['itemSize']+' | page: '+this.pagination.cuurentPage);
+  });
+
  }
 
 }
