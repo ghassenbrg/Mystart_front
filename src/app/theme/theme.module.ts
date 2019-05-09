@@ -21,6 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from '../app-routing.module';
 import { TimeService } from '../core/time.service';
 import { FormsModule } from '@angular/forms';
+import { NgZorroAntdModule, NZ_I18N, en_US } from 'ng-zorro-antd';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 // Configs 
@@ -48,7 +50,9 @@ export function getAuthServiceConfigs() {
     SocialLoginModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    NgZorroAntdModule,
+    BrowserAnimationsModule
   ],
   providers: [
     {
@@ -57,7 +61,8 @@ export function getAuthServiceConfigs() {
     },
     CookieService,
     RestApiService,
-    TimeService
+    TimeService, 
+    { provide: NZ_I18N, useValue: en_US }
   ],
   exports: [
     TopMenuComponent,

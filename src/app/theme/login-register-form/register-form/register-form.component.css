@@ -136,7 +136,10 @@
   font-size: 80%;
   height: 50px;
 }
-
+a {
+  cursor: pointer;
+  color: #1A97D7 !important;
+}
 .notif> p {
   border-radius: 3px;
   padding: 5px;

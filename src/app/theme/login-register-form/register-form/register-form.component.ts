@@ -49,6 +49,9 @@ export class RegisterFormComponent implements OnInit {
       this.notif.message = data['message'];
       if (!data['error']){
         this.notif.status = 'success';
+        setTimeout(() => {
+          this.switchToLogin()
+        }, 2000);
       } else {
         this.notif.status = 'wrong';
       }

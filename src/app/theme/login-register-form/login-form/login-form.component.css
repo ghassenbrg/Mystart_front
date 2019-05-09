@@ -157,6 +157,10 @@
     border-color: grey;
   }
 
+  a {
+    cursor: pointer;
+    color: #1A97D7 !important;
+  }
 
   @media only screen and (max-width: 420px) {
     .form {

@@ -7,7 +7,8 @@
                   <div class="card-body">
                     <h5 class="card-title text-center">LogIn</h5>
                     <div class="notif">
-                        <p class="wrong" *ngIf="notif.status == 'wrong'">{{notif.message}}</p>
+                        <nz-alert nzType="error" nzMessage="{{notif.message}}" *ngIf="notif.status == 'wrong'" nzShowIcon></nz-alert>
+                        <br>
                       </div>
                     <form class="form-signin">
                       <div class="">
@@ -32,7 +33,7 @@
                       <div class="form-group">
                               <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
                                   Don't have an account! 
-                              <a href="#" (click)="switchToLogin()">
+                              <a (click)="switchToLogin()">
                                   Sign Up Here
                               </a>
                               </div>
