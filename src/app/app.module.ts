@@ -10,6 +10,13 @@ import { RestApiService } from './core/rest-api.service';
 import { FacebookModule } from 'ngx-facebook';
 import { TestComponent } from './test/test.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgZorroAntdModule, NZ_I18N, en_US } from 'ng-zorro-antd';
+import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { registerLocaleData } from '@angular/common';
+import en from '@angular/common/locales/en';
+
+registerLocaleData(en);
 
 @NgModule({
   declarations: [
@@ -24,9 +31,12 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     ThemeModule,
     HttpClientModule,
     FacebookModule.forRoot(),
-    NgbModule
+    NgbModule,
+    NgZorroAntdModule,
+    FormsModule,
+    BrowserAnimationsModule
   ],
-  providers: [RestApiService],
+  providers: [RestApiService, { provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
