@@ -43,6 +43,9 @@
                       </div>
                   </div>
               </div> <!-- /.course-single -->
+              <div class="alert" [hidden]="authorized">
+                  <h2>You should contact the author ti give permission.</h2>
+              </div>
               <div class="flat-tabs bg-fff border-ra4 border-f-e6f3ff" [hidden]="!authorized">
                   <ul class="tab-title style1 clearfix border-bt-e6f3ff"> 
                       <li class="item-title  overview">
