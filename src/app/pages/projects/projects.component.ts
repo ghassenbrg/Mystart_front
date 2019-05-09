@@ -74,13 +74,14 @@ export class ProjectsComponent implements OnInit {
   this.loading = true;
   this.pagination.cuurentPage = 1;
    let keywords = this.filter['keywords'] ;
-   if(!this.filter['category']) this.filter['category'] = 'all';
+   let category = this.filter['category'] ;
+   if(!category) category = 'all';
    if(keywords.length == 0) keywords = '_0_'; 
-  this.restApi.get('projects/0/'+this.pagination.pageSize+'/1/'+this.filter['category']+'/'+keywords).subscribe((data: {}) => {
+  this.restApi.get('projects/0/'+this.pagination.pageSize+'/1/'+category+'/'+keywords).subscribe((data: {}) => {
     this.projects = data;
     this.loading = false;
   });
-  this.restApi.get('projects/0/'+this.pagination.pageSize+'/1/'+this.filter['category']+'/'+keywords+'/count').subscribe((data: {}) => {
+  this.restApi.get('projects/0/'+this.pagination.pageSize+'/1/'+category+'/'+keywords+'/count').subscribe((data: {}) => {
     let nbr = 0;
     if(data) nbr = data['nbr'];
     this.pagination['itemSize'] = nbr;

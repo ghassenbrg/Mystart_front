@@ -23,7 +23,7 @@
 .myInput {
     background-color: white;
     border-color: grey;
-    max-width: 250px;
+    color: black;
     height: 40px;
 }
 .myInput:hover {
