@@ -35,3 +35,13 @@
 .noData {
     margin-top: 70px;
 }
+
+.nz-row {
+    overflow: hidden; 
+}
+.gutter-row {
+    margin-bottom: 30px;
+  }
+.username {
+    color: green;
+}

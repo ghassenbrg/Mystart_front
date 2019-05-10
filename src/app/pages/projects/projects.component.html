@@ -2,7 +2,7 @@
 
 
 
-  <br><br><br>
+  <br><hr>
   <div nz-row nzType="flex" nzJustify="center" class="filter">
     <div nz-col zSpan="4">
         <h3>Filter: </h3>
@@ -31,10 +31,39 @@
         <button nz-button nzType="primary" nzSize="large" (click)="filterResult()"><i class="fas fa-filter"></i> Filter</button>
     </div>
   </div>
-  <br>
+  <hr>
   <div class="container-fluid">
 
+    <div nz-row nzType="flex" [nzGutter]="'32'">
+        <div nz-col class="gutter-row" [nzSpan]="6" *ngFor ="let project of projects">
+            <div class="course-border border-f-e6f3ff border-ra4 transition-vline">   
+                <div class="course-img img-vline"> 
+                    <a href="project/{{project._id}}"><img src="../../../assets/{{project.coverImg}}" class="cover-img" alt="bookflare"></a>
+                    <div class="overlay">
+                        <span class="vline"></span>
+                        <span class="vline vline-bottom"></span>
+                    </div>
+                </div>
+                <div class="course-content">
+                    <div class="text-wrap border-bt-e6f3ff">
+                        <h6 class="title"><a href="project/{{project._id}}">{{project.title}}</a></h6>
+                        <p class="teacher">
+                            <a class="username" href="profile/{{project.authorRes[0].username}}"><i class="fas fa-user-tie"></i> {{project.authorRes[0].username}}</a>
+                            <span class="cat" style="color: grey"> | <i class="fas fa-folder"></i> category: {{project.category}}</span>
+                        </p>
+                        <p class="description">{{project.description}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
   <div class="flat-courses clearfix isotope-courses">
+      <!--
     <div class="course one-of-four text-2ebd59 Marketing Design " *ngFor ="let project of projects">
         <div class="course-border border-f-e6f3ff border-ra4 transition-vline">   
             <div class="course-img img-vline"> 
@@ -55,13 +84,16 @@
                 </div>
             </div>
         </div>
-    </div> <!-- /.course -->
+    </div>  --> <!-- /.course -->
     <div class="new-data" [innerHtml]="newData">
     </div>
     <div class="noData" style="text-align: center" *ngIf="pagination.itemSize == 0">
         <h2>No data to display !</h2>
     </div>
 </div> <!-- /.flat-courses -->
+
+
+
 <div class="load-more" *ngIf="!((pagination.cuurentPage * pagination.pageSize) >= pagination.itemSize)">
     <nz-spin nzSimple [nzSize]="'large'" [hidden]="!loading"></nz-spin>
     <button nz-button nzType="primary" nzSize="large" (click)=loadNewData() [hidden]="loading">Load more</button>
