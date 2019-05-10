@@ -1,6 +1,63 @@
 <div class="content-page-wrap">
   <div class="flat-events style1">
-      <br><br>
+      <br><br><hr>
+      <div nz-row nzType="flex" nzJustify="center" class="filter">
+        <div nz-col zSpan="4">
+            <h3>Filter: </h3>
+           
+        </div>
+        <div class="mySpace"></div>
+        <div nz-col zSpan="4">
+          <input type="text" class="myInput" placeholder="input search keywords" [(ngModel)]="filter.keywords" />
+        </div>
+        <div class="mySpace"></div>
+        <div nz-col zSpan="4">
+            <nz-select style="width: 100px;" nzShowSearch nzAllowClear nzSize="large" nzPlaceHolder="Country" [(ngModel)]="filter.country">
+              <nz-option nzLabel="Tunisia" nzValue="TN" ></nz-option>
+            </nz-select> <!-- Country --> <span> : </span>
+            <nz-select style="width: 140px;" nzShowSearch nzAllowClear nzSize="large" nzPlaceHolder="City" [(ngModel)]="filter.category">
+              <nz-option *ngFor="let city of location[filter.country]" nzLabel="{{city}}" nzValue="{{city}}" ></nz-option>
+            </nz-select> <!-- City --> 
+        </div>
+        <div class="mySpace"></div>
+        <div nz-col zSpan="4">
+          <nz-radio-group [(ngModel)]="filter.price" [nzButtonStyle]="'solid'" nzSize="large">
+            <label nz-radio-button nzValue="All">All</label>
+            <label nz-radio-button nzValue="Public">Free</label>
+            <label nz-radio-button nzValue="Private">Paid</label>
+          </nz-radio-group>
+        </div>
+        <div class="mySpace"></div>
+        <div nz-col zSpan="4">
+            <nz-select style="width: 150px;" nzShowSearch nzAllowClear nzSize="large" nzPlaceHolder="Time" [(ngModel)]="filter.time">
+              <nz-option nzLabel="Any time" nzValue="Any time" ></nz-option>
+              <nz-option nzLabel="Today" nzValue="Today" ></nz-option>
+              <nz-option nzLabel="This week" nzValue="This week" ></nz-option>
+              <nz-option nzLabel="This month" nzValue="This month" ></nz-option>
+              <nz-option nzLabel="Upcomming" nzValue="Upcomming" ></nz-option>
+              <nz-option nzLabel="Left" nzValue="Left" ></nz-option>
+            </nz-select> <!-- Time -->
+        </div>
+        <div class="mySpace"></div>
+        <div nz-col zSpan="4">
+            <button nz-button nzType="primary" nzSize="large" (click)="filterResult()"><i class="fas fa-filter"></i> Filter</button>
+        </div>
+      </div><hr> <!-- Filter -->
+      <div nz-row nzType="flex" nzJustify="end">
+            <div nz-col nzSpan="2" style="text-align: right; margin-right: 10px;"><p>Sort by: </p></div>
+            <div nz-col nzSpan="2">
+                <nz-select style="width: 100px;" nzShowSearch nzAllowClear nzPlaceHolder="Sort by" [(ngModel)]="sortBy.criteria">
+                    <nz-option nzLabel="Date" nzValue="Date" ></nz-option>
+                    <nz-option nzLabel="Price" nzValue="Price" ></nz-option>
+                </nz-select> 
+            </div><div class="mySpace"></div>
+            <div nz-col nzspan="2">
+                <nz-radio-group [(ngModel)]="sortBy.direction" [nzButtonStyle]="'solid'">
+                    <label nz-radio-button nzValue="1"><i class="fas fa-sort-amount-up"></i></label>
+                    <label nz-radio-button nzValue="-1"><i class="fas fa-sort-amount-down"></i></label>
+                </nz-radio-group>
+            </div>
+        </div><br> <!-- Sort By -->
       <div *ngFor="let event of events; index as i"> <!-- ************ for boucle begin ********************** -->
             <div class="event style1 v1" *ngIf="i%2 == 0"> 
                     <div class="row">
@@ -83,7 +140,9 @@
                             </div>
                         </div>
                     </div> <!-- second event style 2-->
-      </div> <!-- ************ for boucle begin ********************** -->
-
-      
+      </div> <!-- ************ for boucle end ********************** -->
+      <div class="load-more" *ngIf="!((pagination.cuurentPage * pagination.pageSize) >= pagination.itemSize)">
+        <nz-spin nzSimple [nzSize]="'large'" [hidden]="!loading"></nz-spin>
+        <button nz-button nzType="primary" nzSize="large" (click)=loadNewData() [hidden]="loading">Load more</button>
+    </div>
   </div> <!-- /.flat-events **********************************************************   -->
