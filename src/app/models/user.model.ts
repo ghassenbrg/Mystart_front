@@ -13,18 +13,18 @@ export class User {
     public googleId: String;
 
     constructor(body) {
-        this.email = body.email || "";
-        this.password = body.password || "";
-        this.fullName = body.fullName  || "";
-        this.username = body.username || this.fullName.replace(" ", ".").toLowerCase() || "";
-        this.dateOfBirth = body.dateOfBirth  || "01/01/1900";
-        this.sexe = body.sexe  || "";
-        this.location = body.location  || "";
+        this.email = body.email;
+        this.password = body.password;
+        this.fullName = body.fullName || "";
+        this.username = body.username || this.fullName.replace(" ", ".").toLowerCase();
+        this.dateOfBirth = body.dateOfBirth;
+        this.sexe = body.sexe;
+        this.location = body.location;
         this.profilpic = body.profilpic  || "myDocs/profile/default_avatar.png";
-        this.description= body.description  || "";
-        this.cvurl = body.cvurl  || "";
-        this.facebookId = body.facebookId || "";
-        this.googleId = body.googleId || "";
+        this.description= body.description;
+        this.cvurl = body.cvurl;
+        this.facebookId = body.facebookId;
+        this.googleId = body.googleId;
     }
 
     generatePassword(length) {
