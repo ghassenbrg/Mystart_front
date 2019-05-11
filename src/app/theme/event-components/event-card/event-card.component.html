@@ -15,7 +15,7 @@
             <nz-select style="width: 100px;" nzShowSearch nzAllowClear nzSize="large" nzPlaceHolder="Country" [(ngModel)]="filter.country">
               <nz-option nzLabel="Tunisia" nzValue="TN" ></nz-option>
             </nz-select> <!-- Country --> <span> : </span>
-            <nz-select style="width: 140px;" nzShowSearch nzAllowClear nzSize="large" nzPlaceHolder="City" [(ngModel)]="filter.category">
+            <nz-select style="width: 140px;" nzShowSearch nzAllowClear nzSize="large" nzPlaceHolder="City" [(ngModel)]="filter.city">
               <nz-option *ngFor="let city of location[filter.country]" nzLabel="{{city}}" nzValue="{{city}}" ></nz-option>
             </nz-select> <!-- City --> 
         </div>
@@ -23,8 +23,8 @@
         <div nz-col zSpan="4">
           <nz-radio-group [(ngModel)]="filter.price" [nzButtonStyle]="'solid'" nzSize="large">
             <label nz-radio-button nzValue="All">All</label>
-            <label nz-radio-button nzValue="Public">Free</label>
-            <label nz-radio-button nzValue="Private">Paid</label>
+            <label nz-radio-button nzValue="Free">Free</label>
+            <label nz-radio-button nzValue="Paid">Paid</label>
           </nz-radio-group>
         </div>
         <div class="mySpace"></div>
@@ -46,15 +46,15 @@
       <div nz-row nzType="flex" nzJustify="end">
             <div nz-col nzSpan="2" style="text-align: right; margin-right: 10px;"><p>Sort by: </p></div>
             <div nz-col nzSpan="2">
-                <nz-select style="width: 100px;" nzShowSearch nzAllowClear nzPlaceHolder="Sort by" [(ngModel)]="sortBy.criteria">
-                    <nz-option nzLabel="Date" nzValue="Date" ></nz-option>
-                    <nz-option nzLabel="Price" nzValue="Price" ></nz-option>
-                </nz-select> 
+                <nz-select style="width: 100px;" nzShowSearch nzAllowClear nzPlaceHolder="Sort by" [(ngModel)]="sortBy.criteria" (ngModelChange)="filterResult()">
+                    <nz-option nzLabel="Date" nzValue="Date"></nz-option>
+                    <nz-option nzLabel="Price" nzValue="Price"></nz-option>
+                </nz-select>
             </div><div class="mySpace"></div>
             <div nz-col nzspan="2">
                 <nz-radio-group [(ngModel)]="sortBy.direction" [nzButtonStyle]="'solid'">
-                    <label nz-radio-button nzValue="1"><i class="fas fa-sort-amount-up"></i></label>
-                    <label nz-radio-button nzValue="-1"><i class="fas fa-sort-amount-down"></i></label>
+                    <label nz-radio-button nzValue="Asc" (click)="filterResult()"><i class="fas fa-sort-amount-up"></i></label>
+                    <label nz-radio-button nzValue="Desc" (click)="filterResult()"><i class="fas fa-sort-amount-down"></i></label>
                 </nz-radio-group>
             </div>
         </div><br> <!-- Sort By -->

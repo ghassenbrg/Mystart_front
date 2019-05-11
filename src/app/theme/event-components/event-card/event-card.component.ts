@@ -37,15 +37,82 @@ export class EventCardComponent implements OnInit {
     this.filter['price'] = 'All';
     this.filter['country'] = null;
     this.filter['time'] ="Any time";
-    this.sortBy['direction'] = '1'; // 1 for Asc & -1 for Desc
+    this.sortBy['criteria'] = 'Date';
+    this.sortBy['direction'] = 'Asc';
 
-    this.restApi.get('events').subscribe((data: {}) => {
+    this.restApi.get('events/0/'+this.pagination.pageSize+'/1').subscribe((data: {}) => {
       this.events = data;
-      // var i = 0;
-      for(var i=0; i <3; i++) {
+      for(var i=0; i < this.events.length; i++) {
         this.startTime[i] = new Date(data[i].startTime);
       }
     });
+    
+    this.restApi.get('events/count').subscribe((data: {}) => {
+      this.pagination['itemSize'] = data['nbr'];
+    });
   }
+
+
+  loadNewData() {
+    let keywords = this.filter['keywords'] ;
+    let location;
+
+    if(!this.filter['city']) 
+      location = 'all';
+    else
+      location = this.filter['city']+', '+this.filter['country'];
+
+    if(keywords.length == 0) keywords = '_0_'; 
+    
+    let sortBy = this.sortBy['criteria']+'_'+this.sortBy['direction'];
+
+    this.loading = true;
+    let tab :any;
+    let skip = this.pagination.cuurentPage * this.pagination.pageSize;
+    let limit = this.pagination.pageSize;
+    
+    this.restApi.get('events/'+skip+'/'+limit+'/1/'+location+'/'+this.filter['price']+'/'+this.filter['time']+'/'+sortBy+'/'+keywords).subscribe((data: {}) => {
+      tab = data;
+      for (let d of tab){
+       this.events.push(d);
+      }
+      for(var i=0; i < tab.length; i++) {
+        this.startTime.push(new Date(data[i].startTime)) ;
+       }
+      this.pagination.cuurentPage++;
+      this.loading = false;
+    });
+ }
+
+ filterResult() {
+  let keywords = this.filter['keywords'] ;
+  let location ;
+
+   if(!this.filter['city']) 
+    location = 'all';
+  else
+    location = this.filter['city']+', '+this.filter['country'];
+
+  if(keywords.length == 0) keywords = '_0_'; 
+  
+  let sortBy = this.sortBy['criteria']+'_'+this.sortBy['direction'];
+
+  this.loading = true;
+  
+  this.restApi.get('events/0/'+this.pagination.pageSize+'/1/'+location+'/'+this.filter['price']+'/'+this.filter['time']+'/'+sortBy+'/'+keywords).subscribe((data: {}) => {
+    this.events = data;
+    for(var i=0; i < this.events.length; i++) {
+      this.startTime[i] = new Date(data[i].startTime);
+    }
+    this.loading = false;
+  });
+  this.restApi.get('events/0/'+this.pagination.pageSize+'/1/'+location+'/'+this.filter['price']+'/'+this.filter['time']+'/'+sortBy+'/'+keywords+'/count').subscribe((data: {}) => {
+    let nbr = 0;
+    if(data) nbr = data['nbr'];
+    this.pagination['itemSize'] = nbr;
+    console.log('size: '+this.pagination['itemSize']+' | page: '+this.pagination.cuurentPage);
+  });
+
+ }
 
 }
