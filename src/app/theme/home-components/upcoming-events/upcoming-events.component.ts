@@ -16,11 +16,23 @@ export class UpcomingEventsComponent implements OnInit {
 
   ngOnInit() {
 
-    return this.restApi.get('events/3').subscribe((data: {}) => {
-      this.events = data;
-      for(var i=0; i <3; i++) {
-        this.startTime[i] = new Date(data[i].startTime);
+    let time ="Upcomming";
+    let sortBy = "Date_Asc";
+
+    this.restApi.get('events/0/3/1/all/all/'+time+'/'+sortBy+'/_0_/count').subscribe((data: {}) => {
+      let nbr = 0;
+      if(data) nbr = data['nbr'];
+      if (nbr < 3) {
+        time ="Any Time";
+        sortBy = "Date_Desc";
       }
+      this.restApi.get('events/0/3/1/all/all/'+time+'/'+sortBy+'/_0_').subscribe((data: {}) => {
+        console.log(JSON.stringify(data));
+        this.events = data;
+        for(var i=0; i <3; i++) {
+          this.startTime[i] = new Date(data[i].startTime);
+        }
+      });
     });
     
   }
