@@ -109,6 +109,7 @@ export class EventCardComponent implements OnInit {
       this.startTime[i] = new Date(data[i].startTime);
     }
     this.loading = false;
+    this.pagination.cuurentPage = 1;
   });
   this.restApi.get('events/0/'+this.pagination.pageSize+'/1/'+location+'/'+this.filter['price']+'/'+this.filter['time']+'/'+sortBy+'/'+keywords+'/count').subscribe((data: {}) => {
     let nbr = 0;
