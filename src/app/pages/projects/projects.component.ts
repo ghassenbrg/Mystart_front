@@ -112,4 +112,16 @@ export class ProjectsComponent implements OnInit {
   this.filterResult();
  }
 
+ filterByCat(cat){
+   if (cat == 'All') this.filter['category'] = null;
+   else this.filter['category'] = cat;
+    
+  this.filterResult();
+ }
+
+ isCatActive(cat) {
+  if (cat == this.filter['category']) return "cat-active";
+  if ((cat == 'All') && (!this.filter['category'])) return "cat-active";
+  return "";
+ }
 }

@@ -45,3 +45,23 @@
 .username {
     color: green;
 }
+
+/* cat */
+.cat {
+    margin-bottom: 20px; 
+}
+.cat-btn {
+    color: #15222E; 
+    cursor: pointer; 
+}
+.cat-btn:hover {
+    color: #1A97D7; 
+}
+.cat-active {
+    cursor: default;
+    color: #1A97D7;
+}
+.seperator {
+    color: #d2d4d8;
+    padding: 4px;
+}

@@ -3,6 +3,16 @@
 
 
   <br><hr>
+  <div  style="text-align: center;" class="cat">
+    <h5>
+        <span class="cat-btn {{isCatActive('All')}}" (click)="filterByCat('All')" >All</span>
+        <span *ngFor="let category of categories"> <span  class="seperator" > | </span>
+           <span class="cat-btn {{isCatActive(category.name)}}" (click)="filterByCat(category.name)">
+               {{category.name}}
+            </span>
+        </span>
+    </h5>
+  </div>
   <div nz-row nzType="flex" nzJustify="center" class="filter">
     <div nz-col zSpan="4">
         <h3>Filter: </h3>
@@ -11,12 +21,6 @@
     <div class="mySpace"></div>
     <div nz-col zSpan="4">
       <input type="text" class="myInput" placeholder="input search keywords" [(ngModel)]="filter.keywords" (input)="filterResult()" />
-    </div>
-    <div class="mySpace"></div>
-    <div nz-col zSpan="4">
-        <nz-select style="width: 200px;" nzShowSearch nzAllowClear nzSize="large" nzPlaceHolder="Category" [(ngModel)]="filter.category" (ngModelChange)="filterResult()">
-          <nz-option *ngFor="let category of categories" nzLabel="{{category.name}}" nzValue="{{category.name}}" ></nz-option>
-        </nz-select> <!-- category --> 
     </div>
     <div class="mySpace"></div>
     <div nz-col zSpan="4">
@@ -34,7 +38,9 @@
   </div>
   <hr>
   <div class="container-fluid">
-
+    <div class="noData" style="text-align: center" *ngIf="pagination.itemSize == 0">
+        <h2>No data to display !</h2>
+    </div> <!-- No data msg -->
     <div nz-row nzType="flex" [nzGutter]="'32'">
         <div nz-col class="gutter-row" [nzSpan]="6" *ngFor ="let project of projects">
             <div class="course-border border-f-e6f3ff border-ra4 transition-vline" [@bounce]="bounce">   
@@ -60,36 +66,8 @@
     </div>
 
 
-
-
-
   <div class="flat-courses clearfix isotope-courses">
-      <!--
-    <div class="course one-of-four text-2ebd59 Marketing Design " *ngFor ="let project of projects">
-        <div class="course-border border-f-e6f3ff border-ra4 transition-vline">   
-            <div class="course-img img-vline"> 
-                <a href="project/{{project._id}}"><img src="../../../assets/{{project.coverImg}}" class="cover-img" alt="bookflare"></a>
-                <div class="overlay">
-                    <span class="vline"></span>
-                    <span class="vline vline-bottom"></span>
-                </div>
-            </div>
-            <div class="course-content">
-                <div class="text-wrap border-bt-e6f3ff">
-                    <h6 class="title"><a href="project/{{project._id}}">{{project.title}}</a></h6>
-                    <p class="teacher">
-                        <a href="profile/{{project.authorRes[0].username}}"><i class="fas fa-user-tie"></i> {{project.authorRes[0].username}}</a>
-                        <span class="cat" style="color: grey"> | <i class="fas fa-folder"></i> category: {{project.category}}</span>
-                        </p>
-                    <p class="description">{{project.description}}</p>
-                </div>
-            </div>
-        </div>
-    </div>  --> <!-- /.course -->
     <div class="new-data" [innerHtml]="newData">
-    </div>
-    <div class="noData" style="text-align: center" *ngIf="pagination.itemSize == 0">
-        <h2>No data to display !</h2>
     </div>
 </div> <!-- /.flat-courses -->
 
