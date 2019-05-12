@@ -10,20 +10,20 @@
     </div>
     <div class="mySpace"></div>
     <div nz-col zSpan="4">
-      <input type="text" class="myInput" placeholder="input search keywords" [(ngModel)]="filter.keywords" />
+      <input type="text" class="myInput" placeholder="input search keywords" [(ngModel)]="filter.keywords" (input)="filterResult()" />
     </div>
     <div class="mySpace"></div>
     <div nz-col zSpan="4">
-        <nz-select style="width: 200px;" nzShowSearch nzAllowClear nzSize="large" nzPlaceHolder="Category" [(ngModel)]="filter.category">
+        <nz-select style="width: 200px;" nzShowSearch nzAllowClear nzSize="large" nzPlaceHolder="Category" [(ngModel)]="filter.category" (ngModelChange)="filterResult()">
           <nz-option *ngFor="let category of categories" nzLabel="{{category.name}}" nzValue="{{category.name}}" ></nz-option>
         </nz-select> <!-- category --> 
     </div>
     <div class="mySpace"></div>
     <div nz-col zSpan="4">
       <nz-radio-group [(ngModel)]="filter.confidentiality" [nzButtonStyle]="'solid'" nzSize="large">
-        <label nz-radio-button nzValue="All">All</label>
-        <label nz-radio-button nzValue="Public">Public</label>
-        <label nz-radio-button nzValue="Private">Private</label>
+        <label nz-radio-button nzValue="All" (click)="filterResult()">All</label>
+        <label nz-radio-button nzValue="Public" (click)="filterResult()">Public</label>
+        <label nz-radio-button nzValue="Private" (click)="filterResult()">Private</label>
       </nz-radio-group>
     </div>
     <div class="mySpace"></div>
