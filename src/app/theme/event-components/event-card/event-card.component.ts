@@ -1,11 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { RestApiService } from 'src/app/core/rest-api.service';
 import { TimeService } from 'src/app/core/time.service';
+import { trigger, transition, useAnimation } from '@angular/animations';
+import { bounceIn } from 'ng-animate';
 
 @Component({
   selector: 'app-event-card',
   templateUrl: './event-card.component.html',
-  styleUrls: ['./event-card.component.css']
+  styleUrls: ['./event-card.component.css'],
+  animations: [
+    trigger('bounce', [transition('* => *', useAnimation(bounceIn))])
+  ]
 })
 export class EventCardComponent implements OnInit {
 
@@ -22,7 +27,6 @@ export class EventCardComponent implements OnInit {
   filter = {};
   sortBy = {};
 
-  country: String;
   location = {
     TN: ['Ariana', 'Béja', 'Ben Arous', 'Bizerte', 'Gabès', 'Gafsa', 'Jendouba', 'Kairouan', 'Kasserine', 'Kebili',
      'Kef', 'Mahdia', 'Manouba', 'Medenine', 'Monastir', 'Nabeul', 'Sfax', 'Sidi Bouzid', 'Siliana', 'Sousse', 'Tataouine',
@@ -35,7 +39,7 @@ export class EventCardComponent implements OnInit {
     
     this.filter['keywords'] = '';
     this.filter['price'] = 'All';
-    this.filter['country'] = null;
+    this.filter['city'] = null;
     this.filter['time'] ="Any time";
     this.sortBy['criteria'] = 'Date';
     this.sortBy['direction'] = 'Asc';
@@ -60,7 +64,7 @@ export class EventCardComponent implements OnInit {
     if(!this.filter['city']) 
       location = 'all';
     else
-      location = this.filter['city']+', '+this.filter['country'];
+      location = this.filter['city']+', TN';
 
     if(keywords.length == 0) keywords = '_0_'; 
     
@@ -91,7 +95,7 @@ export class EventCardComponent implements OnInit {
    if(!this.filter['city']) 
     location = 'all';
   else
-    location = this.filter['city']+', '+this.filter['country'];
+    location = this.filter['city']+', TN';
 
   if(keywords.length == 0) keywords = '_0_'; 
   
@@ -114,5 +118,20 @@ export class EventCardComponent implements OnInit {
   });
 
  }
+
+ isClear(){
+  if ((this.filter['keywords'] == '') && (this.filter['price'] == 'All') && (!this.filter['city']) && (this.filter['time'] == "Any time")) {
+    return true;
+  }
+  return false;
+}
+
+clearFilter(){
+  this.filter['keywords'] = '';
+  this.filter['price'] = 'All';
+  this.filter['city'] = null;
+  this.filter['time'] ="Any time";
+ this.filterResult();
+}
 
 }

@@ -12,11 +12,8 @@
         </div>
         <div class="mySpace"></div>
         <div nz-col zSpan="4">
-            <nz-select style="width: 100px;" nzShowSearch nzAllowClear nzSize="large" nzPlaceHolder="Country" [(ngModel)]="filter.country">
-              <nz-option nzLabel="Tunisia" nzValue="TN" ></nz-option>
-            </nz-select> <!-- Country --> <span> : </span>
             <nz-select style="width: 140px;" nzShowSearch nzAllowClear nzSize="large" nzPlaceHolder="City" [(ngModel)]="filter.city" (ngModelChange)="filterResult()">
-              <nz-option *ngFor="let city of location[filter.country]" nzLabel="{{city}}" nzValue="{{city}}" ></nz-option>
+              <nz-option *ngFor="let city of location['TN']" nzLabel="{{city}}" nzValue="{{city}}" ></nz-option>
             </nz-select> <!-- City --> 
         </div>
         <div class="mySpace"></div>
@@ -40,8 +37,9 @@
         </div>
         <div class="mySpace"></div>
         <div nz-col zSpan="4">
-            <button nz-button nzType="primary" nzSize="large" (click)="filterResult()"><i class="fas fa-filter"></i> Filter</button>
-        </div>
+                <button style="visibility: hidden;" nz-button nzType="danger" nzSize="large" *ngIf="isClear()" ><i class="fas fa-times"></i> Clear filter</button>
+                <button nz-button nzType="danger" nzSize="large" (click)="clearFilter()" *ngIf="!isClear()" ><i class="fas fa-times"></i> Clear filter</button>
+            </div>
       </div><hr> <!-- Filter -->
       <div nz-row nzType="flex" nzJustify="end">
             <div nz-col nzSpan="2" style="text-align: right; margin-right: 10px;"><p>Sort by: </p></div>
@@ -59,7 +57,7 @@
             </div>
         </div><br> <!-- Sort By -->
       <div *ngFor="let event of events; index as i"> <!-- ************ for boucle begin ********************** -->
-            <div class="event style1 v1" *ngIf="i%2 == 0"> 
+            <div class="event style1 v1" *ngIf="i%2 == 0" [@bounce]="bounce"> 
                     <div class="row">
                         <div class=" col-lg-7 col-md-12">
                             <div class="event-img">
@@ -100,7 +98,7 @@
                     </div>
                 </div>  <!-- first event style 1-->
 
-                <div class="event style1 v2" *ngIf="i%2 != 0">
+                <div class="event style1 v2" *ngIf="i%2 != 0" [@bounce]="bounce">
                         <div class="row">
                             <div class=" col-lg-5 col-md-12">
                                 <div class="event-content">

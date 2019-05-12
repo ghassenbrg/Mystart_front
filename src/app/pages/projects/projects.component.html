@@ -28,7 +28,8 @@
     </div>
     <div class="mySpace"></div>
     <div nz-col zSpan="4">
-        <button nz-button nzType="primary" nzSize="large" (click)="filterResult()"><i class="fas fa-filter"></i> Filter</button>
+            <button style="visibility: hidden;" nz-button nzType="danger" nzSize="large" *ngIf="isClear()" ><i class="fas fa-times"></i> Clear filter</button>
+            <button nz-button nzType="danger" nzSize="large" (click)="clearFilter()" *ngIf="!isClear()" ><i class="fas fa-times"></i> Clear filter</button>
     </div>
   </div>
   <hr>
@@ -36,7 +37,7 @@
 
     <div nz-row nzType="flex" [nzGutter]="'32'">
         <div nz-col class="gutter-row" [nzSpan]="6" *ngFor ="let project of projects">
-            <div class="course-border border-f-e6f3ff border-ra4 transition-vline">   
+            <div class="course-border border-f-e6f3ff border-ra4 transition-vline" [@bounce]="bounce">   
                 <div class="course-img img-vline"> 
                     <a href="project/{{project._id}}"><img src="../../../assets/{{project.coverImg}}" class="cover-img" alt="bookflare"></a>
                     <div class="overlay">

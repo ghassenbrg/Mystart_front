@@ -1,13 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { RestApiService } from 'src/app/core/rest-api.service';
+import { trigger, transition, useAnimation } from '@angular/animations';
+import { bounceIn } from 'ng-animate';
 
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
-  styleUrls: ['./projects.component.css']
+  styleUrls: ['./projects.component.css'],
+  animations: [
+    trigger('bounce', [transition('* => *', useAnimation(bounceIn))])
+  ]
 })
 export class ProjectsComponent implements OnInit {
+
+  bounceIn: any;
 
   params = {
     title: "Projects",
@@ -89,6 +96,20 @@ export class ProjectsComponent implements OnInit {
     console.log('size: '+this.pagination['itemSize']+' | page: '+this.pagination.cuurentPage);
   });
 
+ }
+
+ isClear(){
+   if ((this.filter['keywords'] == '') && (this.filter['confidentiality'] == 'All') && (!this.filter['category'])) {
+     return true;
+   }
+   return false;
+ }
+
+ clearFilter(){
+  this.filter['keywords'] = '';
+  this.filter['confidentiality'] = 'All';
+  this.filter['category'] = null;
+  this.filterResult();
  }
 
 }
