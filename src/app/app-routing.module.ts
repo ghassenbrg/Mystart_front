@@ -20,6 +20,7 @@ import { NotAllowedComponent } from './pages/not-allowed/not-allowed.component';
 import { AuthGuardService } from './core/auth-guard.service';
 import { AddProjectComponent } from './pages/add-project/add-project.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { CourseSingleComponent } from './pages/course-single/course-single.component';
 
 const routes: Routes = [
   { path: '', component: LayoutComponent, children : [
@@ -30,6 +31,7 @@ const routes: Routes = [
     { path: 'expert/:id', component: ExpertSingleComponent, canActivate: [AuthGuardService] },
     { path: 'questions', component: QuestionsComponent, canActivate: [AuthGuardService] },
     { path: 'courses', component: CoursesComponent },
+    { path: 'course/:id', component: CourseSingleComponent },
     { path: 'events', component: EventsComponent },
     { path: 'event/:id', component: EventSingleComponent },
     { path: 'blog', component: BlogComponent },
