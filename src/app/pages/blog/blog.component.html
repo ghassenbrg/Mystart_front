@@ -1,6 +1,6 @@
 <div class="container">
 
-    <!--*******************************-->
+    <!--*********** carousel ************-->
     <br>
     
     <nz-carousel nzAutoPlay>
@@ -17,7 +17,8 @@
       </nz-carousel>
     
       <br><br>
-    
+  
+      <!-- ****  featured posts -->
     <div class="row mb-2">
       <div class="col-md-6">
         <div class="card flex-md-row mb-4 box-shadow h-md-250">
@@ -48,10 +49,23 @@
         </div>
       </div>
     </div>
-    <!-- featured card -->
+
+    <!-- filter --> <br>
+    <div  style="text-align: center;" class="cat-filter">
+        <h5>
+            <span class="cat-btn-filter {{isCatActive('All')}}" (click)="filterByCat('All')" >All</span>
+            <span *ngFor="let category of categories"> <span  class="seperator-filter" > | </span>
+               <span class="cat-btn-filter {{isCatActive(category.name)}}" (click)="filterByCat(category.name)">
+                   {{category.name}}
+                </span>
+            </span>
+        </h5>
+      </div><br>
+
+    <!-- articles -->
     
     <div nz-row>
-      <div nz-col [nzXs]="{ span: 5, offset: 1 }" [nzLg]="{ span: 7, offset: 1 }" class="card" *ngFor="let index of array">
+      <div nz-col [nzXs]="{ span: 24, offset: 0 }" [nzLg]="{ span: 7, offset: 1 }" class="card" *ngFor="let index of array">
         <img class="card-img-top" src="../../../assets/myDocs/articles/art2.jpg" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">Card title</h5>

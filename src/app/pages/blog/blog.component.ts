@@ -16,13 +16,17 @@ export class BlogComponent implements OnInit {
   dates = [];
 
   array = ['Test1 lorem ipsum dolor set amet.', 'test2', 'Test1 lorem ipsum dolor set amet.', 'test2', 'Test1 lorem ipsum dolor set amet.', 'test2'];
-
+  categories: any;
   
   constructor(private title: Title, private route: ActivatedRoute, public restApi: RestApiService, private time: TimeService) {
     this.title.setTitle("Mystart | Blog")
    }
 
   ngOnInit() {
+
+    this.restApi.get('categories').subscribe((data: {}) => {
+      this.categories = data;
+    });
 
     return this.restApi.get('articles').subscribe((data: {}) => {
       this.posts = data;
@@ -33,7 +37,11 @@ export class BlogComponent implements OnInit {
         i++;
       }
     });
+  }
 
+  
+  isCatActive() {
+    return '';
   }
 
 }
