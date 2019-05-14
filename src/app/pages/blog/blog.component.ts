@@ -14,6 +14,9 @@ export class BlogComponent implements OnInit {
 
   posts: any;
   dates = [];
+
+  array = ['Test1 lorem ipsum dolor set amet.', 'test2', 'Test1 lorem ipsum dolor set amet.', 'test2', 'Test1 lorem ipsum dolor set amet.', 'test2'];
+
   
   constructor(private title: Title, private route: ActivatedRoute, public restApi: RestApiService, private time: TimeService) {
     this.title.setTitle("Mystart | Blog")
