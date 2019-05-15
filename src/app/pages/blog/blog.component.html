@@ -49,7 +49,10 @@
       </div><br>
 
     <!-- articles -->
-    
+    <div class="noData" style="text-align: center; margin-bottom: 100px" *ngIf="pagination.itemSize < 1">
+        <h2>No data to display !</h2>
+    </div> <!-- No data msg -->
+
     <div nz-row>
       <div nz-col [nzXs]="{ span: 24, offset: 0 }" [nzLg]="{ span: 7, offset: 1 }" class="card post-card" *ngFor="let post of posts">
         <img class="card-img-top" src="../../../assets/{{post.coverImg}}" alt="Card image cap">
