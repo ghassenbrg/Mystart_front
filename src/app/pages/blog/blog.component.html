@@ -21,7 +21,7 @@
       <!-- ****  featured posts -->
     <div class="row mb-2">
       <div class="col-md-6" *ngFor="let post of featuredContent">
-        <div class="card flex-md-row mb-4 box-shadow h-md-250">
+        <div class="card flex-md-row mb-4 box-shadow h-md-250" [@bounce]="bounce">
           <div class="card-body d-flex flex-column align-items-start">
             <strong class="d-inline-block mb-2 text-success">{{post.category}}</strong>
             <h3 class="mb-0">
@@ -54,7 +54,8 @@
     </div> <!-- No data msg -->
 
     <div nz-row>
-      <div nz-col [nzXs]="{ span: 24, offset: 0 }" [nzLg]="{ span: 7, offset: 1 }" class="card post-card" *ngFor="let post of posts">
+      <span  *ngFor="let post of posts">
+      <div nz-col [nzXs]="{ span: 24, offset: 0 }" [nzLg]="{ span: 7, offset: 1 }" class="card post-card" [@bounce]="bounce">
         <img class="card-img-top" src="../../../assets/{{post.coverImg}}" alt="Card image cap">
         <div class="card-body" style="">  
           <h5 class="card-title">{{post.title}}</h5>
@@ -67,6 +68,7 @@
           <p class="card-text">{{post.content}}</p>
         </div>
       </div>
+      </span>
     </div>
     
     <div class="load-more" style="text-align: center;" *ngIf="!((pagination.cuurentPage * pagination.pageSize) >= pagination.itemSize)">
