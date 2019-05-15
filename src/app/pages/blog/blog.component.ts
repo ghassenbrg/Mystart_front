@@ -3,7 +3,6 @@ import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { RestApiService } from 'src/app/core/rest-api.service';
 import { TimeService } from 'src/app/core/time.service';
-import { post } from 'selenium-webdriver/http';
 
 @Component({
   selector: 'app-blog',
@@ -12,18 +11,21 @@ import { post } from 'selenium-webdriver/http';
 })
 export class BlogComponent implements OnInit {
 
-  posts: any;
-  dates = [];
 
   array = ['Test1 lorem ipsum dolor set amet.', 'test2', 'Test1 lorem ipsum dolor set amet.', 'test2', 'Test1 lorem ipsum dolor set amet.', 'test2'];
+  
   categories: any;
   category = 'All';
 
+  sliderContent = [];
+  featuredContent = [];
+  posts : any;
+
   pagination = {
     cuurentPage: 1,
-    pageSize: 4,
-    itemSize: 20
+    pageSize: 6
   }
+
   loading = false;
   
   constructor(private title: Title, private route: ActivatedRoute, public restApi: RestApiService, private time: TimeService) {
@@ -36,17 +38,47 @@ export class BlogComponent implements OnInit {
       this.categories = data;
     });
 
-    return this.restApi.get('articles').subscribe((data: {}) => {
-      this.posts = data;
-      let i = 0;
-      for (let post of this.posts){
-        post.content = post.content.substring(0,170).replace(/<[^>]*>/g, '')+"...";
-        this.dates[i] = new Date(post.creationDate);
-        i++;
+    this.restApi.get('articles/0/4/1/all/Date_Desc/_0_').subscribe((data: {}) => { 
+      for (let i =0; i<4; i++){
+        data[i].content = data[i].content.substring(0,70).replace(/<[^>]*>/g, '')+"...";
+        if (i<2) this.sliderContent.push(data[i]);
+        else this.featuredContent.push(data[i]);
       }
     });
+
+    this.restApi.get('articles/4/6/1/all/Date_Desc/_0_/count').subscribe((data: {}) => { 
+      let nbr = 0;
+      if(data) nbr = data['nbr'];
+      this.pagination['itemSize'] = nbr;
+    });
+
+    this.restApi.get('articles/4/6/1/all/Date_Desc/_0_').subscribe((data: {}) => { 
+      this.posts = data;
+      for (let post of this.posts){
+        post.content = post.content.substring(0,100).replace(/<[^>]*>/g, '')+"...";
+      }
+    });
+
   }
 
+  loadNewData() {
+
+    this.loading = true;
+    let skip = this.pagination.cuurentPage * this.pagination.pageSize;
+    let limit = this.pagination.pageSize;
+
+    this.restApi.get('articles/'+skip+'/'+limit+'/1/all/Date_Desc/_0_').subscribe((data: {}) => { 
+      let tab: any;
+      tab = data;
+      for (let post of tab){
+        post.content = post.content.substring(0,100).replace(/<[^>]*>/g, '')+"...";
+        this.posts.push(post);
+      }
+      this.pagination.cuurentPage++;
+      this.loading = false;
+    });
+
+  }
   
   isCatActive(cat) {
     if (cat == this.category) return "cat-active-filter";

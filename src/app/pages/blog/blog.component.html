@@ -4,12 +4,12 @@
     <br>
     
     <nz-carousel nzAutoPlay>
-        <div nz-carousel-content *ngFor="let index of array">
+        <div nz-carousel-content *ngFor="let post of sliderContent">
           <div class="info">
-            <a href=""><h1>{{index}}</h1></a>
+            <a href="article/{{post._id}}"><h1>{{post.title}}</h1></a>
           </div>
           <div class="bg-img">
-              <img src="../../../assets/myDocs/articles/art3.jpg" alt="">
+              <img src="../../../assets/{{post.coverImg}}" alt="">
           </div>
           <div class="bg-color">
           </div>
@@ -20,32 +20,18 @@
   
       <!-- ****  featured posts -->
     <div class="row mb-2">
-      <div class="col-md-6">
+      <div class="col-md-6" *ngFor="let post of featuredContent">
         <div class="card flex-md-row mb-4 box-shadow h-md-250">
           <div class="card-body d-flex flex-column align-items-start">
-            <strong class="d-inline-block mb-2 text-success">World</strong>
+            <strong class="d-inline-block mb-2 text-success">{{post.category}}</strong>
             <h3 class="mb-0">
-              <a class="text-dark" href="#">Featured post</a>
+              <a class="text-dark" href="article/{{post._id}}">{{post.title}}</a>
             </h3>
             <div class="mb-1 text-muted">Nov 12</div>
-            <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-            <a href="#">Continue reading</a>
+            <p class="card-text mb-auto">{{post.content}}</p>
+            <a href="article/{{post._id}}">Continue reading</a>
           </div>
-          <img src="../../../assets/myDocs/articles/art3.jpg" class="card-img-right flex-auto d-none d-md-block" alt="Card image cap">
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card flex-md-row mb-4 box-shadow h-md-250">
-          <div class="card-body d-flex flex-column align-items-start">
-            <strong class="d-inline-block mb-2 text-success">Design</strong>
-            <h3 class="mb-0">
-              <a class="text-dark" href="#">Post title</a>
-            </h3>
-            <div class="mb-1 text-muted">Nov 11</div>
-            <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-            <a href="#">Continue reading</a>
-          </div>
-          <img src="../../../assets/myDocs/articles/art2.jpg" class="card-img-right flex-auto d-none d-md-block" alt="Card image cap">
+          <img src="../../../assets/{{post.coverImg}}" class="card-img-right flex-auto d-none d-md-block" alt="Card image cap">
         </div>
       </div>
     </div>
@@ -65,17 +51,17 @@
     <!-- articles -->
     
     <div nz-row>
-      <div nz-col [nzXs]="{ span: 24, offset: 0 }" [nzLg]="{ span: 7, offset: 1 }" class="card" *ngFor="let index of array">
-        <img class="card-img-top" src="../../../assets/myDocs/articles/art2.jpg" alt="Card image cap">
+      <div nz-col [nzXs]="{ span: 24, offset: 0 }" [nzLg]="{ span: 7, offset: 1 }" class="card post-card" *ngFor="let post of posts">
+        <img class="card-img-top" src="../../../assets/{{post.coverImg}}" alt="Card image cap">
         <div class="card-body" style="">  
-          <h5 class="card-title">Card title</h5>
+          <h5 class="card-title">{{post.title}}</h5>
           <hr style="padding: 0; margin: 0;">
           <p class="a" style="font-size: 14px; padding: 0; margin: 0;">
-            <a class="username" href="profile/test"><i class="fas fa-user-tie"></i> test</a>
-            <span class="cat" style="color: grey"> | <i class="fas fa-folder"></i> category: test</span>
+            <a class="username" href="expert/{{post.authorRes[0].username}}"><i class="fas fa-user-tie"></i> {{post.authorRes[0].username}}</a>
+            <span class="cat" style="color: grey"> | <i class="fas fa-folder"></i> category: {{post.category}}</span>
           </p>
           <hr style="padding: 0; margin: 0;">
-          <p class="card-text">Quick sample text to create the card title and make up the body of the card's content.</p>
+          <p class="card-text">{{post.content}}</p>
         </div>
       </div>
     </div>
