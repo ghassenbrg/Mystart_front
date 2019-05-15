@@ -67,13 +67,22 @@
     <div nz-row>
       <div nz-col [nzXs]="{ span: 24, offset: 0 }" [nzLg]="{ span: 7, offset: 1 }" class="card" *ngFor="let index of array">
         <img class="card-img-top" src="../../../assets/myDocs/articles/art2.jpg" alt="Card image cap">
-        <div class="card-body">
+        <div class="card-body" style="">  
           <h5 class="card-title">Card title</h5>
+          <hr style="padding: 0; margin: 0;">
+          <p class="a" style="font-size: 14px; padding: 0; margin: 0;">
+            <a class="username" href="profile/test"><i class="fas fa-user-tie"></i> test</a>
+            <span class="cat" style="color: grey"> | <i class="fas fa-folder"></i> category: test</span>
+          </p>
+          <hr style="padding: 0; margin: 0;">
           <p class="card-text">Quick sample text to create the card title and make up the body of the card's content.</p>
-          <a href="#" class="btn btn-primary">read more</a>
         </div>
       </div>
     </div>
     
-    
+    <div class="load-more" style="text-align: center;" *ngIf="!((pagination.cuurentPage * pagination.pageSize) >= pagination.itemSize)">
+      <nz-spin nzSimple [nzSize]="'large'" [hidden]="!loading"></nz-spin>
+      <button nz-button nzType="primary" nzSize="large" (click)=loadNewData() [hidden]="loading">Load more</button>
     </div>
+    <br>
+</div>

@@ -17,6 +17,14 @@ export class BlogComponent implements OnInit {
 
   array = ['Test1 lorem ipsum dolor set amet.', 'test2', 'Test1 lorem ipsum dolor set amet.', 'test2', 'Test1 lorem ipsum dolor set amet.', 'test2'];
   categories: any;
+  category = 'All';
+
+  pagination = {
+    cuurentPage: 1,
+    pageSize: 4,
+    itemSize: 20
+  }
+  loading = false;
   
   constructor(private title: Title, private route: ActivatedRoute, public restApi: RestApiService, private time: TimeService) {
     this.title.setTitle("Mystart | Blog")
@@ -40,8 +48,10 @@ export class BlogComponent implements OnInit {
   }
 
   
-  isCatActive() {
-    return '';
-  }
+  isCatActive(cat) {
+    if (cat == this.category) return "cat-active-filter";
+    if ((cat == 'All') && (!this.category)) return "cat-active-filter";
+    return "";
+   }
 
 }
