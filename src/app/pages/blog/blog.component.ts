@@ -15,7 +15,7 @@ export class BlogComponent implements OnInit {
   array = ['Test1 lorem ipsum dolor set amet.', 'test2', 'Test1 lorem ipsum dolor set amet.', 'test2', 'Test1 lorem ipsum dolor set amet.', 'test2'];
   
   categories: any;
-  category = 'All';
+  category = 'all';
 
   sliderContent = [];
   featuredContent = [];
@@ -49,7 +49,7 @@ export class BlogComponent implements OnInit {
     this.restApi.get('articles/4/6/1/all/Date_Desc/_0_/count').subscribe((data: {}) => { 
       let nbr = 0;
       if(data) nbr = data['nbr'];
-      this.pagination['itemSize'] = nbr;
+      this.pagination['itemSize'] = nbr - 4;
     });
 
     this.restApi.get('articles/4/6/1/all/Date_Desc/_0_').subscribe((data: {}) => { 
@@ -67,7 +67,11 @@ export class BlogComponent implements OnInit {
     let skip = this.pagination.cuurentPage * this.pagination.pageSize;
     let limit = this.pagination.pageSize;
 
-    this.restApi.get('articles/'+skip+'/'+limit+'/1/all/Date_Desc/_0_').subscribe((data: {}) => { 
+    let category = "all";
+    if (this.category) category = this.category;
+    else skip = skip + 4;
+
+    this.restApi.get('articles/'+skip+'/'+limit+'/1/'+category+'/Date_Desc/_0_').subscribe((data: {}) => { 
       let tab: any;
       tab = data;
       for (let post of tab){
@@ -80,9 +84,39 @@ export class BlogComponent implements OnInit {
 
   }
   
+  filterByCat(cat) {
+
+    if (this.category == cat) return false;
+
+    this.loading = true;
+    let skip = 0;
+    let limit = this.pagination.pageSize;
+
+    this.category = cat;
+    if (cat == 'all') skip = skip + 4;
+
+    this.restApi.get('articles/'+skip+'/'+limit+'/1/'+cat+'/Date_Desc/_0_').subscribe((data: {}) => { 
+      let tab: any;
+      tab = data;
+      for (let post of tab){
+        post.content = post.content.substring(0,100).replace(/<[^>]*>/g, '')+"...";
+      }
+      this.posts = tab;
+      this.pagination.cuurentPage = 1;
+      this.loading = false;
+    });
+
+    this.restApi.get('articles/'+skip+'/'+limit+'/1/'+cat+'/Date_Desc/_0_/count').subscribe((data: {}) => { 
+      let nbr = 0;
+      if(data) nbr = data['nbr'];
+      if (cat == 'all') nbr = nbr - 4;
+      this.pagination['itemSize'] = nbr;
+    });
+
+  }
+
   isCatActive(cat) {
     if (cat == this.category) return "cat-active-filter";
-    if ((cat == 'All') && (!this.category)) return "cat-active-filter";
     return "";
    }
 
