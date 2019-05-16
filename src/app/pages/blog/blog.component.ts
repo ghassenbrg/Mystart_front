@@ -20,6 +20,7 @@ export class BlogComponent implements OnInit {
     
   categories: any;
   category = 'all';
+  keywords: string;
 
   sliderContent = [];
   featuredContent = [];
@@ -71,10 +72,13 @@ export class BlogComponent implements OnInit {
     let skip = this.pagination.cuurentPage * this.pagination.pageSize;
     let limit = this.pagination.pageSize;
 
+    let keywords = '_0_';
+    if(this.keywords) keywords = this.keywords;
+
     let category = this.category;
     if (category == "all") skip = skip + 4;
 
-    this.restApi.get('articles/'+skip+'/'+limit+'/1/'+category+'/Date_Desc/_0_').subscribe((data: {}) => { 
+    this.restApi.get('articles/'+skip+'/'+limit+'/1/'+category+'/Date_Desc/'+keywords).subscribe((data: {}) => { 
       let tab: any;
       tab = data;
       for (let post of tab){
@@ -95,10 +99,13 @@ export class BlogComponent implements OnInit {
     let skip = 0;
     let limit = this.pagination.pageSize;
 
+    let keywords = '_0_';
+    if(this.keywords) keywords = this.keywords;
+
     this.category = cat;
     if (cat == 'all') skip = skip + 4;
 
-    this.restApi.get('articles/'+skip+'/'+limit+'/1/'+cat+'/Date_Desc/_0_').subscribe((data: {}) => { 
+    this.restApi.get('articles/'+skip+'/'+limit+'/1/'+cat+'/Date_Desc/'+keywords).subscribe((data: {}) => { 
       let tab: any;
       tab = data;
       for (let post of tab){
@@ -109,13 +116,55 @@ export class BlogComponent implements OnInit {
       this.loading = false;
     });
 
-    this.restApi.get('articles/'+skip+'/'+limit+'/1/'+cat+'/Date_Desc/_0_/count').subscribe((data: {}) => { 
+    this.restApi.get('articles/'+skip+'/'+limit+'/1/'+cat+'/Date_Desc/'+keywords+'/count').subscribe((data: {}) => { 
       let nbr = 0;
       if(data) nbr = data['nbr'];
       if (cat == 'all') nbr = nbr - 4;
       this.pagination['itemSize'] = nbr;
     });
 
+  }
+
+  filterResult (){
+
+    this.loading = true;
+    let skip = 0;
+    let limit = this.pagination.pageSize;
+
+    let keywords = '_0_';
+    if(this.keywords) keywords = this.keywords;
+
+    let cat =this.category;
+    if (cat == 'all') skip = skip + 4;
+
+    this.restApi.get('articles/'+skip+'/'+limit+'/1/'+cat+'/Date_Desc/'+keywords).subscribe((data: {}) => { 
+      let tab: any;
+      tab = data;
+      for (let post of tab){
+        post.content = post.content.substring(0,100).replace(/<[^>]*>/g, '')+"...";
+      }
+      this.posts = tab;
+      this.pagination.cuurentPage = 1;
+      this.loading = false;
+    });
+
+    this.restApi.get('articles/'+skip+'/'+limit+'/1/'+cat+'/Date_Desc/'+keywords+'/count').subscribe((data: {}) => { 
+      let nbr = 0;
+      if(data) nbr = data['nbr'];
+      if (cat == 'all') nbr = nbr - 4;
+      this.pagination['itemSize'] = nbr;
+    });
+  }
+
+  isClear() {
+    if ((this.category == "all") && (!this.keywords)) return true;
+    return false;
+  }
+
+  clearFilter() {
+    this.category = "all";
+    this.keywords = null;
+    this.filterResult ();
   }
 
   isCatActive(cat) {

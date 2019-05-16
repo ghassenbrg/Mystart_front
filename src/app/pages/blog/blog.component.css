@@ -219,3 +219,24 @@
 .post-card-title> a:hover {
   color: #1A97D7;
 }
+
+.username {
+  color: #1A97D7;
+}
+
+.username:hover {
+  color: #aA97D1;
+}
+
+.myInput {
+  background-color: white;
+  border-color: grey;
+  color: black;
+  height: 40px;
+}
+.myInput:hover {
+  border-color: #1A97D7;
+}
+.mySpace {
+  width: 30px;
+}
