@@ -71,9 +71,8 @@ export class BlogComponent implements OnInit {
     let skip = this.pagination.cuurentPage * this.pagination.pageSize;
     let limit = this.pagination.pageSize;
 
-    let category = "all";
-    if (this.category) category = this.category;
-    else skip = skip + 4;
+    let category = this.category;
+    if (category == "all") skip = skip + 4;
 
     this.restApi.get('articles/'+skip+'/'+limit+'/1/'+category+'/Date_Desc/_0_').subscribe((data: {}) => { 
       let tab: any;
