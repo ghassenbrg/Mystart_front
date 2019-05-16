@@ -211,3 +211,11 @@
 .post-card {
   height: 380px;
 }
+
+.post-card-title> a {
+  color: black;
+}
+
+.post-card-title> a:hover {
+  color: #1A97D7;
+}

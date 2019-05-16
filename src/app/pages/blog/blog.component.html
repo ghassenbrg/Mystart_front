@@ -56,9 +56,9 @@
     <div nz-row>
       <span  *ngFor="let post of posts">
       <div nz-col [nzXs]="{ span: 24, offset: 0 }" [nzLg]="{ span: 7, offset: 1 }" class="card post-card" [@bounce]="bounce">
-        <img class="card-img-top" src="../../../assets/{{post.coverImg}}" alt="Card image cap">
-        <div class="card-body" style="">  
-          <h5 class="card-title">{{post.title}}</h5>
+        <a href="article/{{post._id}}"><img class="card-img-top" src="../../../assets/{{post.coverImg}}" alt="Card image cap"></a>
+        <div class="card-body">  
+          <h5 class="card-title post-card-title"><a href="article/{{post._id}}">{{post.title}}</a></h5>
           <hr style="padding: 0; margin: 0;">
           <p class="a" style="font-size: 14px; padding: 0; margin: 0;">
             <a class="username" href="expert/{{post.authorRes[0].username}}"><i class="fas fa-user-tie"></i> {{post.authorRes[0].username}}</a>
