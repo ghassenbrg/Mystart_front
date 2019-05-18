@@ -13,5 +13,9 @@ export class MainSliderComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  active(i) {
+    if (i == 0)
+      return 'active';
+    return '';
+  }
 }
