@@ -22,10 +22,10 @@ export class UpcomingEventsComponent implements OnInit {
     this.restApi.get('events/0/3/1/all/all/'+time+'/'+sortBy+'/_0_/count').subscribe((data: {}) => {
       let nbr = 0;
       if(data) nbr = data['nbr'];
-      if (nbr < 3) {
-        time ="Any Time";
-        sortBy = "Date_Desc";
-      }
+  //    if (nbr < 3) {
+  //      time ="Any Time";
+  //      sortBy = "Date_Desc";
+  //    }
       this.restApi.get('events/0/3/1/all/all/'+time+'/'+sortBy+'/_0_').subscribe((data: {}) => {
         console.log(JSON.stringify(data));
         this.events = data;

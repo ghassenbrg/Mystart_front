@@ -6,7 +6,7 @@
       </div>
       <div class="flat-events style3">
           <div class="row">
-              <div class="col-lg-4 col-md-12 col-sm-12">
+              <div class="col-lg-4 col-md-12 col-sm-12" *ngIf="events.length > 0">
                   <div class="event style3   flat-text-center">
                       <div class="event-img">
                           <a href="event/{{events[0]._id}}"><img src="../../../../assets/{{events[0].coverImg}}" class="event-img-inside" alt="bookflare"></a>
@@ -27,7 +27,7 @@
                       </div>
                   </div>
               </div>
-              <div class="col-lg-4 col-md-12 col-sm-12 ">
+              <div class="col-lg-4 col-md-12 col-sm-12 " *ngIf="events.length > 1">
                   <div class="event style3  flat-text-center">
                       <div class="event-img">
                           <a href="event/{{events[1]._id}}"><img src="../../../../assets/{{events[1].coverImg}}" class="event-img-inside" alt="bookflare"></a>
@@ -48,7 +48,7 @@
                       </div>
                   </div>
               </div>
-              <div class="col-lg-4 col-md-12 col-sm-12">
+              <div class="col-lg-4 col-md-12 col-sm-12" *ngIf="events.length > 2">
                   <div class="event style3  flat-text-center">
                       <div class="event-img">
                           <a href="event/{{events[2]._id}}"><img src="../../../../assets/{{events[2].coverImg}}" class="event-img-inside" alt="bookflare"></a>
