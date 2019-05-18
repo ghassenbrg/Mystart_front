@@ -1,3 +1,29 @@
-<p>
-  blog-search works!
-</p>
+    <!-- filter --> <br>
+    <div  style="text-align: center;" class="cat-filter">
+      <h5>
+          <span class="cat-btn-filter {{isCatActive('all')}}" (click)="filterByCat('all')" >All</span>
+          <span *ngFor="let category of categories"> <span  class="seperator-filter" > | </span>
+             <span class="cat-btn-filter {{isCatActive(category.name)}}" (click)="filterByCat(category.name)">
+                 {{category.name}}
+              </span>
+          </span>
+      </h5>
+    </div>
+    
+    <div nz-row nzType="flex" nzJustify="center" class="filter">
+      <div nz-col zSpan="4">
+          <h5>Search: </h5>
+         
+      </div>
+      <div class="mySpace"></div>
+      <div nz-col zSpan="4">
+        <input type="text" class="myInput" placeholder="input search keywords" [(ngModel)]="keywords" (input)="filterResult()" />
+      </div>
+      <div class="mySpace"></div>
+      <div nz-col zSpan="4">
+              <button style="visibility: hidden;" nz-button nzType="danger" nzSize="large" *ngIf="isClear()" ><i class="fas fa-times"></i> Clear all</button>
+              <button nz-button nzType="danger" nzSize="large" (click)="clearFilter()" *ngIf="!isClear()" ><i class="fas fa-times"></i> Clear all</button>
+      </div>
+    </div>
+
+    <br> <!-- End Filter -->
