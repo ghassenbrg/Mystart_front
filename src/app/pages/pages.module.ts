@@ -28,9 +28,10 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { NgZorroAntdModule, NZ_I18N, en_US } from 'ng-zorro-antd';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CourseSingleComponent } from './course-single/course-single.component';
+import { BlogSearchComponent } from './blog-search/blog-search.component';
 
 @NgModule({
-  declarations: [HomeComponent, NotFoundComponent, ProjectsComponent, CoursesComponent, ExpertsComponent, EventsComponent, BlogComponent, EventSingleComponent, ProjectSingleComponent, BlogSingleComponent, ProfileComponent, ExpertSingleComponent, AccountSettingComponent, QuestionsComponent, MessagesComponent, NotAllowedComponent, AddProjectComponent, CourseSingleComponent],
+  declarations: [HomeComponent, NotFoundComponent, ProjectsComponent, CoursesComponent, ExpertsComponent, EventsComponent, BlogComponent, EventSingleComponent, ProjectSingleComponent, BlogSingleComponent, ProfileComponent, ExpertSingleComponent, AccountSettingComponent, QuestionsComponent, MessagesComponent, NotAllowedComponent, AddProjectComponent, CourseSingleComponent, BlogSearchComponent],
   imports: [
     CommonModule,
     ThemeModule,
