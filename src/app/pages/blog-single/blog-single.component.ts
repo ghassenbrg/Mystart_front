@@ -27,6 +27,7 @@ export class BlogSingleComponent implements OnInit {
 
     this.route.paramMap.subscribe(params => {
       this.id= params.get('id');
+      
       return this.restApi.get('article/'+this.id).subscribe((data: {}) => {
         this.post = data[0];
         this.params.title = this.post['title'];
