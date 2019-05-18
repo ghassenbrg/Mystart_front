@@ -40,9 +40,9 @@
           <h5 class="card-header">Search</h5>
           <div class="card-body">
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search for...">
+              <input type="text" class="form-control" placeholder="Search for..." [(ngModel)]="keywords">
               <span class="input-group-btn">
-                <button class="btn btn-secondary" type="button">Go!</button>
+                <button class="btn btn-secondary" type="button" (click)="searchClick()">Go!</button>
               </span>
             </div>
           </div>
@@ -55,27 +55,16 @@
             <div class="row">
               <div class="col-lg-6">
                 <ul class="list-unstyled mb-0">
-                  <li>
-                    <a href="#">Web Design</a>
-                  </li>
-                  <li>
-                    <a href="#">HTML</a>
-                  </li>
-                  <li>
-                    <a href="#">Freebies</a>
+                  <span></span>
+                  <li *ngFor="let category of categories; index as i">
+                    <a href="blog/{{category.name}}/_0_">{{category.name}}</a>
                   </li>
                 </ul>
               </div>
               <div class="col-lg-6">
                 <ul class="list-unstyled mb-0">
-                  <li>
-                    <a href="#">JavaScript</a>
-                  </li>
-                  <li>
-                    <a href="#">CSS</a>
-                  </li>
-                  <li>
-                    <a href="#">Tutorials</a>
+                  <li *ngFor="let category of categories; index as i">
+                    <a href="blog/{{category.name}}/_0_">{{category.name}}</a>
                   </li>
                 </ul>
               </div>

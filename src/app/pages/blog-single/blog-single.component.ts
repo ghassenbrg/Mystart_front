@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RestApiService } from 'src/app/core/rest-api.service';
 import { Title } from '@angular/platform-browser';
 import { TimeService } from 'src/app/core/time.service';
@@ -21,7 +21,10 @@ export class BlogSingleComponent implements OnInit {
     path: "Articles"
   }
 
-  constructor(private title: Title, private route: ActivatedRoute, public restApi: RestApiService, private time: TimeService) { }
+  categories: any;
+  keywords: String;
+
+  constructor(private title: Title, private route: ActivatedRoute, private router: Router, public restApi: RestApiService, private time: TimeService) { }
 
   ngOnInit() {
 
@@ -34,8 +37,17 @@ export class BlogSingleComponent implements OnInit {
         this.title.setTitle("Mystart | "+this.post['title']);
         this.date = new Date(this.post['creationDate']);
       });
+      
     });
 
+    this.restApi.get('categories').subscribe((data: {}) => {
+      this.categories = data;
+    });
+    
   }
 
+  searchClick(){
+    if (!this.keywords) return;
+    this.router.navigate(['/blog/all/'+this.keywords]);
+  }
 }
