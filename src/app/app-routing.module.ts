@@ -21,6 +21,7 @@ import { AuthGuardService } from './core/auth-guard.service';
 import { AddProjectComponent } from './pages/add-project/add-project.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { CourseSingleComponent } from './pages/course-single/course-single.component';
+import { BlogSearchComponent } from './pages/blog-search/blog-search.component';
 
 const routes: Routes = [
   { path: '', component: LayoutComponent, children : [
@@ -36,6 +37,7 @@ const routes: Routes = [
     { path: 'event/:id', component: EventSingleComponent },
     { path: 'blog', component: BlogComponent },
     { path: 'article/:id', component: BlogSingleComponent },
+    { path: 'blog/:cat/:keyword', component: BlogSearchComponent },
     { path: 'profile/:id', component: ProfileComponent, canActivate: [AuthGuardService] },
     { path: 'myprofile/setting', component: AccountSettingComponent, canActivate: [AuthGuardService] },
     { path: 'messages', component: MessagesComponent, canActivate: [AuthGuardService] },
