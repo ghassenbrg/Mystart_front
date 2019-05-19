@@ -1,3 +1,6 @@
+<div class="container">
+
+
     <!-- filter --> <br>
     <div  style="text-align: center;" class="cat-filter">
       <h5>
@@ -27,3 +30,33 @@
     </div>
 
     <br> <!-- End Filter -->
+
+  <!-- articles -->
+  <div class="noData" style="text-align: center; margin-bottom: 100px" *ngIf="pagination.itemSize < 1">
+      <h2>No data to display !</h2>
+  </div> <!-- No data msg -->
+
+  <div nz-row>
+    <span  *ngFor="let post of posts">
+    <div nz-col [nzXs]="{ span: 24, offset: 0 }" [nzLg]="{ span: 7, offset: 1 }" class="card post-card" [@bounce]="bounce">
+      <a href="article/{{post._id}}"><img class="card-img-top" src="../../../assets/{{post.coverImg}}" alt="Card image cap"></a>
+      <div class="card-body">  
+        <h5 class="card-title post-card-title"><a href="article/{{post._id}}">{{post.title}}</a></h5>
+        <hr style="padding: 0; margin: 0;">
+        <p class="a" style="font-size: 14px; padding: 0; margin: 0;">
+          <a class="username" href="expert/{{post.authorRes[0].username}}"><i class="fas fa-user-tie"></i> {{post.authorRes[0].username}}</a>
+          <span class="cat" style="color: grey"> | <i class="fas fa-folder"></i> category: {{post.category}}</span>
+        </p>
+        <hr style="padding: 0; margin: 0;">
+        <p class="card-text">{{post.content}}</p>
+      </div>
+    </div>
+    </span>
+  </div>
+  
+  <div class="load-more" style="text-align: center;" *ngIf="!((pagination.cuurentPage * pagination.pageSize) >= pagination.itemSize)">
+    <nz-spin nzSimple [nzSize]="'large'" [hidden]="!loading"></nz-spin>
+    <button nz-button nzType="primary" nzSize="large" (click)=loadNewData() [hidden]="loading">Load more</button>
+  </div>
+  <br>
+</div>
