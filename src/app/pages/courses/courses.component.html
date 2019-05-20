@@ -5,38 +5,20 @@
         <div class="container-fluid ">
             <div class="sidebar-left">
                 <div class="widget-categories border-f-e6f3ff">
-                    <h6 class="title-widget">DEVELOPMENT</h6>
+                    <h6 class="title-widget">FILTER</h6>
                     <div class="content">
                         <ul>
                             <li><a href="#">Illustration <span>(158)</span></a></li>
                             <li><a href="#">Design Skills <span>(155)</span></a></li>
                             <li><a href="#">Design Techniques <span>(111)</span></a></li>
-                            <li><a href="#">Page Layout <span>(95)</span></a></li>
-                            <li><a href="#">Projects <span>(64)</span></a></li>
-                            <li><a href="#">Drawing <span>(60)</span></a></li>
-                            <li><a href="#"> Typography <span>(56)</span></a></li>
-                            <li><a href="#">Digital Painting <span>(55)</span></a></li>
-                            <li><a href="#">Digital Publishing <span>(45)</span></a></li>
-                            <li><a href="#">Design Business <span>(38)</span></a></li>
-                            <li><a href="#">+ Show More</a></li>
                         </ul>
                     </div>
                 </div> <!-- /.widget-categories -->
                 <div class="widget-categories border-f-e6f3ff mg-bottom-30">
-                    <h6 class="title-widget">SOFTWARE</h6>
+                    <h6 class="title-widget">CATEGORIES</h6>
                     <div class="content">
                         <ul>
-                            <li><a href="#"> Adobe <span>(402)</span></a></li>
-                            <li><a href="#">Photoshop <span>(159)</span></a></li>
-                            <li><a href="#">Illustrator <span>(143)</span></a></li>
-                            <li><a href="#">InDesign <span>(109)</span></a></li>
-                            <li><a href="#">Corel <span>(11)</span></a></li>
-                            <li><a href="#">Painter <span>(9)</span></a></li>
-                            <li><a href="#">Acrobat <span>(8)</span></a></li>
-                            <li><a href="#">Open<span> Source (8)</span></a></li>
-                            <li><a href="#">Apple <span>(7)</span></a></li>
-                            <li><a href="#">Amazon <span>(6)</span></a></li>
-                            <li><a href="#">+ Show More</a></li>
+                            <li *ngFor="let category of categories"><a href="#">{{category.name}}</a></li>
                         </ul>
                     </div>
                 </div> <!-- /.widget-categories -->
@@ -46,7 +28,6 @@
                     <div class="taskbar">
                         <ul class="list">
                             <li><span class="color-f3728b font-Poppins font-weight-700"> 1660</span>Courses</li>
-                            <li><span class="color-2ebd59 font-Poppins font-weight-700"> 32,060 </span>Video Tutorials</li>
                         </ul>
                     </div>
                     <div class="select-order flat-text-right">
@@ -62,7 +43,7 @@
                         <div class="course-border border-f-e6f3ff border-ra4 clear-sub-columns transition-vline">   
                             <div class="course-img-box">
                                 <div class="course-img img-vline">
-                                    <a href="#"><img src="../../../assets/images/courses/courses-gird-v3-{{i+2}}.png" alt="bookflare"></a>
+                                    <a href="#"><img src="../../../assets/{{course.coverImg}}" alt="bookflare"></a>
                                     <div class="overlay">
                                         <span class="vline"></span>
                                         <span class="vline vline-bottom"></span>
@@ -71,24 +52,21 @@
                             </div>
                             <div class="course-content">
                                 <div class="text-wrap border-bt-e6f3ff">
-                                    <h6 class="title"><a href="course/123456">jQuery Mobile for Beginners</a></h6>
-                                    <p class="teacher"><a href="#">Ana Murphy</a></p>
-                                    <p class="description">Lorem ipsum gravida nibh vel velit auctor aliquetnean sollicitudin, lorem quis bibendum auci elit consequat ipsutis sem nibh id elit</p>
+                                    <h6 class="title"><a href="course/123456">{{course.title}}</a></h6>
+                                    <p class="teacher"><a href="#">{{course.authorRes[0].username}}</a></p>
+                                    <p class="description">{{course.description}}</p>
                                 </div>
                                 <div class="wrap-rating-price">
                                     <ul class="list meta-rate">
                                         <li>
-                                            <nz-rate [ngModel]="4.5" nzDisabled nzAllowHalf></nz-rate>
-                                            <span></span><span>5.0  (980) </span>
+                                            <nz-rate [ngModel]="course.rate" nzDisabled nzAllowHalf></nz-rate>
+                                            <span></span><span>{{course.rate}}  ({{course.reviews.length}}) </span>
                                         </li>
                                         <li>
-                                            <span> Sep 07, 2018</span>
-                                        </li>
-                                        <li>
-                                            Views <span class="color-2ebd59">1,547,932</span>
+                                            <span> {{time.getMonth(course.createdAt)}} {{course.createdAt.getDate()}}, {{course.createdAt.getFullYear()}}</span>
                                         </li>
                                     </ul>
-                                    <span class="price">$49.00</span>
+                                    <span class="price">{{course.price}}</span>
                                 </div>
                             </div>
                         </div>
