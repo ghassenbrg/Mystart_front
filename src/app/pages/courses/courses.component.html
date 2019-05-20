@@ -7,11 +7,21 @@
                 <div class="widget-categories border-f-e6f3ff">
                     <h6 class="title-widget">FILTER</h6>
                     <div class="content">
-                        <ul>
-                            <li><a href="#">Illustration <span>(158)</span></a></li>
-                            <li><a href="#">Design Skills <span>(155)</span></a></li>
-                            <li><a href="#">Design Techniques <span>(111)</span></a></li>
-                        </ul>
+                        <div>
+                            <input type="text" class="myInput" placeholder="input search keywords" [(ngModel)]="keywords" (input)="filterResult()" />
+                        </div>
+                        <br>
+                        <div>
+                            <nz-radio-group [(ngModel)]="price" [nzButtonStyle]="'solid'" nzSize="normal">
+                                <label nz-radio-button nzValue="All" (click)="filterResult()">All</label>
+                                <label nz-radio-button nzValue="Free" (click)="filterResult()">Free</label>
+                                <label nz-radio-button nzValue="Paid" (click)="filterResult()">Paid</label>
+                            </nz-radio-group>
+                        </div>
+                        <br>
+                        <div>
+                            <button nz-button nzType="danger" nzSize="normal" (click)="clearFilter()" *ngIf="!isClear()" ><i class="fas fa-times"></i> Clear all</button>
+                        </div>
                     </div>
                 </div> <!-- /.widget-categories -->
                 <div class="widget-categories border-f-e6f3ff mg-bottom-30">

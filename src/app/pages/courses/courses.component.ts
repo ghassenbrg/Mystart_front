@@ -23,6 +23,7 @@ export class CoursesComponent implements OnInit {
    categories: any;
    category = 'all';
    keywords: string;
+   price: String = 'All';
    sortBy: String = 'release date';
 
   constructor( private title: Title, private route: ActivatedRoute, public restApi: RestApiService, private time: TimeService) {
@@ -59,9 +60,25 @@ export class CoursesComponent implements OnInit {
     this.category = cat;
   }
 
+  filterResult() {
+    // Some code
+  }
+
   isActive(cat) {
     if (this.category == cat) return 'activeCat';
     return '';
+  }
+
+  isClear() {
+    if ((!this.keywords) && (this.price == 'All')) return true;
+    return false;
+  }
+
+  clearFilter() {
+    // this.category = 'all';
+    this.keywords = null;
+    this.price = 'All';
+    this.filterResult()
   }
 
 }

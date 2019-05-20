@@ -19,3 +19,16 @@ a:hover {
     font-weight: bold;
     cursor: default;
 }
+
+.myInput {
+    background-color: white;
+    border-color: grey;
+    color: black;
+    height: 40px;
+  }
+  .myInput:hover {
+    border-color: #1A97D7;
+  }
+  .mySpace {
+    width: 30px;
+  }
