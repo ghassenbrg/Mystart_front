@@ -18,7 +18,8 @@
                     <h6 class="title-widget">CATEGORIES</h6>
                     <div class="content">
                         <ul>
-                            <li *ngFor="let category of categories"><a href="#">{{category.name}}</a></li>
+                            <li class="{{isActive('all')}}"><a (click)="filterByCat('all')">All</a></li>
+                            <li *ngFor="let category of categories" class="{{isActive(category.name)}}"><a (click)="filterByCat(category.name)">{{category.name}}</a></li>
                         </ul>
                     </div>
                 </div> <!-- /.widget-categories -->
@@ -32,7 +33,7 @@
                     </div>
                     <div class="select-order flat-text-right">
                         <div class="wrap-select">
-                            <select class="order-by">
+                            <select class="order-by" [(ngModel)]="sortBy">
                                 <option>release date</option>
                                 <option>price</option>
                             </select>
@@ -56,8 +57,8 @@
                             </div>
                             <div class="course-content">
                                 <div class="text-wrap border-bt-e6f3ff">
-                                    <h6 class="title"><a href="course/123456">{{course.title}}</a></h6>
-                                    <p class="teacher"><a href="#">{{course.authorRes[0].username}}</a></p>
+                                    <h6 class="title"><a href="course/{{course._id}}">{{course.title}}</a></h6>
+                                    <p class="teacher"><a href="course/{{course._id}}">{{course.authorRes[0].username}}</a></p>
                                     <p class="description">{{course.description}}</p>
                                 </div>
                                 <div class="wrap-rating-price">

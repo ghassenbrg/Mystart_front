@@ -9,3 +9,13 @@ a {
 a:hover {
     color: #3596D9;
 }
+
+.activeCat>a {
+    color: #1A97D7;
+}
+
+.activeCat>a {
+    color: #1A97D7;
+    font-weight: bold;
+    cursor: default;
+}
