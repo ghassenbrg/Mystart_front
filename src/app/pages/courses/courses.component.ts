@@ -18,6 +18,7 @@ export class CoursesComponent implements OnInit {
    }
 
    courses: any;
+   coursesNbr = 0;
 
    categories: any;
    category = 'all';
@@ -29,6 +30,9 @@ export class CoursesComponent implements OnInit {
   ngOnInit() {
     this.restApi.get('categories').subscribe((data: {}) => {
       this.categories = data;
+    });
+    this.restApi.get('courses/count').subscribe((data: {}) => {
+      this.coursesNbr = data['nbr'];
     });
     this.restApi.get('courses').subscribe((data: {}) => {
       this.courses = data;
