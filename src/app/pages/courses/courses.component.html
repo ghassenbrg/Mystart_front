@@ -41,9 +41,15 @@
                             <li><span class="color-f3728b font-Poppins font-weight-700"> {{coursesNbr}}</span> Courses</li>
                         </ul>
                     </div>
+                    <div class="select-order flat-text-right" style="margin: 10px;">
+                        <nz-radio-group [(ngModel)]="sortDir" [nzButtonStyle]="'solid'">
+                            <label nz-radio-button nzValue="Asc" (click)="filterResult()"><i class="fas fa-sort-amount-up"></i></label>
+                            <label nz-radio-button nzValue="Desc" (click)="filterResult()"><i class="fas fa-sort-amount-down"></i></label>
+                        </nz-radio-group>
+                    </div>
                     <div class="select-order flat-text-right">
                         <div class="wrap-select">
-                            <select class="order-by" [(ngModel)]="sortBy">
+                            <select class="order-by" [(ngModel)]="sortBy" (change)="filterResult()">
                                 <option>release date</option>
                                 <option>price</option>
                             </select>
@@ -54,6 +60,10 @@
                     </div>
                 </div> <!--  /.heading -->
                 <div class="flat-courses style4">
+                    <div class="no-data" *ngIf="coursesNbr == 0">
+                        <br>
+                        <h3 style="text-align: center">No data !</h3>
+                    </div>
                     <div class="course style4 text-2ebd59 " *ngFor="let course of courses; index as i"> <!--single course card-->
                         <div class="course-border border-f-e6f3ff border-ra4 clear-sub-columns transition-vline">   
                             <div class="course-img-box">
@@ -89,13 +99,9 @@
                 </div>
                 <div class="flat-paginations">
                     <ul class="list flat-text-left pagination-wrap">
-                        <li class="disabled"><a href="#" class="btn-navs">PRE</a></li>
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#" class="btn-navs">NEXT</a></li>
+                        <li *ngFor="let btn of pagination.btn; index as i" class="{{pageActive(i)}}">
+                            <a (click)="loadPage(i)">{{i+1}}</a>
+                        </li>
                     </ul>
                 </div>
             </div> <!-- /.content-page -->

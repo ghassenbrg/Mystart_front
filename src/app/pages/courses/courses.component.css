@@ -32,3 +32,7 @@ a:hover {
   .mySpace {
     width: 30px;
   }
+
+  .active>a {
+      cursor: default;
+  }

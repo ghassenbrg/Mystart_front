@@ -17,6 +17,12 @@ export class CoursesComponent implements OnInit {
     path: "Courses"
    }
 
+   pagination = {
+    cuurentPage: 1,
+    pageSize: 2,
+    btn: []
+  }
+
    courses: any;
    coursesNbr = 0;
 
@@ -25,6 +31,7 @@ export class CoursesComponent implements OnInit {
    keywords: string;
    price: String = 'All';
    sortBy: String = 'release date';
+   sortDir = 'Desc';
 
   constructor( private title: Title, private route: ActivatedRoute, public restApi: RestApiService, private time: TimeService) {
     this.title.setTitle("Mystart | Courses")
@@ -33,10 +40,17 @@ export class CoursesComponent implements OnInit {
     this.restApi.get('categories').subscribe((data: {}) => {
       this.categories = data;
     });
-    this.restApi.get('courses/count').subscribe((data: {}) => {
-      this.coursesNbr = data['nbr'];
+    this.restApi.get('courses/0/'+this.pagination.pageSize+'/1/'+this.category+'/all/Date_Desc/_0_/count').subscribe((data: {}) => {
+      this.coursesNbr = 0;
+      this.pagination.btn = [];
+      if (data) {
+        this.coursesNbr = data['nbr'];
+        let nbr = this.coursesNbr / this.pagination.pageSize;
+        if (nbr != Math.floor(nbr)) nbr = Math.floor(nbr) + 1 ;
+        this.pagination.btn = Array(nbr).fill(0);
+      }
     });
-    this.restApi.get('courses').subscribe((data: {}) => {
+    this.restApi.get('courses/0/'+this.pagination.pageSize+'/1/'+this.category+'/all/Date_Desc/_0_').subscribe((data: {}) => {
       this.courses = data;
       let rateSum: any;
       for (let course of this.courses) {
@@ -58,10 +72,54 @@ export class CoursesComponent implements OnInit {
   filterByCat(cat) {
     if (this.category == cat) return;
     this.category = cat;
+    this.filterResult();
   }
 
-  filterResult() {
-    // Some code
+  filterResult(s?) {
+    let skip = 0;
+    if (s) skip = s;
+    else this.pagination.cuurentPage = 1;
+
+    let keywords = this.keywords;
+    if (!keywords) keywords = '_0_';
+
+    let sortBy: String;
+    if (this.sortBy == 'release date') sortBy = 'Date_'+this.sortDir;
+    else sortBy = 'Price_'+this.sortDir;
+
+    this.restApi.get('courses/'+skip+'/'+this.pagination.pageSize+'/1/'+this.category+'/'+this.price+'/'+sortBy+'/'+keywords+'/count').subscribe((data: {}) => {
+      this.coursesNbr = 0;
+      this.pagination.btn = [];
+      if (data) {
+        this.coursesNbr = data['nbr'];
+        let nbr = this.coursesNbr / this.pagination.pageSize;
+        if (nbr != Math.floor(nbr)) nbr = Math.floor(nbr) + 1 ;
+        this.pagination.btn = Array(nbr).fill(0);
+      }
+    });
+    this.restApi.get('courses/'+skip+'/'+this.pagination.pageSize+'/1/'+this.category+'/'+this.price+'/'+sortBy+'/'+keywords).subscribe((data: {}) => {
+      this.courses = data;
+      let rateSum: any;
+      for (let course of this.courses) {
+        rateSum = 0;
+        if (course.price == 0) course.price = 'Free';
+        else course.price = course.price + ' TND';
+        course.createdAt = new Date(course.createdAt);
+        course.description = course.description.substring(0,130) + '...';
+        for (let review of course.reviews) {
+          rateSum += parseInt(review.rate);
+        }
+        course.rate = new Number(rateSum / course.reviews.length);
+        course.rate = parseFloat(course.rate.toFixed(1));
+      }
+    });
+  }
+
+  loadPage(i) {
+    if (this.pagination.cuurentPage == i+1) return;
+    let skip = i * this.pagination.pageSize;
+    this.pagination.cuurentPage = i+1;
+    this.filterResult(skip);
   }
 
   isActive(cat) {
@@ -79,6 +137,10 @@ export class CoursesComponent implements OnInit {
     this.keywords = null;
     this.price = 'All';
     this.filterResult()
+  }
+
+  pageActive(i) {
+    if (i+1 == this.pagination.cuurentPage) return 'active';
   }
 
 }
