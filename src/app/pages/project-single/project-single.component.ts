@@ -40,7 +40,7 @@ export class ProjectSingleComponent implements OnInit {
           }
         this.project = data[0];
         this.params.title = data[0]['title'];
-        this.title.setTitle("Mystart | "+data[0]['title']);
+        this.title.setTitle("Project | "+data[0]['title']);
       });
     });
 

@@ -34,7 +34,7 @@ export class BlogSingleComponent implements OnInit {
       return this.restApi.get('article/'+this.id).subscribe((data: {}) => {
         this.post = data[0];
         this.params.title = this.post['title'];
-        this.title.setTitle("Mystart | "+this.post['title']);
+        this.title.setTitle("Article | "+this.post['title']);
         this.date = new Date(this.post['creationDate']);
       });
       

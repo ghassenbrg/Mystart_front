@@ -39,7 +39,7 @@ export class EventSingleComponent implements OnInit {
         currentTime = new Date();
         this.diffTime = this.time.numberToDate(this.startTime - currentTime);
         this.params.title = data['title'];
-        this.title.setTitle("Mystart | "+data['title']);
+        this.title.setTitle("Event | "+data['title']);
       });
     });
 

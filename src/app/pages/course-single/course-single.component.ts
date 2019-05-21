@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-course-single',
@@ -18,9 +19,10 @@ export class CourseSingleComponent implements OnInit {
 
   attachments = ['objectives.pdf', 'summary.ppt', 'book.docx'];
 
-  constructor() { }
+  constructor(private title: Title) { }
 
   ngOnInit() {
+    this.title.setTitle('Course | '+this.params.title);
   }
 
 }
