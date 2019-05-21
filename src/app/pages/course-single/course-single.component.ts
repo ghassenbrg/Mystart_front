@@ -14,6 +14,12 @@ export class CourseSingleComponent implements OnInit {
     path: "Courses"
   }
 
+  review = {
+    rate: 4,
+    feedback: ''
+  }
+  tooltips = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
+  
   lessons = ['Introduction Lesson', 'Basics of HTML', 'Getting Know about HTML', 'Tags and Attributes', 
              'Basics of CSS', 'Getting Familiar with CSS', 'Introduction to Bootstrap', 'Responsive Design'];
 
