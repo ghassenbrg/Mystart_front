@@ -3,11 +3,16 @@ import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { RestApiService } from 'src/app/core/rest-api.service';
 import { TimeService } from 'src/app/core/time.service';
+import { trigger, transition, useAnimation } from '@angular/animations';
+import { bounceIn } from 'ng-animate';
 
 @Component({
   selector: 'app-courses',
   templateUrl: './courses.component.html',
-  styleUrls: ['./courses.component.css']
+  styleUrls: ['./courses.component.css'],
+  animations: [
+    trigger('bounce', [transition('* => *', useAnimation(bounceIn))])
+  ]
 })
 export class CoursesComponent implements OnInit {
 

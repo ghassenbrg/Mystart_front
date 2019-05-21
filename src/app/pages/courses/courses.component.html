@@ -62,10 +62,10 @@
                 <div class="flat-courses style4">
                     <div class="no-data" *ngIf="coursesNbr == 0">
                         <br>
-                        <h3 style="text-align: center">No data !</h3>
+                        <h3 style="text-align: center" [@bounce]="bounce">No data !</h3>
                     </div>
                     <div class="course style4 text-2ebd59 " *ngFor="let course of courses; index as i"> <!--single course card-->
-                        <div class="course-border border-f-e6f3ff border-ra4 clear-sub-columns transition-vline">   
+                        <div class="course-border border-f-e6f3ff border-ra4 clear-sub-columns transition-vline" [@bounce]="bounce">   
                             <div class="course-img-box">
                                 <div class="course-img img-vline">
                                     <a href="#"><img src="../../../assets/{{course.coverImg}}" alt="bookflare"></a>
