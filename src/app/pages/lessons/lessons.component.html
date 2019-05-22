@@ -4,8 +4,8 @@
     <!-- sidebar list -->
     <div class="col-lg-3 left-contents">
         <ul class="lesson_list">
-            <li class="justify-content-between d-flex" *ngFor="let lesson of course.lessons">
-                <a [routerLink]="[lesson.nbr]" [class]="isActive(lesson.nbr)">
+            <li class="justify-content-between d-flex" *ngFor="let lesson of lessons">
+                <a [routerLink]="[lesson.lessonNbr]" [class]="isActive(lesson.lessonNbr)">
                     <i class="fas fa-play-circle" style="font-size: 20px; vertical-align: middle; margin-right: 10px"></i>
                     {{lesson.titre}}
                 </a>

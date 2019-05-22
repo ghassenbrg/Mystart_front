@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { RestApiService } from 'src/app/core/rest-api.service';
 
 @Component({
   selector: 'app-lessons',
@@ -8,25 +9,21 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class LessonsComponent implements OnInit {
 
-  course = {
-    lessons: [
-      {titre: 'test 1', nbr: 1},
-      {titre: 'test 2', nbr: 2},
-      {titre: 'test 3', nbr: 3},
-      {titre: 'test 4', nbr: 4},
-      {titre: 'test 5', nbr: 5},
-      {titre: 'test 6', nbr: 6}
-    ]
-  };
+  lessons: any;
+
   id: any;
   nbr: any;
 
-  constructor(public router: Router,  private route: ActivatedRoute) { }
+  constructor(public router: Router,  private route: ActivatedRoute, private restApi: RestApiService) { }
 
   ngOnInit() {
 
     this.route.paramMap.subscribe(params => {
       this.id= params.get('id');
+
+      this.restApi.get('course/'+this.id+'/lessons').subscribe((data: {}) => {
+        this.lessons = data;
+      });
     });
 
   }

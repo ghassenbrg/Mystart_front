@@ -10,7 +10,7 @@ import { LessonsComponent } from '../lessons.component';
 export class LessonSingleComponent implements OnInit {
 
   nbr: any;
-
+  lesson: {};
   constructor(private route: ActivatedRoute, private parent: LessonsComponent) { }
 
   ngOnInit() {
