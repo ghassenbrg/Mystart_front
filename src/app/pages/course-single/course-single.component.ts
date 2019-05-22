@@ -18,14 +18,14 @@ export class CourseSingleComponent implements OnInit {
   }
 
   review = {
-    rate: 4,
+    rate: 0,
     feedback: ''
   }
   tooltips = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
 
   id: string;
   course: any;
-  
+
   constructor(private title: Title, private route: ActivatedRoute, public restApi: RestApiService, private time: TimeService) { }
 
   ngOnInit() {
