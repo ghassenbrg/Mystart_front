@@ -1,4 +1,19 @@
-<p>
-  lessons works!
-</p>
-<router-outlet></router-outlet>
+<div class="container">
+  <div class="row">
+    <!-- sidebar list -->
+    <div class="col-lg-3 right-contents">
+        <ul class="course_list">
+            <li class="justify-content-between d-flex" *ngFor="let lesson of course.lessons">
+                <a [routerLink]="[lesson.nbr]">
+                    <i class="fas fa-play-circle" style="font-size: 20px; vertical-align: middle; margin-right: 10px"></i>
+                    {{lesson.titre}}
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- content router-outlet -->
+    <div class="col-lg-9 course_details_left">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
