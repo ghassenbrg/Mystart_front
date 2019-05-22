@@ -32,7 +32,7 @@ const routes: Routes = [
     { path: 'expert/:id', component: ExpertSingleComponent, canActivate: [AuthGuardService] },
     { path: 'questions', component: QuestionsComponent, canActivate: [AuthGuardService] },
     { path: 'courses', component: CoursesComponent },
-    { path: 'course/:id', component: CourseSingleComponent },
+    { path: 'course/:id', component: CourseSingleComponent, canActivate: [AuthGuardService] },
     { path: 'events', component: EventsComponent },
     { path: 'event/:id', component: EventSingleComponent },
     { path: 'blog', component: BlogComponent },
