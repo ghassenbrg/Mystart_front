@@ -63,7 +63,7 @@ export class CoursesComponent implements OnInit {
         if (course.price == 0) course.price = 'Free';
         else course.price = course.price + ' TND';
         course.createdAt = new Date(course.createdAt);
-        course.description = course.description.substring(0,130) + '...';
+        course.overview = course.overview.substring(0,130) + '...';
         for (let review of course.reviews) {
           rateSum += parseInt(review.rate);
         }
@@ -110,7 +110,7 @@ export class CoursesComponent implements OnInit {
         if (course.price == 0) course.price = 'Free';
         else course.price = course.price + ' TND';
         course.createdAt = new Date(course.createdAt);
-        course.description = course.description.substring(0,130) + '...';
+        course.overview = course.overview.substring(0,130) + '...';
         for (let review of course.reviews) {
           rateSum += parseInt(review.rate);
         }
