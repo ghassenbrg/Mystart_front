@@ -1,0 +1,30 @@
+.container {
+    background-color: white;
+}
+
+.left-contents {
+    background-color: #15222E;
+    padding: 0;
+}
+
+.lesson_list {
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+.lesson_list>li>a {
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+    color: white;
+}
+
+.lesson_list>li>a:hover {
+    background: grey;
+}
+
+.active-route {
+    background: #1A97D7;
+}
+.active-route:hover {
+    background: #1A97D7 !important;
+}
