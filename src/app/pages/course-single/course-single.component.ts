@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { Router, ActivatedRoute } from '@angular/router';
+import { RestApiService } from 'src/app/core/rest-api.service';
+import { TimeService } from 'src/app/core/time.service';
 
 @Component({
   selector: 'app-course-single',
@@ -9,7 +12,7 @@ import { Title } from '@angular/platform-browser';
 export class CourseSingleComponent implements OnInit {
 
   params = {
-    title: "This is My first title",
+    title: "",
     description: "",
     path: "Courses"
   }
@@ -19,16 +22,37 @@ export class CourseSingleComponent implements OnInit {
     feedback: ''
   }
   tooltips = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
+
+  id: string;
+  course: any;
   
-  lessons = ['Introduction Lesson', 'Basics of HTML', 'Getting Know about HTML', 'Tags and Attributes', 
-             'Basics of CSS', 'Getting Familiar with CSS', 'Introduction to Bootstrap', 'Responsive Design'];
-
-  attachments = ['objectives.pdf', 'summary.ppt', 'book.docx'];
-
-  constructor(private title: Title) { }
+  constructor(private title: Title, private route: ActivatedRoute, public restApi: RestApiService, private time: TimeService) { }
 
   ngOnInit() {
-    this.title.setTitle('Course | '+this.params.title);
+
+    this.title.setTitle('Course | ');
+
+    this.route.paramMap.subscribe(params => {
+
+      this.id= params.get('id');
+
+      this.restApi.get('course/'+this.id).subscribe((data: {}) => {
+        this.course = data[0];
+        this.params.title = this.course.title;
+        this.title.setTitle('Course | '+this.params.title);
+        let rateSum: any;
+          rateSum = 0;
+          if (this.course.price == 0) this.course.price = 'Free';
+          else this.course.price = this.course.price + ' TND';
+          this.course.createdAt = new Date(this.course.createdAt);
+          for (let review of this.course.reviews) {
+            rateSum += parseInt(review.rate);
+          }
+          this.course.rate = new Number(rateSum / this.course.reviews.length);
+          this.course.rate = parseFloat(this.course.rate.toFixed(1));
+      });
+    });
+
   }
 
 }

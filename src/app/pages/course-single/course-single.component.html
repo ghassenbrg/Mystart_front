@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-lg-8 course_details_left">
                 <div class="main_image">
-                    <img class="img-fluid" src="../../../assets/images/courses/courses-gird-v1-1.png" alt="">
+                    <img class="img-fluid" src="../../../assets/{{course.coverImg}}" alt="">
                 </div><br>
                 <div class="content_wrapper">
                     <nz-tabset nzSize="large">
@@ -16,24 +16,7 @@
                                 Overview
                             </ng-template>
                             <div class="content">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore
-                                magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-                                ut aliquip ex ea commodo
-                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.
-                                <br>
-                                <br>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore
-                                magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-                                ut aliquip ex ea
-                                commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                cillum. Lorem ipsum dolor sit
-                                amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                                dolore magna aliqua. Ut enim
-                                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                commodo consequat. Duis aute
-                                irure dolor in reprehenderit in voluptate velit esse cillum.
+                                {{course.overview}}
                             </div>
                         </nz-tab>
 
@@ -43,26 +26,7 @@
                                 Objectives
                             </ng-template>
                             <div class="content">
-                                When you enter into any new area of science, you almost always find yourself with a
-                                baffling new language of
-                                technical terms to learn before you can converse with the experts. This is certainly
-                                true in astronomy both in
-                                terms of terms that refer to the cosmos and terms that describe the tools of the trade,
-                                the most prevalent
-                                being the telescope.
-                                <br>
-                                <br>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore
-                                magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-                                ut aliquip ex ea
-                                commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                cillum. Lorem ipsum dolor sit
-                                amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                                dolore magna aliqua. Ut enim
-                                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                commodo consequat. Duis aute
-                                irure dolor in reprehenderit in voluptate velit esse cillum.
+                                {{course.objectives}}
                             </div>
                         </nz-tab>
 
@@ -73,10 +37,10 @@
                             </ng-template>
                             <div class="content">
                                 <ul class="course_list">
-                                    <li class="justify-content-between d-flex" *ngFor="let lesson of lessons">
+                                    <li class="justify-content-between d-flex" *ngFor="let lesson of course.lessons">
                                         <p>
                                             <i class="fas fa-play-circle" style="font-size: 20px; vertical-align: middle; margin-right: 10px"></i>
-                                            {{lesson}}
+                                            {{lesson.titre}}
                                         </p>
                                         <a class="primary-btn text-uppercase btn-hover" href="#">
                                             View Details
@@ -93,7 +57,7 @@
                             </ng-template>
                             <div class="content">
                                 <ul class="course_list">
-                                    <li class="justify-content-between d-flex" *ngFor="let attachment of attachments">
+                                    <li class="justify-content-between d-flex" *ngFor="let attachment of course.attachments">
                                         <p>
                                             <i class="fas fa-file-alt" style="font-size: 20px; vertical-align: middle; margin-right: 10px"></i>
                                             {{attachment}}
@@ -117,19 +81,31 @@
                     <li>
                         <a class="justify-content-between d-flex" href="#">
                             <p>Trainer’s Name</p>
-                            <span class="or">George Mathews</span>
+                            <span class="or">{{course.authorRes[0].username}}</span>
                         </a>
                     </li>
                     <li>
                         <a class="justify-content-between d-flex" href="#">
                             <p>Course Fee </p>
-                            <span>230 TND</span>
+                            <span>{{course.price}}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="justify-content-between d-flex" href="#">
+                            <p>Review </p>
+                            <span><i class="fas fa-star" style="color: #FADB14;"></i> {{course.rate}}/5 ({{course.reviews.length}})</span>
                         </a>
                     </li>
                     <li>
                         <a class="justify-content-between d-flex" href="#">
                             <p>Category </p>
-                            <span>Startup</span>
+                            <span>{{course.category}}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="justify-content-between d-flex" href="#">
+                            <p>Created at </p>
+                            <span>{{time.getMonth(course.createdAt)}} {{course.createdAt.getDate()}}, {{course.createdAt.getFullYear()}}</span>
                         </a>
                     </li>
                 </ul>
