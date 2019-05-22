@@ -31,6 +31,7 @@ import { CourseSingleComponent } from './course-single/course-single.component';
 import { BlogSearchComponent } from './blog-search/blog-search.component';
 import { LessonsComponent } from './lessons/lessons.component';
 import { LessonSingleComponent } from './lessons/lesson-single/lesson-single.component';
+import { AppRoutingModule } from '../app-routing.module';
 
 @NgModule({
   declarations: [HomeComponent, NotFoundComponent, ProjectsComponent, CoursesComponent, ExpertsComponent, EventsComponent, BlogComponent, EventSingleComponent, ProjectSingleComponent, BlogSingleComponent, ProfileComponent, ExpertSingleComponent, AccountSettingComponent, QuestionsComponent, MessagesComponent, NotAllowedComponent, AddProjectComponent, CourseSingleComponent, BlogSearchComponent, LessonsComponent, LessonSingleComponent],
@@ -43,7 +44,8 @@ import { LessonSingleComponent } from './lessons/lesson-single/lesson-single.com
     CKEditorModule,
     NgbModule,
     NgZorroAntdModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AppRoutingModule
   ],
   providers: [
     RestApiService,
