@@ -29,9 +29,11 @@ import { NgZorroAntdModule, NZ_I18N, en_US } from 'ng-zorro-antd';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CourseSingleComponent } from './course-single/course-single.component';
 import { BlogSearchComponent } from './blog-search/blog-search.component';
+import { LessonsComponent } from './lessons/lessons.component';
+import { LessonSingleComponent } from './lessons/lesson-single/lesson-single.component';
 
 @NgModule({
-  declarations: [HomeComponent, NotFoundComponent, ProjectsComponent, CoursesComponent, ExpertsComponent, EventsComponent, BlogComponent, EventSingleComponent, ProjectSingleComponent, BlogSingleComponent, ProfileComponent, ExpertSingleComponent, AccountSettingComponent, QuestionsComponent, MessagesComponent, NotAllowedComponent, AddProjectComponent, CourseSingleComponent, BlogSearchComponent],
+  declarations: [HomeComponent, NotFoundComponent, ProjectsComponent, CoursesComponent, ExpertsComponent, EventsComponent, BlogComponent, EventSingleComponent, ProjectSingleComponent, BlogSingleComponent, ProfileComponent, ExpertSingleComponent, AccountSettingComponent, QuestionsComponent, MessagesComponent, NotAllowedComponent, AddProjectComponent, CourseSingleComponent, BlogSearchComponent, LessonsComponent, LessonSingleComponent],
   imports: [
     CommonModule,
     ThemeModule,

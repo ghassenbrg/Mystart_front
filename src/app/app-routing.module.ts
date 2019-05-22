@@ -22,6 +22,7 @@ import { AddProjectComponent } from './pages/add-project/add-project.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { CourseSingleComponent } from './pages/course-single/course-single.component';
 import { BlogSearchComponent } from './pages/blog-search/blog-search.component';
+import { LessonsComponent } from './pages/lessons/lessons.component';
 
 const routes: Routes = [
   { path: '', component: LayoutComponent, children : [
@@ -33,6 +34,9 @@ const routes: Routes = [
     { path: 'questions', component: QuestionsComponent, canActivate: [AuthGuardService] },
     { path: 'courses', component: CoursesComponent },
     { path: 'course/:id', component: CourseSingleComponent, canActivate: [AuthGuardService] },
+    { path: 'lesson', component: LessonsComponent, canActivate: [AuthGuardService], children : [
+      { path: ':id', component: LessonsComponent, canActivate: [AuthGuardService] }
+    ]},
     { path: 'events', component: EventsComponent },
     { path: 'event/:id', component: EventSingleComponent },
     { path: 'blog', component: BlogComponent },

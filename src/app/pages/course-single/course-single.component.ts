@@ -50,6 +50,8 @@ export class CourseSingleComponent implements OnInit {
           }
           this.course.rate = new Number(rateSum / this.course.reviews.length);
           this.course.rate = parseFloat(this.course.rate.toFixed(1));
+          // sort lessons by order Nbr
+          this.course.lessons.sort((a, b) => a.lessonNbr < b.lessonNbr ? -1 : a.lessonNbr > b.lessonNbr ? 1 : 0);
       });
     });
 
