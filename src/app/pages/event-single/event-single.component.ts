@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RestApiService } from 'src/app/core/rest-api.service';
 import { TimeService } from 'src/app/core/time.service';
 
@@ -24,7 +24,7 @@ export class EventSingleComponent implements OnInit {
   endTime: any;
   diffTime: {};
 
-  constructor( private title: Title, private route: ActivatedRoute, public restApi: RestApiService, private time: TimeService) {
+  constructor( private title: Title, private route: ActivatedRoute, private router: Router, public restApi: RestApiService, private time: TimeService) {
   }
 
   ngOnInit() {
@@ -40,6 +40,8 @@ export class EventSingleComponent implements OnInit {
         this.diffTime = this.time.numberToDate(this.startTime - currentTime);
         this.params.title = data['title'];
         this.title.setTitle("Event | "+data['title']);
+      },(err) => {
+        return this.router.navigate(['/404']);
       });
     });
 

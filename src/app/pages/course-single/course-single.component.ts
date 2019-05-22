@@ -26,7 +26,7 @@ export class CourseSingleComponent implements OnInit {
   id: string;
   course: any;
 
-  constructor(private title: Title, private route: ActivatedRoute, public restApi: RestApiService, private time: TimeService) { }
+  constructor(private title: Title, private route: ActivatedRoute, private router: Router, public restApi: RestApiService, private time: TimeService) { }
 
   ngOnInit() {
 
@@ -52,6 +52,8 @@ export class CourseSingleComponent implements OnInit {
           this.course.rate = parseFloat(this.course.rate.toFixed(1));
           // sort lessons by order Nbr
           this.course.lessons.sort((a, b) => a.lessonNbr < b.lessonNbr ? -1 : a.lessonNbr > b.lessonNbr ? 1 : 0);
+      },(err) => {
+            return this.router.navigate(['/404']);
       });
     });
 

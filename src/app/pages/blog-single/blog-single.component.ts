@@ -36,6 +36,8 @@ export class BlogSingleComponent implements OnInit {
         this.params.title = this.post['title'];
         this.title.setTitle("Article | "+this.post['title']);
         this.date = new Date(this.post['creationDate']);
+      },(err) => {
+        return this.router.navigate(['/404']);
       });
       
     });
