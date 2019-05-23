@@ -5,8 +5,9 @@
 .left-contents {
     background-color: #15222E;
     padding: 0;
+    z-index: 10;
+    height: 100%;
 }
-
 .lesson_list {
     margin-top: 10px;
     margin-bottom: 30px;

@@ -9,6 +9,12 @@ import { RestApiService } from 'src/app/core/rest-api.service';
 })
 export class LessonsComponent implements OnInit {
 
+  params = {
+    title: "",
+    description: "",
+    path: "Courses/lesson"
+  }
+
   lessons: any;
 
   id: any;

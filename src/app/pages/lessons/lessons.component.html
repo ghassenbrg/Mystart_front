@@ -1,20 +1,23 @@
-<br><br>
+<app-page-title [params]="params"></app-page-title>
 <div class="container">
+  <br>
   <div class="row">
     <!-- sidebar list -->
     <div class="col-lg-3 left-contents">
-        <ul class="lesson_list">
-            <li class="justify-content-between d-flex" *ngFor="let lesson of lessons">
-                <a [routerLink]="[lesson.lessonNbr]" [class]="isActive(lesson.lessonNbr)">
-                    <i class="fas fa-play-circle" style="font-size: 20px; vertical-align: middle; margin-right: 10px"></i>
-                    {{lesson.titre}}
-                </a>
-            </li>
-        </ul>
+      <ul class="lesson_list">
+        <li class="justify-content-between d-flex" *ngFor="let lesson of lessons">
+          <a [routerLink]="[lesson.lessonNbr]" [class]="isActive(lesson.lessonNbr)">
+            <i class="fas fa-play-circle" style="font-size: 20px; vertical-align: middle; margin-right: 10px"></i>
+            {{lesson.titre}}
+          </a>
+        </li>
+      </ul>
     </div>
+    <br><br>
     <!-- content router-outlet -->
     <div class="col-lg-9 lesson_details_right">
       <router-outlet></router-outlet>
     </div>
   </div>
+
 </div>
