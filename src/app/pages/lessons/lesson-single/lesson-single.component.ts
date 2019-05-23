@@ -10,8 +10,6 @@ import { RestApiService } from 'src/app/core/rest-api.service';
 })
 export class LessonSingleComponent implements OnInit {
 
-  test: string = '<iframe width="100%" height="450" src="https://www.youtube.com/embed/WXrM1-pLqmo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
-
   nbr: any;
   lesson: any;
   
