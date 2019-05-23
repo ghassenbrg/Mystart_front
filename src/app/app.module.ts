@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
+import { SafePipe } from './core/safe.pipe';
 
 registerLocaleData(en);
 
@@ -22,7 +23,8 @@ registerLocaleData(en);
   declarations: [
     AppComponent,
     LayoutComponent,
-    TestComponent
+    TestComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,
