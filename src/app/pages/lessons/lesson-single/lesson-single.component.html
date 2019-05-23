@@ -1,5 +1,5 @@
 <div class="content" *ngIf="lesson">
-  <div class="youtube-iframe" [innerHtml]="lesson.videoUrl">
+  <div class="youtube-iframe" [innerHtml]="test | safe: 'html'">
 
   </div>
 

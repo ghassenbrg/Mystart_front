@@ -10,10 +10,11 @@ import { RestApiService } from 'src/app/core/rest-api.service';
 })
 export class LessonSingleComponent implements OnInit {
 
+  test: string = '<iframe width="100%" height="450" src="https://www.youtube.com/embed/WXrM1-pLqmo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+
   nbr: any;
   lesson: any;
-  test = 'https://www.youtube.com/embed/fBNz5xF-Kx4';
-
+  
   constructor(private route: ActivatedRoute, private parent: LessonsComponent, private restApi: RestApiService) { }
 
   ngOnInit() {
@@ -22,8 +23,7 @@ export class LessonSingleComponent implements OnInit {
       this.parent.nbr = this.nbr;
       this.restApi.get('course/'+this.parent.id+'/lesson/'+this.nbr).subscribe((data: {}) => {
         this.lesson = data;
-        this.lesson.videoUrl = '<iframe *ngIf="lesson" width="100%" height="450" src="https://www.youtube.com/embed/'+this.youtube_parser(this.lesson.videoUrl)+'" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
-        //this.lesson.videoUrl = "<h1> Hello <strong>world</strong> !</h1>"
+        this.lesson.videoUrl = '<iframe width="100%" height="450" src="https://www.youtube.com/embed/'+this.youtube_parser(this.lesson.videoUrl)+'" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
       });
     });
   }

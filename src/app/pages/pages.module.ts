@@ -32,9 +32,10 @@ import { BlogSearchComponent } from './blog-search/blog-search.component';
 import { LessonsComponent } from './lessons/lessons.component';
 import { LessonSingleComponent } from './lessons/lesson-single/lesson-single.component';
 import { AppRoutingModule } from '../app-routing.module';
+import { SafePipe } from './safe.pipe';
 
 @NgModule({
-  declarations: [HomeComponent, NotFoundComponent, ProjectsComponent, CoursesComponent, ExpertsComponent, EventsComponent, BlogComponent, EventSingleComponent, ProjectSingleComponent, BlogSingleComponent, ProfileComponent, ExpertSingleComponent, AccountSettingComponent, QuestionsComponent, MessagesComponent, NotAllowedComponent, AddProjectComponent, CourseSingleComponent, BlogSearchComponent, LessonsComponent, LessonSingleComponent],
+  declarations: [HomeComponent, NotFoundComponent, ProjectsComponent, CoursesComponent, ExpertsComponent, EventsComponent, BlogComponent, EventSingleComponent, ProjectSingleComponent, BlogSingleComponent, ProfileComponent, ExpertSingleComponent, AccountSettingComponent, QuestionsComponent, MessagesComponent, NotAllowedComponent, AddProjectComponent, CourseSingleComponent, BlogSearchComponent, LessonsComponent, LessonSingleComponent, SafePipe],
   imports: [
     CommonModule,
     ThemeModule,
