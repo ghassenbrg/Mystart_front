@@ -1,10 +1,41 @@
 <div class="content" *ngIf="lesson">
-  <div class="youtube-iframe" [innerHtml]="lesson.videoUrl | safe: 'html'">
 
+  <div class="youtube-iframe" [innerHtml]="lesson.videoUrl | safe: 'html'">
   </div>
 
-    <p>
-        this is Lesson nbr: <strong>{{nbr}}</strong>
-        <button class="btn btn-primary" (click)="alert()">alert</button>
-      </p>
+  <nz-tabset nzSize="large">
+
+    <nz-tab [nzTitle]="Notes">
+      <ng-template #Notes>
+        <i class="fas fa-clipboard" style="font-size: 20px;"></i>
+        Notes
+      </ng-template>
+      <div class="content">
+        {{lesson.notes}}
+      </div>
+    </nz-tab>
+
+    <nz-tab [nzTitle]="Attachments">
+      <ng-template #Attachments>
+        <i class="fas fa-folder" style="font-size: 20px;"></i>
+        Attachments
+      </ng-template>
+      <div class="content">
+        <ul class="course_list">
+          <li class="justify-content-between d-flex" *ngFor="let attachment of lesson.attachments">
+            <p>
+              <i class="fas fa-file-alt" style="font-size: 20px; vertical-align: middle; margin-right: 10px"></i>
+              {{attachment}}
+            </p>
+            <a class="primary-btn text-uppercase btn-hover" href="#">
+              <i class="fas fa-download" style="font-size: 20px; vertical-align: middle; margin-right: 5px"></i>
+              Download
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nz-tab>
+
+  </nz-tabset>
+  <br><br>
 </div>

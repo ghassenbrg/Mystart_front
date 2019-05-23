@@ -33,6 +33,6 @@ export class LessonSingleComponent implements OnInit {
 }
 
   alert(){
-    window.alert(this.youtube_parser(this.lesson.videoUrl));
+    window.alert(JSON.stringify(this.lesson));
   }
 }
