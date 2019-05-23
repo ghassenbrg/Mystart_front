@@ -1,4 +1,10 @@
-<p>
-  this is Lesson nbr: <strong>{{nbr}}</strong>
-  <button class="btn btn-primary" (click)="alert()">alert</button>
-</p>
+<div class="content" *ngIf="lesson">
+  <div class="youtube-iframe" [innerHtml]="lesson.videoUrl">
+
+  </div>
+
+    <p>
+        this is Lesson nbr: <strong>{{nbr}}</strong>
+        <button class="btn btn-primary" (click)="alert()">alert</button>
+      </p>
+</div>
