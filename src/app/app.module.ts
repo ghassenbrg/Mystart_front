@@ -16,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { SafePipe } from './core/safe.pipe';
+import { UserDashboardModule } from './user-dashboard/user-dashboard.module';
 
 registerLocaleData(en);
 
@@ -31,6 +32,7 @@ registerLocaleData(en);
     AppRoutingModule,
     PagesModule,
     ThemeModule,
+    UserDashboardModule,
     HttpClientModule,
     FacebookModule.forRoot(),
     NgbModule,

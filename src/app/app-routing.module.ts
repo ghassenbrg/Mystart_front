@@ -24,6 +24,7 @@ import { CourseSingleComponent } from './pages/course-single/course-single.compo
 import { BlogSearchComponent } from './pages/blog-search/blog-search.component';
 import { LessonsComponent } from './pages/lessons/lessons.component';
 import { LessonSingleComponent } from './pages/lessons/lesson-single/lesson-single.component';
+import { UserDashLayoutComponent } from './user-dashboard/user-dash-layout/user-dash-layout.component';
 
 const routes: Routes = [
   { path: '', component: LayoutComponent, children : [
@@ -49,9 +50,12 @@ const routes: Routes = [
     { path: 'add-project', component: AddProjectComponent, canActivate: [AuthGuardService] },
     { path: 'notAllowed', component: NotAllowedComponent },
     { path: 'test', component: TestComponent },
-    { path: '404', component: NotFoundComponent },
-    { path: '**', component: NotFoundComponent }
-  ]}
+    { path: '404', component: NotFoundComponent }
+  ]},
+  { path: 'userDashboard', component: UserDashLayoutComponent, children : [
+    { path: '404', component: NotFoundComponent }
+  ]},
+  { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({
