@@ -1,29 +1,45 @@
-<button nz-button (click)="addRow()" nzType="primary">Add</button>
+<button nz-button (click)="addRow()" nzType="primary"><i class="fas fa-plus-circle"></i> Add</button>
+<span class="mySpace"></span>
+<button nz-button (click)="loadData()" nzType="primary"><i class="fas fa-redo-alt"></i> Refresh</button>
     <nz-table #editRowTable nzBordered [nzData]="listOfData">
       <thead>
         <tr>
-          <th nzWidth="30%">Name</th>
-          <th>Age</th>
-          <th>Address</th>
+          <th nzWidth="30px">Nb.</th>
+          <th nzWidth="150px">Photo</th>
+          <th>Title</th>
+          <th>Category</th>
+          <th>Published</th>
+          <th>Private</th>
           <th>Action</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let data of editRowTable.data" class="editable-row">
+        <tr *ngFor="let data of editRowTable.data; index as i" class="editable-row">
+          <td>{{ data.nb }}</td>
           <td>
-            <div class="editable-cell" *ngIf="editId !== data.id; else editTpl">
-              <div class="editable-cell-value-wrap" (click)="startEdit(data.id, $event)">
-                {{ data.name }}
-              </div>
-            </div>
-            <ng-template #editTpl>
-              <input type="text" nz-input [(ngModel)]="data.name" />
-            </ng-template>
+            <img class="photo" src="../../../assets/{{data.photo}}" alt="">
           </td>
-          <td>{{ data.age }}</td>
-          <td>{{ data.address }}</td>
+          <td>{{ data.title }}</td>
+          <td>{{ data.category }}</td>
           <td>
-            <a nz-popconfirm nzTitle="Sure to delete?" (nzOnConfirm)="deleteRow(data.id)">Delete</a>
+            <nz-switch [(ngModel)]="data.published" [nzControl]="true" (click)="updateProject(i, 'published')" [nzLoading]="loading"></nz-switch>
+          </td>
+          <td>
+            <nz-switch [(ngModel)]="data.private" [nzControl]="true" (click)="updateProject(i, 'private')" [nzLoading]="loading"></nz-switch>
+          </td>
+          <td class="allign-actions">
+            <div class="editable-row-operations">
+              <ng-container>
+                <a title="Modifier" (click)="test()" data-toggle="collapse"
+                  data-target="#collapseform"><i style="font-size:20px;" nz-icon [nzType]="'edit'" [nzTheme]="'twotone'"
+                    [nzTwotoneColor]="'#52c41a'"></i></a>
+                <span class="mySpace"></span>
+                <a title="Supprimer" nz-popconfirm nzTitle="Supprimer cette article ?"
+                  (nzOnConfirm)="test()">
+                  <i style="font-size:20px;" nz-icon [nzType]="'delete'" [nzTheme]="'twotone'"
+                    [nzTwotoneColor]="'#f73e3e'"></i></a>
+              </ng-container>
+            </div>
           </td>
         </tr>
       </tbody>
