@@ -12,9 +12,14 @@ import { AppRoutingModule } from '../app-routing.module';
 import { RestApiService } from '../core/rest-api.service';
 import { TimeService } from '../core/time.service';
 import { UserDashLayoutComponent } from './user-dash-layout/user-dash-layout.component';
+import { MainComponent } from './main/main.component';
+import { MyProfileComponent } from './my-profile/my-profile.component';
+import { MyMessagesComponent } from './my-messages/my-messages.component';
+import { ProjectManagerComponent } from './project-manager/project-manager.component';
+import { MyCoursesComponent } from './my-courses/my-courses.component';
 
 @NgModule({
-  declarations: [UserDashLayoutComponent],
+  declarations: [UserDashLayoutComponent, MainComponent, MyProfileComponent, MyMessagesComponent, ProjectManagerComponent, MyCoursesComponent],
   imports: [
     CommonModule,
     ThemeModule,
