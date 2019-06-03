@@ -31,8 +31,9 @@
     <nz-layout style="margin-left: 200; min-height: 100vh;">
       <nz-header style="background: #fff; padding:0; text-align: right;">
         <div class="header">
-          <img src="../../../assets/myDocs/users/user1.jpg" class="inline user-avatar" alt="">
-          <p class="inline">Hello <strong>ghassen.brg</strong> !</p>
+          <img src="../../../assets/{{loggedUser.profilpic}}" class="inline user-avatar" alt="Avatar" *ngIf="!externelPorfilPicUrl(loggedUser.profilpic)">
+          <img src="{{loggedUser.profilpic}}" class="inline user-avatar" alt="Avatar" *ngIf="externelPorfilPicUrl(loggedUser.profilpic)">
+          <p class="inline">Hello <strong>{{loggedUser.fullName}}</strong> !</p>
           <button nz-button nzType="primary" class="inline" (click)="gotToHomepage()"><i class="fas fa-home"></i> Go to Homepage</button>
           <button nz-button nzType="primary" class="inline" (click)="logOut()"><i class="fas fa-sign-out-alt"></i> LogOut</button>
         </div>

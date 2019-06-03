@@ -33,14 +33,11 @@ export class LayoutComponent implements OnInit {
       this.loggedUser = undefined;
       localStorage.removeItem('auth');
     }
-    console.log("******************");
     this.restApi.get('config/menus').subscribe((data: {}) => {
       if(data['err']) {
         this.topMenuData = undefined;
         this.footerData = undefined;
       }
-      console.log("******************");
-      console.log("test"+data);
       this.topMenuData = {
         logo: data['logo'],
         domainName: data['domainName'],
