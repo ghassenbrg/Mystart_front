@@ -1,0 +1,22 @@
+.logo {
+    text-align: center;
+}
+
+.logo-img {
+    width: 85%;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.trigger {
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.avatar {
+    width: 100px;
+}
+
+.nav-text {
+    margin-left: 10px;
+}

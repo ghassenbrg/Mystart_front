@@ -27,6 +27,9 @@ import { LessonSingleComponent } from './pages/lessons/lesson-single/lesson-sing
 import { UserDashLayoutComponent } from './user-dashboard/user-dash-layout/user-dash-layout.component';
 
 const routes: Routes = [
+  { path: 'userDashboard', component: UserDashLayoutComponent, canActivate: [AuthGuardService], children : [
+    { path: '404', component: NotFoundComponent }
+  ]},
   { path: '', component: LayoutComponent, children : [
     { path: '', component: HomeComponent },
     { path: 'projects', component: ProjectsComponent },
@@ -50,12 +53,9 @@ const routes: Routes = [
     { path: 'add-project', component: AddProjectComponent, canActivate: [AuthGuardService] },
     { path: 'notAllowed', component: NotAllowedComponent },
     { path: 'test', component: TestComponent },
-    { path: '404', component: NotFoundComponent }
-  ]},
-  { path: 'userDashboard', component: UserDashLayoutComponent, children : [
-    { path: '404', component: NotFoundComponent }
-  ]},
-  { path: '**', component: NotFoundComponent }
+    { path: '404', component: NotFoundComponent },
+    { path: '**', component: NotFoundComponent }
+  ]}
 ];
 
 @NgModule({

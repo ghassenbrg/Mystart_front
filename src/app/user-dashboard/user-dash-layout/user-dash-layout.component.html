@@ -1,51 +1,61 @@
 <nz-layout>
-  <nz-sider style="overflow: auto; height: 100vh; position: fixed; left: 0">
-    <div class="logo"></div>
-    <ul nz-menu [nzTheme]="'dark'" [nzMode]="'inline'">
-      <li nz-menu-item>
-        <span><i nz-icon type="file"></i><span class="nav-text">nav 1</span></span>
-      </li>
-      <li nz-menu-item>
-        <span><i nz-icon type="video-camera"></i><span class="nav-text">nav 2</span></span>
-      </li>
-      <li nz-menu-item>
-        <span><i nz-icon type="upload"></i><span class="nav-text">nav 3</span></span>
-      </li>
-      <li nz-menu-item>
-        <span><i nz-icon type="bar-chart"></i><span class="nav-text">nav 4</span></span>
-      </li>
-      <li nz-menu-item>
-        <span><i nz-icon type="cloud-o"></i><span class="nav-text">nav 5</span></span>
-      </li>
-      <li nz-menu-item>
-        <span><i nz-icon type="appstore-o"></i><span class="nav-text">nav 6</span></span>
-      </li>
-      <li nz-menu-item>
-        <span><i nz-icon type="team"></i><span class="nav-text">nav 7</span></span>
-      </li>
-      <li nz-menu-item>
-        <span><i nz-icon type="shop"></i><span class="nav-text">nav 8</span></span>
-      </li>
-    </ul>
-  </nz-sider>
-  <nz-layout style="margin-left: 200">
-    <nz-header style="background: #fff; padding:0;"></nz-header>
-    <nz-content style="margin:24px 16px 0;overflow: initial">
-      <div style="padding: 24px; background: #fff; text-align: center">
-        ...
-        <br />
-        Really
-        <br />...<br />...<br />...<br />
-        long
-        <br />...<br />...<br />...<br />...<br />...<br />...
-        <br />...<br />...<br />...<br />...<br />...<br />...
-        <br />...<br />...<br />...<br />...<br />...<br />...
-        <br />...<br />...<br />...<br />...<br />...<br />...
-        <br />...<br />...<br />...<br />...<br />...<br />...
-        <br />...<br />...<br />...<br />...<br />...<br />... <br />...<br />...<br />...<br />...<br />...<br />
-        content
+    <nz-sider style="overflow: auto; height: 100vh; position: fixed; left: 0">
+      <div class="logo">
+        <a href="/"><img class="logo-img" src="../../../assets/images/logo/logo-ft.png" alt="Logo"></a>
       </div>
-    </nz-content>
-    <nz-footer style="text-align: center;">Ant Design ©2019 Implement By Angular</nz-footer>
+      <ul nz-menu [nzTheme]="'dark'" [nzMode]="'inline'">
+        <li nz-menu-item>
+          <a [routerLink]="['main']"><i class="fas fa-tachometer-alt"></i><span class="nav-text">Dashboard</span></a>
+        </li>
+        <li nz-menu-item>
+          <a [routerLink]="['profile']"><i class="fas fa-user"></i><span class="nav-text">My profile</span></a>
+        </li>
+        <li nz-menu-item>
+          <a [routerLink]="['messages']"><i class="fas fa-envelope"></i><span class="nav-text">Messages</span></a>
+        </li>
+        <li nz-menu-item>
+          <a [routerLink]="['projects']"><i class="fas fa-lightbulb"></i><span class="nav-text">Projects manager</span></a>
+        </li>
+        <li nz-menu-item>
+          <a [routerLink]="['courses']"><i class="fas fa-book-reader"></i><span class="nav-text">My courses</span></a>
+        </li>
+        <li nz-submenu>
+            <span title><i class="fas fa-archive"></i><span class="nav-text">Team</span></span>
+          <ul>
+            <li nz-menu-item>Team 1</li>
+            <li nz-menu-item>Team 2</li>
+          </ul>
+        </li>
+        <li nz-menu-item>
+          <span><i class="fas fa-sign-out-alt"></i><span class="nav-text">Logout</span></span>
+        </li>
+      </ul>
+    </nz-sider>
+    <nz-layout style="margin-left: 200">
+      <nz-header style="background: #fff; padding:0;">
+        <div class="user-avatar">
+          <img src="../../../assets/myDocs/users/user1.jpg" class="avatar" alt="Avatar"> <!-- *ngIf="!externelPorfilPicUrl(loggedUser.profilpic)" -->
+          <!-- <img src="{{loggedUser.profilpic}}" class="avatar" alt="Avatar" *ngIf="externelPorfilPicUrl(loggedUser.profilpic)">
+          {{loggedUser.fullName}} --> Ghassen.brg
+        </div>
+      </nz-header>
+      <nz-content style="margin:24px 16px 0;overflow: initial">
+        <div style="padding: 24px; background: #fff; text-align: center">
+            <router-outlet></router-outlet>
+          ...
+          <br />
+          Really
+          <br />...<br />...<br />...<br />
+          long
+          <br />...<br />...<br />...<br />...<br />...<br />...
+          <br />...<br />...<br />...<br />...<br />...<br />...
+          <br />...<br />...<br />...<br />...<br />...<br />...
+          <br />...<br />...<br />...<br />...<br />...<br />...
+          <br />...<br />...<br />...<br />...<br />...<br />...
+          <br />...<br />...<br />...<br />...<br />...<br />... <br />...<br />...<br />...<br />...<br />...<br />
+          content
+        </div>
+      </nz-content>
+      <nz-footer style="text-align: center;">Mystart ©2019 All rights reserved.</nz-footer>
+    </nz-layout>
   </nz-layout>
-</nz-layout>
