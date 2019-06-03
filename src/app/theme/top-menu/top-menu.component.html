@@ -24,9 +24,9 @@
                 </ul>
             <!-- if we found a logged-user -->
             <ul class="nav navbar-nav navbar-right ml-auto" *ngIf="loggedUser">
-                <li class="nav-item active"><a href="#" class="nav-link"><i class="fa fa-home"></i><span>Home</span></a></li>
+                <li class="nav-item active"><a href="/" class="nav-link"><i class="fa fa-home"></i><span>Home</span></a></li>
                 <li class="nav-item"><a href="userDashboard" class="nav-link"><i class="fa fa-gears"></i><span>My Dashboard</span></a></li>
-                <li class="nav-item"><a [routerLink]="['/messages']" class="nav-link"><i class="fa fa-envelope"></i><span>Messages</span></a></li>		
+                <li class="nav-item"><a href="userDashboard/messages" class="nav-link"><i class="fa fa-envelope"></i><span>Messages</span></a></li>		
                 <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-bell"></i><span>Notifications</span></a></li>
                 <li class="nav-item dropdown">
                     <a data-toggle="dropdown" class="nav-link dropdown-toggle user-action">
@@ -35,8 +35,7 @@
                         {{loggedUser.fullName}}
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a [routerLink]="['/myprofile']" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a></li>
-                        <li><a href="userDashboard" class="dropdown-item"><i class="fa fa-sliders"></i> Settings</a></li>
+                        <li><a href="userDashboard/profile" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a></li>
                         <li class="divider dropdown-divider"></li>
                         <li><a class="dropdown-item" (click)="logOut()"><i class="material-icons" >&#xE8AC;</i> Logout</a></li>
                     </ul>

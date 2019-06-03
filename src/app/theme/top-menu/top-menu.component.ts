@@ -31,6 +31,7 @@ export class TopMenuComponent implements OnInit {
 
   logOut() {
     this.auth.logOut();
+    window.location.reload();
   }
 
   externelPorfilPicUrl(porfilpic) {

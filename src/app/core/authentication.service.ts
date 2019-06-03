@@ -52,7 +52,6 @@ export class AuthenticationService {
   logOut() {
     localStorage.removeItem('auth');
     this.socialAuthService.signOut();
-    window.location.reload();
   }
 
 

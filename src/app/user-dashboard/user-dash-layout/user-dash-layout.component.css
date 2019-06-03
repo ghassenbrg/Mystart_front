@@ -20,3 +20,14 @@
 .nav-text {
     margin-left: 10px;
 }
+
+.inline {
+    display: inline-block;
+    margin-right: 30px;
+}
+
+.user-avatar {
+    width: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
