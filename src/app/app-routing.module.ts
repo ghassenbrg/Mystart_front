@@ -25,10 +25,19 @@ import { BlogSearchComponent } from './pages/blog-search/blog-search.component';
 import { LessonsComponent } from './pages/lessons/lessons.component';
 import { LessonSingleComponent } from './pages/lessons/lesson-single/lesson-single.component';
 import { UserDashLayoutComponent } from './user-dashboard/user-dash-layout/user-dash-layout.component';
+import { MainComponent } from './user-dashboard/main/main.component';
+import { MyProfileComponent } from './user-dashboard/my-profile/my-profile.component';
+import { MyMessagesComponent } from './user-dashboard/my-messages/my-messages.component';
+import { ProjectManagerComponent } from './user-dashboard/project-manager/project-manager.component';
+import { MyCoursesComponent } from './user-dashboard/my-courses/my-courses.component';
 
 const routes: Routes = [
   { path: 'userDashboard', component: UserDashLayoutComponent, canActivate: [AuthGuardService], children : [
-    { path: '404', component: NotFoundComponent }
+    { path: '', component: MainComponent },
+    { path: 'profile', component: MyProfileComponent },
+    { path: 'messages', component: MyMessagesComponent },
+    { path: 'projects', component: ProjectManagerComponent },
+    { path: 'courses', component: MyCoursesComponent }
   ]},
   { path: '', component: LayoutComponent, children : [
     { path: '', component: HomeComponent },
