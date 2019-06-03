@@ -37,20 +37,14 @@ export class ProjectManagerComponent implements OnInit {
     if (!this.loading) {
       this.loading = true;
       if (type == 'published') {
-        console.log("fel assl.."+this.projects[i].published);
         this.listOfData[i].published = !this.listOfData[i].published;
         this.projects[i].published = this.listOfData[i].published;
-        console.log("tawa.."+this.projects[i].published);
       } else if (type == 'private') {
-        console.log("fel assl.."+this.projects[i].private);
         this.listOfData[i].private = !this.listOfData[i].private;
         this.projects[i].private = this.listOfData[i].private;
-        console.log("tawa.."+this.projects[i].private);
       }
       this.restApi.update('project/'+this.listOfData[i].id,this.projects[i]).subscribe((data: {}) => {
         this.loading = false;
-        console.log("i'm here..");
-        console.log("wallét..\n public: "+this.projects[i].published+"\n private: "+this.projects[i].private);
       });
     }
 

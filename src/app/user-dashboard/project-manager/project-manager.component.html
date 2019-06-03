@@ -22,10 +22,10 @@
           <td>{{ data.title }}</td>
           <td>{{ data.category }}</td>
           <td>
-            <nz-switch [(ngModel)]="data.published" [nzControl]="true" (click)="updateProject(i, 'published')" [nzLoading]="loading"></nz-switch>
+            <nz-switch [(ngModel)]="data.published" [nzControl]="true" (click)="updateProject(data.nb, 'published')" [nzLoading]="loading"></nz-switch>
           </td>
           <td>
-            <nz-switch [(ngModel)]="data.private" [nzControl]="true" (click)="updateProject(i, 'private')" [nzLoading]="loading"></nz-switch>
+            <nz-switch [(ngModel)]="data.private" [nzControl]="true" (click)="updateProject(data.nb, 'private')" [nzLoading]="loading"></nz-switch>
           </td>
           <td class="allign-actions">
             <div class="editable-row-operations">
