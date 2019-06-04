@@ -45,7 +45,7 @@
         <div nz-col class="gutter-row" [nzSpan]="6" *ngFor ="let project of projects">
             <div class="course-border border-f-e6f3ff border-ra4 transition-vline" [@bounce]="bounce">   
                 <div class="course-img img-vline"> 
-                    <a href="project/{{project._id}}"><img src="../../../assets/{{project.coverImg}}" class="cover-img" alt="bookflare"></a>
+                    <a href="project/{{project._id}}"><img src="{{project.coverImg}}" class="cover-img" alt="bookflare"></a>
                     <div class="overlay">
                         <span class="vline"></span>
                         <span class="vline vline-bottom"></span>
