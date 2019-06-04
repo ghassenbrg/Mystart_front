@@ -17,7 +17,7 @@
         <tr *ngFor="let data of editRowTable.data; index as i" class="editable-row">
           <td>{{ data.nb }}</td>
           <td>
-            <img class="photo" src="../../../assets/{{data.photo}}" alt="">
+            <img class="photo" src="{{data.photo}}" alt="">
           </td>
           <td>{{ data.title }}</td>
           <td>{{ data.category }}</td>
@@ -64,20 +64,25 @@
             <label for="description">Cover photo:</label>
           </div>
           <div nz-col nzSpan="18">
-              <div class="clearfix">
-                  <nz-upload
-                    class="upload-list-inline"
-                    nzAction="http://localhost:3000/api/upload"
-                    [nzLimit]="1"
-                    [nzDisabled] = "isUploadDisabled(1,'photo')"
-                    nzListType="picture"
-                    [(nzFileList)]="photo"
-                  >
-                    <button nz-button>
-                      <span><i nz-icon type="upload"></i> Upload</span>
-                    </button>
-                  </nz-upload>
-                </div>      
+            <div *ngIf="popupData.coverImg">
+              <img src="{{popupData.coverImg}}" style="width: 300px; border-radius:5px" alt="">
+              <span class="mySpace"></span>
+              <button nz-button (click)="popupData.coverImg = null" nzType="danger"><i class="fas fa-image"></i> Change picture</button>
+            </div>
+            <div class="clearfix" *ngIf="!popupData.coverImg">
+              <nz-upload
+                class="upload-list-inline"
+                nzAction="http://localhost:3000/api/upload"
+                [nzLimit]="1"
+                [nzDisabled] = "isUploadDisabled(1,'photo')"
+                nzListType="picture"
+                [(nzFileList)]="photo"
+              >
+                <button nz-button>
+                  <span><i nz-icon type="upload"></i> Upload</span>
+                </button>
+              </nz-upload>
+            </div>      
           </div>
         </div><br>
         <!-- category -->
@@ -85,10 +90,22 @@
           <div nz-col nzSpan="3">
             <label for="category">Category:</label>
           </div>
-          <div nz-col nzSpan="18">
+          <div nz-col nzSpan="6">
             <nz-select style="width: 150px;" [(ngModel)]="popupData.category" nzAllowClear nzPlaceHolder="Choose">
               <nz-option *ngFor="let category of categories" nzValue="{{category.name}}" nzLabel="{{category.name}}"></nz-option>
             </nz-select>         
+          </div>
+          <div nz-col nzSpan="3">
+            <label for="category">Published:</label>
+          </div>
+          <div nz-col nzSpan="2">
+            <nz-switch [(ngModel)]="popupData.published"></nz-switch>    
+          </div>
+          <div nz-col nzSpan="2">
+            <label for="category">Private:</label>
+          </div>
+          <div nz-col nzSpan="2">
+            <nz-switch [(ngModel)]="popupData.private"></nz-switch>    
           </div>
         </div><br>
         <!-- description -->

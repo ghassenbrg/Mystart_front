@@ -138,6 +138,7 @@ export class ProjectManagerComponent implements OnInit {
       this.popupData.category= data.category;
       this.popupData.private= data.private;
       this.popupData.attachments= data.attachments;
+      this.popupData.method= 'update';
     } else {
       this.popupData.title= null;
       this.popupData.description= null;
@@ -147,6 +148,7 @@ export class ProjectManagerComponent implements OnInit {
       this.popupData.category= null;
       this.popupData.private= false;
       this.popupData.attachments= null;
+      this.popupData.method= 'post';
     }
     this.popupData.author= this.parent.loggedUser._id;
   }
