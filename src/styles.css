@@ -4,7 +4,9 @@ a {
 .fb-comments {
     background-color: white;
 }
-
+.ck-editor__editable {
+    min-height: 300px;
+}
 /*
 primary-color: #1A97D7
 secondary-color: #15222E                  

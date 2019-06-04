@@ -19,9 +19,17 @@ export class ProjectManagerComponent implements OnInit {
   //var for mdoal
   tplModal: NzModalRef;
   tplModalButtonLoading = false;
+  tplTitle: any; 
+  tplContent: any;
+  tplFooter: any;
   //editor
   public Editor = ClassicEditor;
   content = '<p>Hello world !</p>';
+  //fileLists
+  photo = [];
+  attachments = [];
+  //project popup
+  popupData: any = {};
 
   constructor(private restApi: RestApiService, private parent: UserDashLayoutComponent,
      private modalService: NzModalService, private notification: NzNotificationService) { }
@@ -44,7 +52,8 @@ export class ProjectManagerComponent implements OnInit {
     });
   }
 
-  test() {}
+  test() {
+  }
 
   updateProject(i, type?) {
     if (!this.loading) {
@@ -92,7 +101,9 @@ export class ProjectManagerComponent implements OnInit {
   }
 
   // popup methods
-  createTplModal(tplTitle: TemplateRef<{}>, tplContent: TemplateRef<{}>, tplFooter: TemplateRef<{}>): void {
+  createTplModal(tplTitle: TemplateRef<{}>, tplContent: TemplateRef<{}>, tplFooter: TemplateRef<{}>, project?): void {
+    this.fillPopup(project);
+    console.log('data: '+JSON.stringify(project));
     this.tplModal = this.modalService.create({
       nzTitle: tplTitle,
       nzContent: tplContent,
@@ -115,6 +126,36 @@ export class ProjectManagerComponent implements OnInit {
         'The project is successfully added.'
       );
     }, 1000);
+  }
+
+  fillPopup(data?){
+    if (data) {
+      this.popupData.title= data.title;
+      this.popupData.description= data.description;
+      this.popupData.overview= data.overview;
+      this.popupData.coverImg= data.coverImg;
+      this.popupData.published= data.published;
+      this.popupData.category= data.category;
+      this.popupData.private= data.private;
+      this.popupData.attachments= data.attachments;
+    } else {
+      this.popupData.title= null;
+      this.popupData.description= null;
+      this.popupData.overview= '';
+      this.popupData.coverImg= null;
+      this.popupData.published= true;
+      this.popupData.category= null;
+      this.popupData.private= false;
+      this.popupData.attachments= null;
+    }
+    this.popupData.author= this.parent.loggedUser._id;
+  }
+
+  isUploadDisabled(max, photo?){
+    let check = false;
+    if ((photo) && (this.photo.length == max)) check = true;
+    else if (this.attachments.length == max) check = true;
+    return check;
   }
 
 }
