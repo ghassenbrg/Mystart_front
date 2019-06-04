@@ -67,7 +67,10 @@
             <div *ngIf="popupData.coverImg">
               <img src="{{popupData.coverImg}}" style="width: 300px; border-radius:5px" alt="">
               <span class="mySpace"></span>
-              <button nz-button (click)="popupData.coverImg = null" nzType="danger"><i class="fas fa-image"></i> Change picture</button>
+              <button nz-button nzType="danger" nz-popconfirm nzTitle="You'll abandon the current image ?"
+              (nzOnConfirm)="popupData.coverImg = null">
+                <i class="fas fa-image"></i> Change picture
+              </button>
             </div>
             <div class="clearfix" *ngIf="!popupData.coverImg">
               <nz-upload
