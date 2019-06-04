@@ -83,7 +83,8 @@ export class ProjectManagerComponent implements OnInit {
         photo: project.coverImg,
         category: project.category,
         published: project.published,
-        private: project.private
+        private: project.private,
+        verified: project.verified
       }
     ];
     this.i++;
@@ -97,6 +98,7 @@ export class ProjectManagerComponent implements OnInit {
     this.listOfData[i].category = data.category;
     this.listOfData[i].published = data.published;
     this.listOfData[i].private = data.private;
+    this.listOfData[i].verified = data.verified;
   }
 
   deleteRow(id: string,i): void {
@@ -129,8 +131,8 @@ export class ProjectManagerComponent implements OnInit {
   destroyTplModal(): void {
     this.tplModalButtonLoading = true;
 
-    if (this.photo) this.popupData.coverImg = this.photo[0].response.fileUrl;
-
+    if (this.photo.length > 0) this.popupData.coverImg = this.photo[0].response.fileUrl;
+    //this.popupData.verified = true;
     if (this.popupConfig.method == 'post') {
       this.restApi.post('projects/',this.popupData).subscribe((data: {}) => {
         this.addRow(data);
@@ -144,7 +146,7 @@ export class ProjectManagerComponent implements OnInit {
         );
       });
     } else if (this.popupConfig.method == 'update') {
-      this.restApi.update('project/'+this.listOfData[this.popupConfig.i].id,this.popupData).subscribe((data: {}) => {
+      this.restApi.update('project/'+this.projects[this.popupConfig.i]._id,this.popupData).subscribe((data: {}) => {
         this.updateRow(data, this.popupConfig.i);
         this.projects[this.popupConfig.i] = data;
         this.tplModalButtonLoading = false;
@@ -160,6 +162,7 @@ export class ProjectManagerComponent implements OnInit {
   }
 
   fillPopup(data?){
+    this.tplModalButtonLoading = false;
     this.photo = [];
     this.attachments = [];
     if (data) {
@@ -172,6 +175,7 @@ export class ProjectManagerComponent implements OnInit {
       this.popupData.private= data.private;
       this.popupData.attachments= data.attachments;
       this.popupData.authorized= data.authorized;
+      this.popupData.verified= data.verified;
       this.popupConfig.method= 'update';
     } else {
       this.popupData.title= null;
@@ -183,6 +187,7 @@ export class ProjectManagerComponent implements OnInit {
       this.popupData.private= false;
       this.popupData.attachments= [];
       this.popupData.authorized= [];
+      this.popupData.verified= null;
       this.popupConfig.method= 'post';
     }
     this.popupData.author= this.parent.loggedUser._id;

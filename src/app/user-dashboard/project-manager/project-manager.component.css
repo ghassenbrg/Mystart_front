@@ -52,3 +52,9 @@ i[nz-icon] {
   margin-top: 8px;
   color: #666;
 }
+
+.badge {
+  color: white !important;
+  font-weight: 500;
+  padding: 5px;
+}
