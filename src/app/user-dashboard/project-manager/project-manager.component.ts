@@ -30,6 +30,7 @@ export class ProjectManagerComponent implements OnInit {
   attachments = [];
   //project popup
   popupData: any = {};
+  popupMethod: string;
 
   constructor(private restApi: RestApiService, private parent: UserDashLayoutComponent,
      private modalService: NzModalService, private notification: NzNotificationService) { }
@@ -117,18 +118,39 @@ export class ProjectManagerComponent implements OnInit {
 
   destroyTplModal(): void {
     this.tplModalButtonLoading = true;
-    setTimeout(() => {
-      this.tplModalButtonLoading = false;
-      this.tplModal.destroy();
-      this.notification.create(
-        'success',
-        'Add new project',
-        'The project is successfully added.'
-      );
-    }, 1000);
+
+    if (this.photo) this.popupData.coverImg = this.photo[0].response.fileUrl;
+
+    if (this.popupMethod == 'post') {
+      this.restApi.post('projects/',this.popupData).subscribe((data: {}) => {
+        this.addRow(data);
+        this.projects.push(data);
+        this.tplModalButtonLoading = false;
+        this.tplModal.destroy();
+        this.notification.create(
+          'success',
+          'Add new project',
+          'The project is successfully added.'
+        );
+      });
+    } else if (this.popupMethod == 'update') {
+      this.restApi.post('projects/',this.popupData).subscribe((data: {}) => {
+        this.addRow(data);
+        this.tplModalButtonLoading = false;
+        this.tplModal.destroy();
+        this.notification.create(
+          'success',
+          'Add new project',
+          'The project is successfully added.'
+        );
+      });
+    }
+
   }
 
   fillPopup(data?){
+    this.photo = [];
+    this.attachments = [];
     if (data) {
       this.popupData.title= data.title;
       this.popupData.description= data.description;
@@ -138,7 +160,7 @@ export class ProjectManagerComponent implements OnInit {
       this.popupData.category= data.category;
       this.popupData.private= data.private;
       this.popupData.attachments= data.attachments;
-      this.popupData.method= 'update';
+      this.popupMethod= 'update';
     } else {
       this.popupData.title= null;
       this.popupData.description= null;
@@ -148,7 +170,7 @@ export class ProjectManagerComponent implements OnInit {
       this.popupData.category= null;
       this.popupData.private= false;
       this.popupData.attachments= null;
-      this.popupData.method= 'post';
+      this.popupMethod= 'post';
     }
     this.popupData.author= this.parent.loggedUser._id;
   }
