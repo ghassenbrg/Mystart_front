@@ -21,12 +21,14 @@
           </td>
           <td>
             {{ data.title }} 
-            <span style="float: right">
-                <span class="badge badge-success" *ngIf="data.verified == true">Verified</span>
-                <span class="badge badge-danger" *ngIf="data.verified == false">Unverified</span>
-                <span class="badge badge-warning" *ngIf="data.verified == null">Processing...</span>
-                <span class="mySpace"></span>
-                <a href="/project/{{ data.id }}" target="_blank"><i class="fas fa-external-link-alt"></i> View</a>
+            <span style="float: right">  
+              <a href="/project/{{ data.id }}" target="_blank" *ngIf="data.verified == true">
+                <i class="fas fa-external-link-alt"></i> View
+              </a>
+              <span class="mySpace" *ngIf="data.verified == true"></span>
+              <span class="badge badge-success" *ngIf="data.verified == true">Verified</span>
+              <span class="badge badge-danger" *ngIf="data.verified == false">Unverified</span>
+              <span class="badge badge-warning" *ngIf="data.verified == null">Processing...</span>
             </span>
           </td>
           <td>{{ data.category }}</td>

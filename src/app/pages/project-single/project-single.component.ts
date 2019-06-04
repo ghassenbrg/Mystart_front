@@ -30,7 +30,7 @@ export class ProjectSingleComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.id= params.get('id');
       return this.restApi.get('project/'+this.id).subscribe((data: {}) => {
-        if (!data[0].published) {
+        if ((!data[0].published) || (!data[0].verified)) {
           this.router.navigate(['/404']);
           return;
         }
