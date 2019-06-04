@@ -58,7 +58,7 @@
                             <a class="username" href="profile/{{project.authorRes[0].username}}"><i class="fas fa-user-tie"></i> {{project.authorRes[0].username}}</a>
                             <span class="cat" style="color: grey"> | <i class="fas fa-folder"></i> category: {{project.category}}</span>
                         </p>
-                        <p class="description">{{project.description}}</p>
+                        <p class="description">{{project.description.substring(1, 100)+'..'}}</p>
                     </div>
                 </div>
             </div>
