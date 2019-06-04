@@ -30,7 +30,7 @@ export class ProjectManagerComponent implements OnInit {
   attachments = [];
   //project popup
   popupData: any = {};
-  popupMethod: string;
+  popupConfig: any = {};
 
   constructor(private restApi: RestApiService, private parent: UserDashLayoutComponent,
      private modalService: NzModalService, private notification: NzNotificationService) { }
@@ -89,6 +89,16 @@ export class ProjectManagerComponent implements OnInit {
     this.i++;
   }
 
+  updateRow(data, i) {
+
+
+    this.listOfData[i].title = data.title;
+    this.listOfData[i].photo = data.coverImg;
+    this.listOfData[i].category = data.category;
+    this.listOfData[i].published = data.published;
+    this.listOfData[i].private = data.private;
+  }
+
   deleteRow(id: string,i): void {
     let title = this.listOfData[i].title;
     this.restApi.delete('project/'+id).subscribe((data: {}) => {
@@ -102,9 +112,9 @@ export class ProjectManagerComponent implements OnInit {
   }
 
   // popup methods
-  createTplModal(tplTitle: TemplateRef<{}>, tplContent: TemplateRef<{}>, tplFooter: TemplateRef<{}>, project?): void {
-    this.fillPopup(project);
-    console.log('data: '+JSON.stringify(project));
+  createTplModal(tplTitle: TemplateRef<{}>, tplContent: TemplateRef<{}>, tplFooter: TemplateRef<{}>, i?): void {
+    this.popupConfig.i = i;
+    this.fillPopup(this.projects[i]);
     this.tplModal = this.modalService.create({
       nzTitle: tplTitle,
       nzContent: tplContent,
@@ -121,7 +131,7 @@ export class ProjectManagerComponent implements OnInit {
 
     if (this.photo) this.popupData.coverImg = this.photo[0].response.fileUrl;
 
-    if (this.popupMethod == 'post') {
+    if (this.popupConfig.method == 'post') {
       this.restApi.post('projects/',this.popupData).subscribe((data: {}) => {
         this.addRow(data);
         this.projects.push(data);
@@ -133,9 +143,10 @@ export class ProjectManagerComponent implements OnInit {
           'The project is successfully added.'
         );
       });
-    } else if (this.popupMethod == 'update') {
-      this.restApi.post('projects/',this.popupData).subscribe((data: {}) => {
-        this.addRow(data);
+    } else if (this.popupConfig.method == 'update') {
+      this.restApi.update('project/'+this.listOfData[this.popupConfig.i].id,this.popupData).subscribe((data: {}) => {
+        this.updateRow(data, this.popupConfig.i);
+        this.projects[this.popupConfig.i] = data;
         this.tplModalButtonLoading = false;
         this.tplModal.destroy();
         this.notification.create(
@@ -160,7 +171,8 @@ export class ProjectManagerComponent implements OnInit {
       this.popupData.category= data.category;
       this.popupData.private= data.private;
       this.popupData.attachments= data.attachments;
-      this.popupMethod= 'update';
+      this.popupData.authorized= data.authorized;
+      this.popupConfig.method= 'update';
     } else {
       this.popupData.title= null;
       this.popupData.description= null;
@@ -169,8 +181,9 @@ export class ProjectManagerComponent implements OnInit {
       this.popupData.published= true;
       this.popupData.category= null;
       this.popupData.private= false;
-      this.popupData.attachments= null;
-      this.popupMethod= 'post';
+      this.popupData.attachments= [];
+      this.popupData.authorized= [];
+      this.popupConfig.method= 'post';
     }
     this.popupData.author= this.parent.loggedUser._id;
   }
