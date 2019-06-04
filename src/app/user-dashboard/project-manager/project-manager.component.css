@@ -36,3 +36,19 @@ button {
   height: 50px;
   width: 80px;
 }
+
+.input-w label, .input-w input {
+  float: none; /* if you had floats before? otherwise inline-block will behave differently */
+  display: inline-block;
+  vertical-align: middle;    
+}
+
+/* upload photo */
+i[nz-icon] {
+  font-size: 32px;
+  color: #999;
+}
+.ant-upload-text {
+  margin-top: 8px;
+  color: #666;
+}

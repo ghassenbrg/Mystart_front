@@ -1,4 +1,4 @@
-<button nz-button (click)="addRow()" nzType="primary"><i class="fas fa-plus-circle"></i> Add</button>
+<button nz-button nzType="primary" (click)="createTplModal(tplTitle, tplContent, tplFooter)"><i class="fas fa-plus-circle"></i> Add</button>
 <span class="mySpace"></span>
 <button nz-button (click)="loadData()" nzType="primary"><i class="fas fa-redo-alt"></i> Refresh</button>
     <nz-table #editRowTable nzBordered [nzData]="listOfData">
@@ -34,8 +34,8 @@
                   data-target="#collapseform"><i style="font-size:20px;" nz-icon [nzType]="'edit'" [nzTheme]="'twotone'"
                     [nzTwotoneColor]="'#52c41a'"></i></a>
                 <span class="mySpace"></span>
-                <a title="Supprimer" nz-popconfirm nzTitle="Supprimer cette article ?"
-                  (nzOnConfirm)="test()">
+                <a title="Supprimer" nz-popconfirm nzTitle="Delete this project ?"
+                  (nzOnConfirm)="deleteRow(data.id,data.nb)">
                   <i style="font-size:20px;" nz-icon [nzType]="'delete'" [nzTheme]="'twotone'"
                     [nzTwotoneColor]="'#f73e3e'"></i></a>
               </ng-container>
@@ -44,3 +44,57 @@
         </tr>
       </tbody>
     </nz-table>
+<!--********************   popup to add a project   ************************-->
+      <ng-template #tplTitle>
+        <span>Add new project</span>
+      </ng-template>
+      <ng-template #tplContent>
+        <!-- title -->
+        <div nz-row>
+          <div nz-col nzSpan="3">
+            <label for="title">Title:</label>
+          </div>
+          <div nz-col nzSpan="18">
+            <input nz-input id="title" placeholder="Project title" [(ngModel)]="value" />
+          </div>
+        </div><br>
+        <!-- upload photo -->
+        <div nz-row>
+          <div nz-col nzSpan="3">
+            <label for="description">Cover photo:</label>
+          </div>
+          <div nz-col nzSpan="18">
+              <nz-upload nzAction="https://jsonplaceholder.typicode.com/posts/">
+                <button nz-button><i nz-icon type="upload"></i><span>Click to Upload</span></button>
+              </nz-upload>        
+          </div>
+        </div><br>
+        <!-- category -->
+        <div nz-row>
+          <div nz-col nzSpan="3">
+            <label for="category">Category:</label>
+          </div>
+          <div nz-col nzSpan="18">
+            <nz-select style="width: 150px;" [(ngModel)]="selectedValue" nzAllowClear nzPlaceHolder="Choose">
+              <nz-option *ngFor="let category of categories" nzValue="{{category.name}}" nzLabel="{{category.name}}"></nz-option>
+            </nz-select>         
+          </div>
+        </div><br>
+        <!-- description -->
+        <div nz-row>
+          <div nz-col nzSpan="3">
+            <label for="description">Description:</label>
+          </div>
+          <div nz-col nzSpan="18">
+            <textarea rows="4" nz-input id="description" placeholder="Project description..." [(ngModel)]="inputValue"></textarea>
+          </div>
+        </div><br>
+        <!-- editor-->
+        <label for="editor">Overview:</label>
+        <ckeditor [(ngModel)]="content" [editor]="Editor"></ckeditor>
+      </ng-template>
+      <ng-template #tplFooter>
+        <button nz-button nzType="primary" (click)="destroyTplModal()" [nzLoading]="tplModalButtonLoading">
+          confirm
+        </button>
+      </ng-template>
