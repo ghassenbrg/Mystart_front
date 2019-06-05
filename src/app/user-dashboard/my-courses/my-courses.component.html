@@ -1,3 +1,33 @@
-<p>
-  my-courses works!
-</p>
+<button nz-button (click)="loadData()" nzType="primary"><i class="fas fa-redo-alt"></i> Reload</button>
+<br><br>
+<nz-table #basicTable [nzData]="dataSet" nzBordered >
+  <thead>
+    <tr>
+      <th nzWidth="30px">Nb.</th>
+      <th nzWidth="120px">Photo</th>
+      <th>Title</th>
+      <th>Price</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let course of courses; index as i">
+      <td>{{ i }}</td>
+      <td>
+        <img class="photo" src="../../../assets/{{course.coverImg}}" alt="">
+      </td>
+      <td>
+        {{ course.title }} 
+        <a style="float: right" href="/course/{{ course._id }}" target="_blank">
+          <i class="fas fa-external-link-alt"></i> View
+        </a>
+      </td>
+      <td>{{ course.price }}</td>
+      <td>
+        <a>Action 一 {{ course.title }}</a>
+        <nz-divider nzType="vertical"></nz-divider>
+        <a>Delete</a>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>
