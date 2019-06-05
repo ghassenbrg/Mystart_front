@@ -31,11 +31,22 @@ export class ProjectManagerComponent implements OnInit {
   //project popup
   popupData: any = {};
   popupConfig: any = {};
+  // popup to authorize users
+  authorizedPopupData = {
+    usersID: [],
+    usernames: [],
+    err: '',
+    indice: -1
+  };
+  authorizedIsVisible = false;
+  popupUsername: string;
+
 
   constructor(private restApi: RestApiService, private parent: UserDashLayoutComponent,
      private modalService: NzModalService, private notification: NzNotificationService) { }
 
   ngOnInit(): void {
+    console.log('id: '+this.parent.loggedUser._id);
     this.loadData();
     this.restApi.get('categories').subscribe((data: {}) => {
       this.categories = data;
@@ -132,7 +143,7 @@ export class ProjectManagerComponent implements OnInit {
     this.tplModalButtonLoading = true;
 
     if (this.photo.length > 0) this.popupData.coverImg = this.photo[0].response.fileUrl;
-    //this.popupData.verified = true;
+    //this.popupData.verified = null;
     if (this.popupConfig.method == 'post') {
       this.restApi.post('projects/',this.popupData).subscribe((data: {}) => {
         this.addRow(data);
@@ -200,4 +211,65 @@ export class ProjectManagerComponent implements OnInit {
     return check;
   }
 
+  // authorize users to see private projects
+  showModal(i): void {
+    this.popupUsername = '';
+    this.authorizedPopupData.indice = i;
+    this.authorizedPopupData.usersID = this.projects[i].authorized;
+    this.authorizedPopupData.usernames = [];
+    this.authorizedPopupData.err = '';
+    for (let id of this.authorizedPopupData.usersID){
+    this.restApi.get('username/'+id).subscribe((data: {}) => {
+        this.authorizedPopupData.usernames.push(data['username']);
+    });  
+    }
+    this.authorizedIsVisible = true;
+  }
+
+  handleOk(): void {
+    let i = this.authorizedPopupData.indice;
+    this.authorizedIsVisible = false;
+    if (this.projects[i].authorized == this.authorizedPopupData.usersID) return;
+    this.projects[i].authorized = this.authorizedPopupData.usersID;
+    this.restApi.update('project/'+this.listOfData[i].id,this.projects[i]).subscribe((data: {}) => {
+      this.notification.create(
+        'success',
+        'Authorized list was updated',
+        'The Authorized list of the project with title: '+this.listOfData[i].title+' is successfully updated.'
+      );
+    });
+  }
+
+  handleCancel(): void {
+    this.authorizedIsVisible = false;
+  }
+
+  deleteAuthorizeUser(i) {
+    let userID = this.authorizedPopupData.usersID[i];
+    let username = this.authorizedPopupData.usernames[i];
+    this.authorizedPopupData.usersID = this.authorizedPopupData.usersID.filter(d => d !== userID);
+    this.authorizedPopupData.usernames = this.authorizedPopupData.usernames.filter(d => d !== username);
+  }
+  authorizeUser() {
+    let username = this.popupUsername;
+    this.popupUsername = '';
+    if (this.parent.loggedUser.username == username){
+      this.authorizedPopupData.err = 'You cannot add yourself !';
+      return;
+    }
+    this.restApi.get('id/'+username).subscribe((data: {}) => {
+      if (data['message']){
+        this.authorizedPopupData.err = data['message'];
+        return;
+      }
+      this.authorizedPopupData.usernames = [
+        username,
+        ...this.authorizedPopupData.usernames
+      ];
+      this.authorizedPopupData.usersID = [
+        data['id'],
+        ...this.authorizedPopupData.usersID
+      ];
+  }); 
+  }
 }

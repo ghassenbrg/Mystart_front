@@ -41,10 +41,15 @@
           <td class="allign-actions">
             <div class="editable-row-operations">
               <ng-container>
-                <a title="Edit" (click)="createTplModal(tplTitle, tplContent, tplFooter, data.nb)" data-toggle="collapse"
-                  data-target="#collapseform"><i style="font-size:20px;" nz-icon [nzType]="'edit'" [nzTheme]="'twotone'"
-                    [nzTwotoneColor]="'#52c41a'"></i></a>
+                <a title="Edit" (click)="createTplModal(tplTitle, tplContent, tplFooter, data.nb)">
+                  <i style="font-size:20px;" nz-icon [nzType]="'edit'" [nzTheme]="'twotone'"
+                    [nzTwotoneColor]="'#52c41a'"></i>
+                </a>
                 <span class="mySpace"></span>
+                <a *ngIf="data.private" title="Edit" (click)="showModal(i)" data-toggle="collapse"
+                  data-target="#collapseform"><i style="font-size:20px;" nz-icon [nzType]="'unlock'" [nzTheme]="'outline'"
+                    [nzTwotoneColor]="'#52c41a'"></i></a>
+                <span *ngIf="data.private" class="mySpace"></span>
                 <a title="Delete" nz-popconfirm nzTitle="Delete this project ?"
                   (nzOnConfirm)="deleteRow(data.id,data.nb)">
                   <i style="font-size:20px;" nz-icon [nzType]="'delete'" [nzTheme]="'twotone'"
@@ -55,6 +60,21 @@
         </tr>
       </tbody>
     </nz-table>
+<!--********************   popup to authorize users ************************-->
+<nz-modal [(nzVisible)]="authorizedIsVisible" nzTitle="Authorized users" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+  <h5>Let other users see your private project !</h5>
+  <input nz-input placeholder="Enter a valid username" [(ngModel)]="popupUsername" class="myInput"/>
+  <span style="color: red; cursor: pointer;" *ngIf="authorizedPopupData.err" (click)="authorizedPopupData.err = ''">
+    {{authorizedPopupData.err}}
+  </span>
+  <br><br>
+  <button nz-button nzType="primary" (click)="authorizeUser()">Add to list</button>
+  <h6>list of authorized users:</h6>
+  <p *ngFor="let username of authorizedPopupData.usernames; index as i">
+    @{{username}}<span class="mySpace"></span>
+    <i class="fas fa-times-circle delete-user-popup" style="color: red" (click)="deleteAuthorizeUser(i)"></i>
+  </p>
+</nz-modal>
 <!--********************   popup to add a project   ************************-->
       <ng-template #tplTitle>
         <span>Add new project</span>
