@@ -155,6 +155,7 @@
         <div nz-row>
           <div nz-col nzSpan="3">
             <label for="description">Attachments:</label>
+            <button (click)="test()">test</button>
           </div>
           <div nz-col nzSpan="18">
             <nz-upload nzAction="http://localhost:3000/api/upload" [nzLimit]="1" [nzDisabled] = "isUploadDisabled(3)" [(nzFileList)]="attachments">

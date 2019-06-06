@@ -63,9 +63,6 @@ export class ProjectManagerComponent implements OnInit {
     });
   }
 
-  test() {
-  }
-
   updateProject(i, type?) {
     if (!this.loading) {
       this.loading = true;
@@ -142,10 +139,9 @@ export class ProjectManagerComponent implements OnInit {
     this.tplModalButtonLoading = true;
 
     if (this.photo.length > 0) this.popupData.coverImg = this.photo[0].response.fileUrl;
-    if (this.attachments.length > 0){
-      for (let attachment of this.attachments) {
-        this.popupData.attachments.push({name: attachment.name, url: attachment.response.fileUrl});
-      }
+    this.popupData.attachments = [];
+    for (let attachment of this.attachments) {
+      this.popupData.attachments.push({name: attachment.name, url: attachment.response.fileUrl});
     }
     //this.popupData.verified = true;
     if (this.popupConfig.method == 'post') {
@@ -176,6 +172,10 @@ export class ProjectManagerComponent implements OnInit {
 
   }
 
+  test() {
+    console.log(JSON.stringify(this.attachments));
+  }
+
   fillPopup(data?){
     this.tplModalButtonLoading = false;
     this.photo = [];
@@ -192,6 +192,16 @@ export class ProjectManagerComponent implements OnInit {
       this.popupData.authorized= data.authorized;
       this.popupData.verified= data.verified;
       this.popupConfig.method= 'update';
+
+      let i = 0;
+      for (let attachment of this.popupData.attachments){
+        this.attachments.push({
+          uid: 'attachment_'+i,
+          name: attachment.name, 
+          response: {fileUrl: attachment.url}
+        });
+        i++;
+      }
     } else {
       this.popupData.title= null;
       this.popupData.description= null;
