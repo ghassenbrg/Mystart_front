@@ -5,4 +5,12 @@
   .photo {
     height: 50px;
     width: 80px;
+    border-radius: 5px;
+  }
+
+  .price {
+    padding: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    min-width: 70px;
   }

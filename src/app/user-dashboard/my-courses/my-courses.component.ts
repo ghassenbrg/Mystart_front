@@ -10,23 +10,27 @@ import { UserDashLayoutComponent } from '../user-dash-layout/user-dash-layout.co
 })
 export class MyCoursesComponent implements OnInit {
 
-  courses: any;
+  courses: any = [];
+  enrolmentsList: any = [];
 
   constructor( private restApi: RestApiService, private parent: UserDashLayoutComponent, private notification: NzNotificationService) { }
 
   ngOnInit() {
     this.restApi.get('user/'+this.parent.loggedUser._id+'/courses').subscribe((data: {}) => {
-      this.courses = data;
-      this.notification.create(
-        'success',
-        'Authorized list was updated',
-        JSON.stringify(this.courses[0].title)
-      );
+      this.courses = data['courses'];
+      this.enrolmentsList = data['enrolmentsList'];
     });
   }
 
-  loadData() {
+  view(id) {
+    window.open('/course/'+id);
+  }
 
+  loadData() {
+    this.restApi.get('user/'+this.parent.loggedUser._id+'/courses').subscribe((data: {}) => {
+      this.courses = data['courses'];
+      this.enrolmentsList = data['enrolmentsList'];
+    });
   }
 
 }
