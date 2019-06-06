@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { RestApiService } from 'src/app/core/rest-api.service';
+import { saveAs } from 'file-saver';
+import { windowTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-project-single',
@@ -46,6 +48,10 @@ export class ProjectSingleComponent implements OnInit {
 
   }
 
+  donwloadFile(url, name) {
+    saveAs(url, name);
+  }
+  
   externelPorfilPicUrl(porfilpic) {
     if((porfilpic.search('http://') == -1) && ((porfilpic.search('https://') == -1))) {
       return false;

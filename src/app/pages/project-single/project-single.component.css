@@ -9,3 +9,7 @@ a:hover {
     width: 73px;
     height: 73px;
 }
+
+.download:hover {
+    color: #3596D9;
+}

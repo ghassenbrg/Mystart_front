@@ -46,7 +46,7 @@
               <div class="alert" *ngIf="!authorized">
                   <h2>You should contact the author to give you permission.</h2>
               </div>
-              <div class="flat-tabs bg-fff border-ra4 border-f-e6f3ff" *ngIf="authorized">
+              <div class="flat-tabs bg-fff border-ra4 border-f-e6f3ff" [hidden]="!authorized">
                   <ul class="tab-title style1 clearfix border-bt-e6f3ff"> 
                       <li class="item-title  overview">
                           <span class="inner">OVERVIEW</span>
@@ -71,8 +71,16 @@
                       </div>
                       <div class="tab-content">
                           <div class="item-content">
-                            <ul>
-                                <li *ngFor="let attachment of project.attachments"><a href="#">{{attachment}}</a></li>
+                            <ul style="margin-left: 50px">
+                                <li *ngFor="let attachment of project.attachments">
+                                    <a (click)="donwloadFile(attachment.url, attachment.name)">
+                                        <p class="download">
+                                            <i class="fas fa-file-alt" style="color: #1A97D7; font-size: 20px; vertical-align: middle; margin-right: 10px"></i>
+                                             {{attachment.name}}
+                                        </p>
+                                    </a>
+                                    <hr>
+                                </li>
                             </ul>
                           </div>
                       </div>
