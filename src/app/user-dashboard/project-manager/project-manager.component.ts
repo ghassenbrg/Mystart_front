@@ -46,7 +46,6 @@ export class ProjectManagerComponent implements OnInit {
      private modalService: NzModalService, private notification: NzNotificationService) { }
 
   ngOnInit(): void {
-    console.log('id: '+this.parent.loggedUser._id);
     this.loadData();
     this.restApi.get('categories').subscribe((data: {}) => {
       this.categories = data;
@@ -143,6 +142,11 @@ export class ProjectManagerComponent implements OnInit {
     this.tplModalButtonLoading = true;
 
     if (this.photo.length > 0) this.popupData.coverImg = this.photo[0].response.fileUrl;
+    if (this.attachments.length > 0){
+      for (let attachment of this.attachments) {
+        this.popupData.attachments.push({name: attachment.name, url: attachment.response.fileUrl});
+      }
+    }
     //this.popupData.verified = null;
     if (this.popupConfig.method == 'post') {
       this.restApi.post('projects/',this.popupData).subscribe((data: {}) => {
