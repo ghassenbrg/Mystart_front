@@ -35,6 +35,7 @@ button {
 .photo {
   height: 50px;
   width: 80px;
+  border-radius: 5px;
 }
 
 .input-w label, .input-w input {
