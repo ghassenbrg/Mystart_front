@@ -147,7 +147,7 @@ export class ProjectManagerComponent implements OnInit {
         this.popupData.attachments.push({name: attachment.name, url: attachment.response.fileUrl});
       }
     }
-    //this.popupData.verified = null;
+    //this.popupData.verified = true;
     if (this.popupConfig.method == 'post') {
       this.restApi.post('projects/',this.popupData).subscribe((data: {}) => {
         this.addRow(data);
@@ -168,8 +168,8 @@ export class ProjectManagerComponent implements OnInit {
         this.tplModal.destroy();
         this.notification.create(
           'success',
-          'Add new project',
-          'The project is successfully added.'
+          'Update new project',
+          'The project with title: "'+this.projects[this.popupConfig.i].title+'" is successfully updated.'
         );
       });
     }
