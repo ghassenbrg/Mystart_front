@@ -43,10 +43,10 @@
                       </div>
                   </div>
               </div> <!-- /.course-single -->
-              <div class="alert" [hidden]="authorized">
+              <div class="alert" *ngIf="!authorized">
                   <h2>You should contact the author to give you permission.</h2>
               </div>
-              <div class="flat-tabs bg-fff border-ra4 border-f-e6f3ff" [hidden]="!authorized">
+              <div class="flat-tabs bg-fff border-ra4 border-f-e6f3ff" *ngIf="authorized">
                   <ul class="tab-title style1 clearfix border-bt-e6f3ff"> 
                       <li class="item-title  overview">
                           <span class="inner">OVERVIEW</span>
@@ -79,7 +79,7 @@
                   </div>
               </div> <!-- /.flat-tabs -->
               <br>
-              <div class="fb-comments">
+              <div class="fb-comments" *ngIf="authorized">
                   <fb-comments></fb-comments>
               </div>
           </div> <!-- /.content-page-wrap -->
