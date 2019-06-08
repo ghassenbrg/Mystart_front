@@ -172,10 +172,6 @@ export class ProjectManagerComponent implements OnInit {
 
   }
 
-  test() {
-    console.log(JSON.stringify(this.attachments));
-  }
-
   fillPopup(data?){
     this.tplModalButtonLoading = false;
     this.photo = [];
