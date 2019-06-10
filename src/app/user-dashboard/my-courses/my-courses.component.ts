@@ -33,4 +33,16 @@ export class MyCoursesComponent implements OnInit {
     });
   }
 
+  unsubscribe(i) {
+    let id = this.courses[i]._id;
+    this.enrolmentsList = this.enrolmentsList.filter(d => d !== id);
+    this.courses = this.courses.filter(d => d._id !== id);
+    this.parent.loggedUser.enrolmentsList = this.enrolmentsList;
+
+    this.restApi.update('user/'+this.parent.loggedUser._id, this.parent.loggedUser).subscribe((data: {}) => {
+      console.log('updated');
+    });
+    
+  }
+
 }
