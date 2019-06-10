@@ -3,6 +3,7 @@ import { Title } from '@angular/platform-browser';
 import { Router, ActivatedRoute } from '@angular/router';
 import { RestApiService } from 'src/app/core/rest-api.service';
 import { TimeService } from 'src/app/core/time.service';
+import { LayoutComponent } from 'src/app/layout/layout.component';
 
 @Component({
   selector: 'app-course-single',
@@ -25,18 +26,22 @@ export class CourseSingleComponent implements OnInit {
 
   id: string;
   course: any;
-
-  constructor(private title: Title, private route: ActivatedRoute, private router: Router, public restApi: RestApiService, private time: TimeService) { }
+  isEnrolled: boolean;
+  
+  constructor(private title: Title, private route: ActivatedRoute, private router: Router, public restApi: RestApiService, private time: TimeService, private parent: LayoutComponent) { }
 
   ngOnInit() {
 
     this.title.setTitle('Course | ');
-
+    
     this.route.paramMap.subscribe(params => {
 
       this.id= params.get('id');
 
       this.restApi.get('course/'+this.id).subscribe((data: {}) => {
+        if (this.parent.loggedUser.enrolmentsList.includes(this.id)) this.isEnrolled = true;
+        else  this.isEnrolled = false;
+
         this.course = data[0];
         this.params.title = this.course.title;
         this.title.setTitle('Course | '+this.params.title);
@@ -57,6 +62,13 @@ export class CourseSingleComponent implements OnInit {
       });
     });
 
+  }
+
+  enroll(){
+    this.parent.loggedUser.enrolmentsList.push(this.id);
+    this.restApi.update('user/'+this.parent.loggedUser._id, this.parent.loggedUser).subscribe((data: {}) => {
+      this.isEnrolled = true;
+    });
   }
 
 }

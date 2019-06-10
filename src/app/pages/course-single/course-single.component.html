@@ -109,7 +109,12 @@
                         </a>
                     </li>
                 </ul>
-                <a href="#" class="primary-btn2 text-uppercase enroll rounded-0 text-white btn-hover">Enroll the course</a>
+                <a class="primary-btn2 text-uppercase enroll rounded-0 text-white bg-grey" *ngIf="isEnrolled">
+                    Already enrolled to this course
+                </a>
+                <a class="primary-btn2 text-uppercase enroll rounded-0 text-white btn-hover" *ngIf="!isEnrolled" (click)="enroll()">
+                    Enroll the course
+                </a>
                 <br><br>
                 <h4 class="title">Reviews</h4>
                 <div class="content">
